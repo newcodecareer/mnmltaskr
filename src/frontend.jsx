@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import { AppContainer } from 'react-hot-loader'
 import { Provider } from 'react-redux'
 import Index from './components/Index'
@@ -10,13 +10,13 @@ const root = document.getElementById('root')
 
 const renderWithHMR = (Component) => {
   ReactDOM.render(
-    <AppContainer>
-      <Provider store={store}>
-        <BrowserRouter>
+    <Provider store={store}>
+      <HashRouter>
+        <AppContainer>
           <Component />
-        </BrowserRouter>
-      </Provider>
-    </AppContainer>,
+        </AppContainer>
+      </HashRouter>
+    </Provider>,
     root
   )
 }
