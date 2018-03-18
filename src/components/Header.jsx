@@ -8,7 +8,7 @@ export default class Header extends Component {
 
     return (
       <Menu fixed='top' borderless pointing>
-        <Container >
+        <Container>
           <Menu.Item header>
             <Icon name='tasks' />
             MNMLTRACKR
