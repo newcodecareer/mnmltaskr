@@ -5,10 +5,13 @@
   "author": "Ronna Mae Firmo <ronnwiseley@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "webpack-dev-server --hot --inline",
+    "build": "webpack"
   },
   "dependencies": {
     "express": "^4.16.2",
+    "firebase": "^4.11.0",
+    "firebase-admin": "^5.11.0",
     "jsonwebtoken": "^8.2.0",
     "mongodb": "^3.0.1",
     "react": "^16.2.0",
@@ -32,18 +35,20 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.10",
     "cz-conventional-changelog": "^2.1.0",
-    "url-loader": "^1.0.1",
-    "file-loader": "^1.1.11",
-    "style-loader": "^0.20.2",
     "eslint": "^4.15.0",
     "eslint-config-standard": "^11.0.0-beta.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
+    "file-loader": "^1.1.11",
     "nodemon": "^1.14.11",
-    "webpack": "^3.10.0",
+    "style-loader": "^0.20.2",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12",
     "webpack-dev-middleware": "^2.0.4",
+    "webpack-dev-server": "^3.1.1",
     "webpack-hot-middleware": "^2.21.0"
   },
   "config": {

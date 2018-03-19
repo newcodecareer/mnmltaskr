@@ -2,15 +2,11 @@ const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
-  entry: [
-    'webpack-hot-middleware/client',
-    'react-hot-loader/patch',
-    './src/frontend.jsx'
-  ],
+  entry: './src/frontend.jsx',
   output: {
     filename: 'bundle.js',
     publicPath: '/',
-    path: path.join(process.cwd(), 'public')
+    path: path.join(__dirname, 'public')
   },
   module: {
     rules: [
@@ -37,7 +33,11 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.json']
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  devServer: {
+    historyApiFallback: true,
+    publicPath: '/',
+    contentBase: './public',
+    hot: true
+  },
+  mode: 'development'
 }

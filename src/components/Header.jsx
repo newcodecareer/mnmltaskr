@@ -9,9 +9,10 @@ export default class Header extends Component {
     return (
       <Menu fixed='top' borderless pointing>
         <Container>
-          <Menu.Item header>
+          <Menu.Item header as={Link} to='/' 
+            onClick={() => selectItem(null)}>
             <Icon name='tasks' />
-            MNMLTRACKR
+            MNMLTASKR
           </Menu.Item>
           <Menu.Item as={Link} to='/post-a-task' name='post a task' 
             active={activeItem === 'post a task'} 
