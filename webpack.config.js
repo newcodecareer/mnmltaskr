@@ -2,7 +2,10 @@ const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
-  entry: './src/frontend.jsx',
+  entry: [
+    'react-hot-loader/patch',
+    './src/frontend.jsx'
+  ],
   output: {
     filename: 'bundle.js',
     publicPath: '/',

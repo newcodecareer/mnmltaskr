@@ -5,7 +5,7 @@ export default class MyTasks extends React.Component {
   render() {
     return (
       <div>
-        <Header>MY TASKS</Header>
+        <Header textAlign='right'>MY TASKS</Header>
       </div>
     )
   }
