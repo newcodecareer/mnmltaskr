@@ -14,3 +14,18 @@ export default function fetchTasks () {
     })
   }
 }
+
+export function fetchPostedTasks () {
+  return async (dispatch) => {
+    const postedTasks = await db.collection('postedTasks').get()
+    const postedList = []
+    postedTasks.forEach((posted) => {
+      postedList.push(posted.data())
+    })
+
+    dispatch({
+      type: 'FETCH_POSTED_FULFILLED',
+      payload: postedList
+    })
+  }
+}

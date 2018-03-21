@@ -4,9 +4,10 @@ import { Container, Segment } from 'semantic-ui-react';
 
 import Home from './Home'
 import PostATask from './PostATask'
-import BrowseTasks from './BrowseTasks'
+// import BrowseTasks from './BrowseTasks'
 import TasksContainer from '../containers/TasksContainer'
-import MyTasks from './MyTasks'
+// import MyTasks from './MyTasks'
+import PostedTasksContainer from '../containers/PostedTasksContainer'
 
 export default class Body extends React.Component {
   render() {
@@ -17,7 +18,7 @@ export default class Body extends React.Component {
             <Route exact path='/' component={Home} />
             <Route path='/post-a-task' component={PostATask} />
             <Route path='/browse-tasks' component={TasksContainer} />
-            <Route path='/my-tasks' component={MyTasks} />
+            <Route path='/my-tasks' component={PostedTasksContainer} />
           </Switch>
         </Segment>
       </Container>

@@ -7,6 +7,13 @@ export default function tasksReducer (state={}, action) {
       }
       break;
     }
+    case 'FETCH_POSTED_FULFILLED': {
+      return {
+        ...state,
+        postedTasks: action.payload
+      }
+      break;
+    }
   }
   return state
 }
