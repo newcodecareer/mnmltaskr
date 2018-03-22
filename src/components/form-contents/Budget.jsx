@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Form, Segment, Button, Icon, Label, Input } from 'semantic-ui-react'
+import { Form, Button, Icon, Label, Input } from 'semantic-ui-react'
 
 export default class Budget extends React.Component {
   render() {
     return (
-      <Segment stacked>
+      <div>
         <Form.Field>
           <label>How many people do you need for your task?</label>
           <input type='number' placeholder='Number of taskers'/>
@@ -23,7 +23,7 @@ export default class Budget extends React.Component {
             <Icon name='right arrow' />
           </Button.Content>
         </Button>
-      </Segment>
+      </div>
     )
   }
 }

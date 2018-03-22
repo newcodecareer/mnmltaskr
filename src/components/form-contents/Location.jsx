@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Segment, Button, Select, Icon } from 'semantic-ui-react'
+import { Form, Button, Select, Icon } from 'semantic-ui-react'
 
 const options = [
   { key: 1, text: 'In person', value: 1 },
@@ -9,7 +9,7 @@ const options = [
 export default class Location extends React.Component {
   render() {
     return (
-      <Segment stacked>
+      <div>
         <Form.Field>
           <label>Where would the task be completed?</label>
           <Select placeholder='Type of task' options={options} />
@@ -28,7 +28,7 @@ export default class Location extends React.Component {
             <Icon name='right arrow' />
           </Button.Content>
         </Button>
-      </Segment>
+      </div>
     )
   }
 }

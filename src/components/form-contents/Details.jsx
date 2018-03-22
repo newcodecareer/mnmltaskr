@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Form, Segment, Button, Icon } from 'semantic-ui-react'
+import { Form, Button, Icon } from 'semantic-ui-react'
 
 export default class Details extends React.Component {
   render() {
     return (
-      <Segment stacked>
+      <div>
         <Form.Field>
           <label>Task title</label>
           <input placeholder='e.g. Clean my 2 bedroom apartment' />
@@ -18,7 +18,7 @@ export default class Details extends React.Component {
             <Icon name='right arrow' />
           </Button.Content>
         </Button>
-      </Segment>
+      </div>
     )
   }
 }
