@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import { Modal, Button, Header, Icon, Image, Form, Divider, Segment } from 'semantic-ui-react'
+import { Modal, Header, 
+  Image, Segment } from 'semantic-ui-react'
+import LoginFormContainer from '../containers/LoginFormContainer'
+import showResults from './showResults'
 
 export default class LoginView extends React.Component {
   render() {
@@ -8,7 +11,8 @@ export default class LoginView extends React.Component {
         <Image fluid src='/images/howto.gif' /> 
         <Modal open basic size='mini'>
           <Segment vertical
-            style={{ paddingBottom: '6em' }}>
+              style={{ paddingBottom: '6em' }}
+            >
             <Header inverted textAlign='left'>
               <Header.Subheader>
                 HELLO, FRIEND!
@@ -17,31 +21,7 @@ export default class LoginView extends React.Component {
                 Login to your <i>mnmltaskr</i> account
               </div>
             </Header>
-            <Divider />
-            <Form>
-              <Form.Input
-                transparent
-                inverted
-                fluid
-                icon='user'
-                iconPosition='left'
-                placeholder='Email address' />
-              <Divider />
-              <Form.Input
-                fluid
-                inverted
-                transparent
-                icon='lock'
-                iconPosition='left'
-                placeholder='Password'
-                type='password' />
-              <Divider />
-            </Form>
-            <Button.Group>
-              <Button>Login</Button>
-              <Button.Or />
-              <Button inverted basic>Sign up instead</Button>
-            </Button.Group>
+            <LoginFormContainer onSubmit={showResults} />
           </Segment>
         </Modal>
       </div>
