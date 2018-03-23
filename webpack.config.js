@@ -28,9 +28,9 @@ module.exports = {
         test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: 'url-loader',
             options: {
-              publicPath: 'public/',
+              publicPath: 'public/files/',
               outputPath: 'files/'
             }  
           }
