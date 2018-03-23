@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Modal, Header, 
   Image, Segment } from 'semantic-ui-react'
 import LoginFormContainer from '../containers/LoginFormContainer'
-import showResults from './showResults'
+import { authUser } from './authUser';
 
 export default class LoginView extends React.Component {
   render() {
@@ -21,7 +21,7 @@ export default class LoginView extends React.Component {
                 Login to your <i>mnmltaskr</i> account
               </div>
             </Header>
-            <LoginFormContainer onSubmit={showResults} />
+            <LoginFormContainer onSubmit={authUser} />
           </Segment>
         </Modal>
       </div>
