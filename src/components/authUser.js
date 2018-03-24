@@ -1,19 +1,22 @@
 import { auth } from '../firebase'
+import history from '../history'
 
 export async function authUser (values) {
-  try {
-    console.log('email', values.email)
-    console.log('email type', typeof values.email)
-    console.log('pass', values.password)
-    console.log('pass type', typeof values.password)
+  const authed = await auth.signInWithEmailAndPassword(
+    values.email, 
+    values.password
+  ).catch((e) => { 
+    // used this instead of try/catch 
+    // because try/catch doesn't catch 
+    // all firestore errors which is weird
+    return e
+  })
 
-    const authed = await auth
-      .signInWithEmailAndPassword(
-        values.email, 
-        values.password
-      )
-    console.log(authed)
-  } catch (e) {
-    console.log('error siya friend', e)
+  if (authed.email) {
+    alert('logged in')
+    history.push('/')
+  } else {
+    alert(authed.toString())
   }
 }
+
