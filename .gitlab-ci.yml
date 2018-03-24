@@ -1,0 +1,6 @@
+image: node:9.8.0
+
+unit_tests:
+  script: 
+    - npm install
+    - npm test
