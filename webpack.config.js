@@ -25,7 +25,7 @@ module.exports = {
         loader: [ 'style-loader', 'css-loader' ]
       },
       {
-        test: /\.(jpg|png|gif|svg|pdf|ico)$/,
+        test: /\.(jpg|png|gif|svg|pdf|ico|ttf|woff2|woff|eot)$/,
         loader: 'url-loader?limit=100000'
       },
   
@@ -38,6 +38,7 @@ module.exports = {
     historyApiFallback: true,
     publicPath: '/',
     contentBase: './public',
+    compress: true,
     hot: true
   },
   mode: 'development'
