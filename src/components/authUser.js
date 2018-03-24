@@ -20,3 +20,13 @@ export async function authUser (values) {
   }
 }
 
+export async function logout () {
+  try {
+    const out = await auth.signOut()
+    history.push('/')
+  }
+  catch (e) {
+    throw e
+  }
+}
+

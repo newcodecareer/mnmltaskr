@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Input, Menu, Container, Button, Icon } from 'semantic-ui-react'
+import { logout } from './authUser'
 
 export default class Header extends Component {
   render() {
@@ -28,7 +29,7 @@ export default class Header extends Component {
             />
           <Menu.Menu position='right'>
             <Menu.Item>
-              <Button basic animated>
+              <Button onClick={logout} basic animated>
                 <Button.Content visible>
                   Logout
                 </Button.Content>

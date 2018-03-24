@@ -4,7 +4,7 @@ import { auth } from '../firebase'
 
 
 export default function PrivateRoute({ component: Component, ...rest }) {
-  const { email } = auth.currentUser
+  const email = auth.currentUser ? auth.currentUser.email : null; 
 
   return (
     <Route {...rest} render={(props) => (
