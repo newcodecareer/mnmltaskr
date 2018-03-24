@@ -13,7 +13,7 @@ export default class Body extends React.Component {
   render() {
     return (
       <Container>
-        <Segment style={{ padding: '5em 0em 0em 0em' }} vertical>
+        <Segment style={{ padding: '6em 0em 0em 0em' }} vertical>
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/not-logged-in' component={NotLoggedInView} />

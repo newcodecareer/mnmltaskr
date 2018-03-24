@@ -1,5 +1,6 @@
 import { auth } from '../firebase'
 import history from '../history'
+import swal from 'sweetalert'
 
 export async function authUser (values) {
   const authed = await auth.signInWithEmailAndPassword(
@@ -13,16 +14,17 @@ export async function authUser (values) {
   })
 
   if (authed.email) {
-    alert('logged in')
+    swal('Good friend!', 'You have successfully logged in...', 'success')
     history.push('/')
   } else {
-    alert(authed.toString())
+    swal('No, friend!', authed.message, 'error')
   }
 }
 
 export async function logout () {
   try {
     const out = await auth.signOut()
+    swal(':(', 'You have logged out. Goodbye, friend!')
     history.push('/')
   }
   catch (e) {
