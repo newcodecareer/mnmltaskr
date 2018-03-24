@@ -2,10 +2,34 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Input, Menu, Container, Button, Icon } from 'semantic-ui-react'
 import { logout } from './authUser'
+import { auth } from '../firebase'
+
+const signInButton = () => (
+  <Button as='a' href='/login' basic animated>
+    <Button.Content visible>
+      Sign in
+    </Button.Content>
+    <Button.Content hidden>
+      <Icon color='black' name='sign in' />
+    </Button.Content>
+  </Button>
+)
+
+const logoutButton = () => (
+  <Button onClick={logout} basic animated>
+    <Button.Content visible>
+      Logout
+    </Button.Content>
+    <Button.Content hidden>
+      <Icon color='black' name='sign out' />
+    </Button.Content>
+  </Button>
+)
 
 export default class Header extends Component {
   render() {
     const { activeItem, selectItem } = this.props
+    let whichButton = !auth.currentUser ? signInButton() : logoutButton()
 
     return (
       <Menu fixed='top' borderless pointing>
@@ -29,14 +53,7 @@ export default class Header extends Component {
             />
           <Menu.Menu position='right'>
             <Menu.Item>
-              <Button onClick={logout} basic animated>
-                <Button.Content visible>
-                  Logout
-                </Button.Content>
-                <Button.Content hidden>
-                  <Icon color='black' name='sign out' />
-                </Button.Content>
-              </Button>
+              {whichButton}
             </Menu.Item>
           </Menu.Menu>
         </Container>
