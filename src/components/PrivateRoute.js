@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { Route, Redirect } from 'react-router-dom'
+import { auth } from '../firebase'
+
 
 export default function PrivateRoute({ component: Component, ...rest }) {
+  const { email } = auth.currentUser
+
   return (
     <Route {...rest} render={(props) => (
-      localStorage.getItem('user') === true
-        ? <Component {...props} />
-        : <Redirect to='/not-logged-in' />
+      email ? <Component {...props} />
+      : <Redirect to='/not-logged-in' />
     )} />
   )
 }
