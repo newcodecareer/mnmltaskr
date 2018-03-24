@@ -8,9 +8,8 @@ export default class Index extends React.Component {
   render() {
     return (
       <div>
-        {/* <Header /> */}
-        <LoginView />
-        {/* <Body /> */}
+        <ItemsContainer />
+        <Body />
       </div>
     )
   }

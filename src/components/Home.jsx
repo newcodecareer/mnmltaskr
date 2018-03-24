@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Header, Image, Label } from 'semantic-ui-react'
+import { Header, Image, Label, Dimmer } from 'semantic-ui-react'
 
 export default class Home extends React.Component {
   render() {

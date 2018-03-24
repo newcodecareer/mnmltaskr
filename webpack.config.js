@@ -22,20 +22,13 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        loader: [ 'style-loader', 'css-loader' ]
       },
       {
-        test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              publicPath: 'public/files/',
-              outputPath: 'files/'
-            }  
-          }
-        ]
-      }
+        test: /\.(jpg|png|gif|svg|pdf|ico)$/,
+        loader: 'url-loader?limit=100000'
+      },
+  
     ]
   },
   resolve: {
