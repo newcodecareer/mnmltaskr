@@ -9,21 +9,35 @@ export async function authUser (values) {
   ).catch((e) => { 
     // used this instead of try/catch 
     // because try/catch doesn't catch 
-    // all firestore errors which is weird
+    // all firestore errors
     return e
   })
 
   if (authed.email) {
-    swal('Good friend!', 'You have successfully logged in...', 'success')
+    localStorage.setItem(
+      'user', 
+      JSON.stringify(auth.currentUser)
+    )
+
+    swal(
+      'Good friend!', 
+      'You have successfully logged in...', 
+      'success'
+    )
     history.push('/')
   } else {
-    swal('No, friend!', authed.message, 'error')
+    swal(
+      'No, friend!', 
+      authed.message, 
+      'error'
+    )
   }
 }
 
 export async function logout () {
   try {
     const out = await auth.signOut()
+    localStorage.removeItem('user')
     swal(':(', 'You have logged out. Goodbye, friend!')
     history.push('/')
   }

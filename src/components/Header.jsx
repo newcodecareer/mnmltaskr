@@ -29,7 +29,7 @@ const logoutButton = () => (
 export default class Header extends Component {
   render() {
     const { activeItem, selectItem } = this.props
-    let whichButton = !auth.currentUser ? signInButton() : logoutButton()
+    let whichButton = !localStorage.getItem('user') ? signInButton() : logoutButton()
 
     return (
       <Menu fixed='top' borderless pointing>

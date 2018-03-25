@@ -4,11 +4,11 @@ import { auth } from '../firebase'
 
 
 export default function PrivateRoute({ component: Component, ...rest }) {
-  const email = auth.currentUser ? auth.currentUser.email : null; 
-
+  const user = localStorage.getItem('user')
+  
   return (
     <Route {...rest} render={(props) => (
-      email ? <Component {...props} />
+      user ? <Component {...props} />
       : <Redirect to='/not-logged-in' />
     )} />
   )
