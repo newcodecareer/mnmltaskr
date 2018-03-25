@@ -1,24 +1,42 @@
 import React, { Component } from 'react'
-import { Form, Button, Icon } from 'semantic-ui-react'
+import { Form, Button, Icon, TextArea } from 'semantic-ui-react'
+import { Field } from 'redux-form'
 
 export default class Details extends React.Component {
   render() {
+    const { handleSubmit } = this.props
+
     return (
-      <div>
+      <Form as='form' onSubmit={handleSubmit}>
         <Form.Field>
           <label>Task title</label>
-          <input placeholder='e.g. Clean my 2 bedroom apartment' />
+          <Field 
+              name='title'
+              component='input'
+              placeholder='e.g. Clean my 2 bedroom apartment'
+              type='text'
+            />
         </Form.Field>
-        <Form.TextArea 
-          label='Describe your task in more detail' 
-          placeholder='e.g. Clean my apartment from top to bottom...' />
-        <Button type='submit' animated>
+        <Form.Field>
+          <label>Describe your task in more detail</label>
+          <Field 
+              name='description'
+              type='text'
+              component={(field) => (
+                <TextArea 
+                    {...field.input} 
+                    placeholder='e.g. Clean my apartment from top to bottom...' 
+                  />
+              )}
+            />
+        </Form.Field>
+        <Button floated='right' type='submit' animated>
           <Button.Content visible>Next</Button.Content>
           <Button.Content hidden>
             <Icon name='right arrow' />
           </Button.Content>
         </Button>
-      </div>
+      </Form>
     )
   }
 }

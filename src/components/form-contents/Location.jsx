@@ -1,34 +1,67 @@
 import React, { Component } from 'react'
-import { Form, Button, Select, Icon } from 'semantic-ui-react'
+import { Form, Button, Dropdown, Icon } from 'semantic-ui-react'
+import { Field } from 'redux-form'
 
 const options = [
-  { key: 1, text: 'In person', value: 1 },
-  { key: 2, text: 'Online', value: 2 },
+  { key: 1, text: 'In person', value: 'In person' },
+  { key: 2, text: 'Online', value: 'Online' },
 ]
 
 export default class Location extends React.Component {
   render() {
+    const { handleSubmit, goToPrev } = this.props
+
     return (
-      <div>
+      <Form as='form' onSubmit={handleSubmit}>
         <Form.Field>
           <label>Where would the task be completed?</label>
-          <Select placeholder='Type of task' options={options} />
+          <Field 
+              name='type'
+              component={(field) => (
+                <Dropdown
+                    {...field.input}
+                    onChange={(param, data) => field.input.onChange(data.value)}
+                    value={field.input.value}
+                    placeholder='Type of task' 
+                    options={options}
+                    selection 
+                  />  
+              )}
+            />
         </Form.Field>
         <Form.Field>
           <label>Location</label>
-          <input placeholder='Enter a suburb' />
+          <Field
+              name='location'
+              component='input'
+              placeholder='Enter a suburb'
+              type='text'
+            />
         </Form.Field>
         <Form.Field>
           <label>Due date</label>
-          <input type='date' />
+          <Field
+              name='due'
+              component='input'
+              type='date'
+            />
         </Form.Field>
-        <Button type='submit' animated>
-          <Button.Content visible>Next</Button.Content>
-          <Button.Content hidden>
-            <Icon name='right arrow' />
-          </Button.Content>
-        </Button>
-      </div>
+        <Button.Group floated='right'>
+          <Button onClick={goToPrev} animated>
+            <Button.Content visible>Previous</Button.Content>
+            <Button.Content hidden>
+              <Icon name='left arrow' />
+            </Button.Content>
+          </Button>
+          <Button.Or />
+          <Button type='submit' animated>
+            <Button.Content visible>Next</Button.Content>
+            <Button.Content hidden>
+              <Icon name='right arrow' />
+            </Button.Content>
+          </Button>
+        </Button.Group>
+      </Form>
     )
   }
 }
