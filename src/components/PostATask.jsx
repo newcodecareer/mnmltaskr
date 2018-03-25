@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { Container, Header, Checkbox, Grid } from 'semantic-ui-react'
-import StepContent from './StepContent'
-import StepFormContent from './StepFormContent'
+import { Container, Header, Grid, Segment } from 'semantic-ui-react'
+
+import StepContainer from '../containers/StepContainer'
+import WizardContainer from '../containers/WizardContainer'
+import showResult from './showResult'
 
 export default class PostATask extends React.Component {
   render() {
@@ -10,10 +12,12 @@ export default class PostATask extends React.Component {
         <Header>POST A TASK</Header>
         <Grid>
           <Grid.Column width={4}>
-            <StepContent />
+            {/* custom content */}
+            <StepContainer />
           </Grid.Column>
           <Grid.Column width={8}>
-            <StepFormContent />
+            {/* custom content */}
+            <WizardContainer onSubmit={showResult}/>
           </Grid.Column>
         </Grid>
       </div>
