@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Modal, Header, Button, 
-  Icon, Image, Segment } from 'semantic-ui-react'
-import SignupFormContainer from '../containers/SignupFormContainer'
-// import { authUser } from './authUser';
+import { Modal, Header, Button, Icon,
+  Image, Segment } from 'semantic-ui-react'
 
-export default class SignupView extends React.Component {
+export default class FormWrapper extends React.Component {
   render() {
+    const { message } = this.props
+
     return (
       <div>
         <Image fluid src='/images/howto.gif' /> 
@@ -18,15 +18,12 @@ export default class SignupView extends React.Component {
               <Header.Subheader>
                 HELLO, FRIEND!
               </Header.Subheader>
-              <div>
-                Sign up to <i>mnmltaskr</i>!
-              </div>
+              {message}
             </Header>
-            <SignupFormContainer />
+              {this.props.children}
           </Segment>
         </Modal>
       </div>
     )
   }
 }
-  
