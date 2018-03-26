@@ -7,6 +7,17 @@ const options = [
   { key: 2, text: 'Online', value: 'Online' },
 ]
 
+const renderDropdown = (field) => (
+  <Dropdown
+    {...field.input}
+    onChange={(param, data) => field.input.onChange(data.value)}
+    value={field.input.value}
+    placeholder='Type of task' 
+    options={options}
+    selection 
+  />  
+)
+
 export default class Location extends React.Component {
   render() {
     const { handleSubmit, goToPrev } = this.props
@@ -17,34 +28,25 @@ export default class Location extends React.Component {
           <label>Where would the task be completed?</label>
           <Field 
               name='type'
-              component={(field) => (
-                <Dropdown
-                    {...field.input}
-                    onChange={(param, data) => field.input.onChange(data.value)}
-                    value={field.input.value}
-                    placeholder='Type of task' 
-                    options={options}
-                    selection 
-                  />  
-              )}
+              component={renderDropdown}
             />
         </Form.Field>
         <Form.Field>
           <label>Location</label>
           <Field
-              name='location'
-              component='input'
-              placeholder='Enter a suburb'
-              type='text'
-            />
+            name='location'
+            component='input'
+            placeholder='Enter a suburb'
+            type='text'
+          />
         </Form.Field>
         <Form.Field>
           <label>Due date</label>
           <Field
-              name='due'
-              component='input'
-              type='date'
-            />
+            name='due'
+            component='input'
+            type='date'
+          />
         </Form.Field>
         <Button.Group floated='right'>
           <Button onClick={goToPrev} animated>
