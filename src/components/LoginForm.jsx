@@ -58,9 +58,9 @@ export default class LoginForm extends React.Component {
           <Button.Group>
             <Button type='submit'>Login</Button>
             <Button.Or />
-            <Button inverted basic>
+            <Button inverted basic as='a' href='/signup'>
               Sign up instead
-              </Button>
+            </Button>
           </Button.Group>
         </div>
       </Form>
