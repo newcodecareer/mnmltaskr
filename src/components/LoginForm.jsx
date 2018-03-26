@@ -2,27 +2,13 @@ import React, { Component } from 'react'
 import { Button, Form, Divider, Input } from 'semantic-ui-react'
 import { Field } from 'redux-form'
 
-const renderEmailInput = (field) => (
+const renderInput = (field) => (
   <Input 
-      {...field.input}
-      inverted
-      transparent fluid
-      icon='user'
-      iconPosition='left'
-      placeholder='Email address'
-    />
-)
-
-const renderPassInput = (field) => (
-  <Input 
-      {...field.input}
-      inverted
-      transparent fluid
-      icon='lock'
-      iconPosition='left'
-      placeholder='password'
-      type='password'
-    />
+    {...field}
+    inverted
+    transparent fluid
+    iconPosition='left'
+  />
 )
 
 export default class LoginForm extends React.Component {
@@ -41,7 +27,9 @@ export default class LoginForm extends React.Component {
             <Field 
                 name='email'
                 type='email'
-                component={renderEmailInput}
+                icon='user'
+                placeholder='Email address'
+                component={renderInput}
               />
           </Form.Field>
           <Divider />
@@ -49,7 +37,9 @@ export default class LoginForm extends React.Component {
             <Field 
                 name='password'
                 type='password'
-                component={renderPassInput}
+                icon='lock'
+                placeholder='Enter your password'
+                component={renderInput}
                 />
           </Form.Field>
           <Divider />
