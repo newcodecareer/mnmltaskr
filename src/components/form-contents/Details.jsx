@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import { Form, Button, Icon, TextArea } from 'semantic-ui-react'
 import { Field } from 'redux-form'
 
+const renderTextArea = (field) => (
+  <TextArea
+    {...field.input} 
+    placeholder='e.g. Clean my apartment from top to bottom...' 
+  />
+)
+
 export default class Details extends React.Component {
   render() {
     const { handleSubmit } = this.props
@@ -21,13 +28,7 @@ export default class Details extends React.Component {
           <label>Describe your task in more detail</label>
           <Field 
               name='description'
-              type='text'
-              component={(field) => (
-                <TextArea 
-                    {...field.input} 
-                    placeholder='e.g. Clean my apartment from top to bottom...' 
-                  />
-              )}
+              component={renderTextArea}
             />
         </Form.Field>
         <Button floated='right' type='submit' animated>
