@@ -16,12 +16,26 @@ export default class SignupForm extends React.Component {
           >
           <Form.Field>
             <Field
-                name='name'
+                name='first'
                 component={(field) => (
                   <Input
                       {...field.input}
                       transparent
-                      placeholder='Enter your name'
+                      placeholder='Enter your first name'
+                      type='text'
+                    />
+                )}
+              />
+          </Form.Field>
+          <Divider />
+          <Form.Field>
+            <Field
+                name='last'
+                component={(field) => (
+                  <Input
+                      {...field.input}
+                      transparent
+                      placeholder='Enter your last name'
                       type='text'
                     />
                 )}
@@ -74,8 +88,9 @@ export default class SignupForm extends React.Component {
           <Form.Field>
             <Field 
                 name='phoneNumber'
-                component={() => (
+                component={(field) => (
                   <Input 
+                      {...field.input}
                       transparent
                       placeholder='Can I get your digits?'
                       type='number'
@@ -87,8 +102,9 @@ export default class SignupForm extends React.Component {
           <Form.Field>
             <Field 
                 name='address'
-                component={() => (
+                component={(field) => (
                   <Input
+                      {...field.input}
                       transparent
                       placeholder='Where do you live?'
                       type='text'

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import 'semantic-ui-css/semantic.min.css'
 import { Route } from 'react-router-dom'
-import { authUser } from './authUser';
+import { authUser } from './authUser'
+import { signupAccount } from './dbActions'
 
 import FormWrapper from './FormWrapper'
 import LoginFormContainer from '../containers/LoginFormContainer'
@@ -28,7 +29,7 @@ export default class Index extends React.Component {
               Sign up to <i>mnmltaskr</i>!
             </div>
           }>
-            <SignupFormContainer />
+            <SignupFormContainer onSubmit={signupAccount} />
           </FormWrapper>
         )} />
         <ItemsContainer />
