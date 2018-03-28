@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import 'semantic-ui-css/semantic.min.css'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { authUser } from './authUser'
 import { signupAccount } from './dbActions'
 
@@ -30,15 +30,21 @@ const signupComponent = () => (
   </FormWrapper>
 )
 
+const mainComponent = () => (
+  <div>
+    <ItemsContainer />
+    <Body />
+  </div>
+) 
+
 export default class Index extends React.Component {
   render() {
     return (
-      <div>
+      <Switch>
         <Route path='/login' component={loginComponent} />
-        <Route path='/signup' render={signupComponent} />
-        <ItemsContainer />
-        <Body />
-      </div>
+        <Route path='/signup' component={signupComponent} />
+        <Route path='/' component={mainComponent} />
+      </Switch>
     )
   }
 }
