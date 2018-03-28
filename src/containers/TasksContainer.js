@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import BrowseTasks from  '../components/BrowseTasks'
+import BrowseTasks from  '../components/menubar/BrowseTasks'
 import fetchTasks from '../actions/tasksActions'
 
 const mapStateToProps = (state) => {

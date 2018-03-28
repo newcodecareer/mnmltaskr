@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Input, Menu, Container, Button, Icon } from 'semantic-ui-react'
-import { logout } from './authUser'
+import { logout } from '../actions/firestore-actions/authUser'
 import { auth } from '../firebase'
 
 const signInButton = () => (

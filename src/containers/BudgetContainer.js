@@ -1,6 +1,6 @@
 import React from 'react'
 import { reduxForm } from 'redux-form'
-import Budget from '../components/form-contents/Budget'
+import Budget from '../components/wizard-style-form/form-contents/Budget.jsx'
 
 export default reduxForm({
   form: 'wizard',

@@ -4,7 +4,7 @@ import { Modal, Header, Button, Icon,
 
 export default class FormWrapper extends React.Component {
   render() {
-    const { message } = this.props
+    const { message, children } = this.props
 
     return (
       <div>
@@ -20,7 +20,7 @@ export default class FormWrapper extends React.Component {
               </Header.Subheader>
               {message}
             </Header>
-              {this.props.children}
+              {children}
           </Segment>
         </Modal>
       </div>

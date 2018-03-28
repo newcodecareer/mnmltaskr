@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Header, Card } from 'semantic-ui-react'
-import TaskCard from './TaskCard'
+import TaskCard from '../TaskCard'
 
 export default class BrowseTasks extends React.Component {
   componentWillMount() {

@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import 'semantic-ui-css/semantic.min.css'
 import { Route, Switch } from 'react-router-dom'
-import { authUser } from './authUser'
-import { signupAccount } from './dbActions'
 
-import FormWrapper from './FormWrapper'
+import { authUser } from '../actions/firestore-actions/authUser'
+import { signupAccount } from '../actions/firestore-actions/dbActions'
+
+import FormWrapper from './auth-forms/FormWrapper.jsx'
 import LoginFormContainer from '../containers/LoginFormContainer'
 import SignupFormContainer from '../containers/SignupFormContainer'
+
 import ItemsContainer from '../containers/ItemsContainer'
-import Body from './Body'
+import Body from './Body.jsx'
 
 const loginComponent = () => (
   <FormWrapper message={

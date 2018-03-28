@@ -1,8 +1,8 @@
-import { auth } from '../firebase'
-import history from '../history'
+import { auth } from '../../firebase'
+import history from '../../history'
 import swal from 'sweetalert'
-import setStatus from '../actions/statusActions'
-import store from '../store'
+import setStatus from '../statusActions'
+import store from '../../store'
 
 export async function authUser (values) {
   let authed 

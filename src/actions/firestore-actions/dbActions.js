@@ -1,6 +1,6 @@
-import { auth, db } from '../firebase'
+import { auth, db } from '../../firebase'
 import swal from 'sweetalert'
-import history from '../history'
+import history from '../../history'
 
 export async function signupAccount (values) {
   let newUser

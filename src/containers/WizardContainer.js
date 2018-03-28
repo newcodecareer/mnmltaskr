@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import TaskForm from  '../components/form-contents/TaskForm'
+import TaskForm from  '../components/wizard-style-form/TaskForm'
 import { goToNext, goToPrev } from '../actions/wizardActions'
 
 const mapStateToProps = (state) => {
