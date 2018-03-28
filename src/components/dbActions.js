@@ -3,11 +3,14 @@ import swal from 'sweetalert'
 import history from '../history'
 
 export async function signupAccount (values) {
-  const newUser = await auth.createUserWithEmailAndPassword(
-    values.email, values.password
-  ).catch((e) => {
-    return e
-  })
+  let newUser
+  try {
+    newUser = await auth.createUserWithEmailAndPassword(
+      values.email, values.password
+    )
+  } catch (e) {
+    newUser = e
+  }  
   
   const uid = newUser.uid
   if (uid) {

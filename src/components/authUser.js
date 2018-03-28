@@ -5,15 +5,16 @@ import setStatus from '../actions/statusActions'
 import store from '../store'
 
 export async function authUser (values) {
-  const authed = await auth.signInWithEmailAndPassword(
-    values.email, 
-    values.password
-  ).catch((e) => { 
-    // used this instead of try/catch 
-    // because try/catch doesn't catch 
-    // all firestore errors
-    return e
-  })
+  let authed 
+
+  try {
+    authed = await auth.signInWithEmailAndPassword(
+      values.email, 
+      values.password
+    )
+  } catch (e) {
+    authed = e
+  }
 
   if (authed.email) {
     localStorage.setItem(
