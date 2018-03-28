@@ -1,6 +1,8 @@
 import { auth } from '../firebase'
 import history from '../history'
 import swal from 'sweetalert'
+import setStatus from '../actions/statusActions'
+import store from '../store'
 
 export async function authUser (values) {
   const authed = await auth.signInWithEmailAndPassword(
@@ -18,6 +20,7 @@ export async function authUser (values) {
       'user', 
       JSON.stringify(auth.currentUser)
     )
+    store.dispatch(setStatus())
 
     swal(
       'Good friend!', 
@@ -38,6 +41,7 @@ export async function logout () {
   try {
     const out = await auth.signOut()
     localStorage.removeItem('user')
+    store.dispatch(setStatus())
     swal(':(', 'You have logged out. Goodbye, friend!')
     history.push('/')
   }
