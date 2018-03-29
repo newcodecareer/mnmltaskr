@@ -5,11 +5,11 @@ import setStatus from '../statusActions'
 import store from '../../store'
 
 export async function authUser (values) {
-  let authed 
+  let authed
 
   try {
     authed = await auth.signInWithEmailAndPassword(
-      values.email, 
+      values.email,
       values.password
     )
   } catch (e) {
@@ -18,21 +18,21 @@ export async function authUser (values) {
 
   if (authed.email) {
     localStorage.setItem(
-      'user', 
+      'user',
       JSON.stringify(auth.currentUser)
     )
     store.dispatch(setStatus())
 
     swal(
-      'Good friend!', 
-      'You have successfully logged in...', 
+      'Good friend!',
+      'You have successfully logged in...',
       'success'
     )
     history.push('/')
   } else {
     swal(
-      'No, friend!', 
-      authed.message, 
+      'No, friend!',
+      authed.message,
       'error'
     )
   }
@@ -40,14 +40,12 @@ export async function authUser (values) {
 
 export async function logout () {
   try {
-    const out = await auth.signOut()
+    await auth.signOut()
     localStorage.removeItem('user')
     store.dispatch(setStatus())
     swal(':(', 'You have logged out. Goodbye, friend!')
     history.push('/')
-  }
-  catch (e) {
+  } catch (e) {
     throw e
   }
 }
-

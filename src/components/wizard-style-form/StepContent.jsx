@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { Icon, Step } from 'semantic-ui-react'
 
-export default class StepContent extends React.Component {
-  render() {
+export default class StepContent extends Component {
+  render () {
     const { page } = this.props
 
     return (

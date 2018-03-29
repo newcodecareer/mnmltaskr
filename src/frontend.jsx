@@ -25,7 +25,7 @@ const renderWithHMR = (Component) => {
 renderWithHMR(Index)
 
 if (module.hot) {
-  module.hot.accept('./components/Index', () => { 
-    renderWithHMR(Index) 
+  module.hot.accept('./components/Index', () => {
+    renderWithHMR(Index)
   })
 }

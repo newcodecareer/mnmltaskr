@@ -5,8 +5,8 @@ import BudgetContainer from '../../containers/BudgetContainer'
 
 import { Segment } from 'semantic-ui-react'
 
-export default class TaskForm extends React.Component {
-  render() {
+export default class TaskForm extends Component {
+  render () {
     const { onSubmit, page, goToNext, goToPrev } = this.props
 
     return (

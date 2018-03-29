@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Container, Header, Grid, Segment } from 'semantic-ui-react'
+import { Header, Grid } from 'semantic-ui-react'
 
 import StepContainer from '../../containers/StepContainer'
 import WizardContainer from '../../containers/WizardContainer'
 
-export default class PostATask extends React.Component {
-  render() {
+export default class PostATask extends Component {
+  render () {
     return (
       <div>
         <Header>POST A TASK</Header>

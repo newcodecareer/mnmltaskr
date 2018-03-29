@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import TaskForm from  '../components/wizard-style-form/TaskForm'
+import TaskForm from '../components/wizard-style-form/TaskForm'
 import { goToNext, goToPrev } from '../actions/wizardActions'
 
 const mapStateToProps = (state) => {
@@ -7,8 +7,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  goToPrev : () => { dispatch(goToPrev()) },
-  goToNext : () => { dispatch(goToNext()) }
+  goToPrev: () => { dispatch(goToPrev()) },
+  goToNext: () => { dispatch(goToNext()) }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskForm)

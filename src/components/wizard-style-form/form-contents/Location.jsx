@@ -4,7 +4,7 @@ import { Field } from 'redux-form'
 
 const options = [
   { key: 1, text: 'In person', value: 'In person' },
-  { key: 2, text: 'Online', value: 'Online' },
+  { key: 2, text: 'Online', value: 'Online' }
 ]
 
 const renderDropdown = (field) => (
@@ -12,24 +12,24 @@ const renderDropdown = (field) => (
     {...field.input}
     onChange={(param, data) => field.input.onChange(data.value)}
     value={field.input.value}
-    placeholder='Type of task' 
+    placeholder='Type of task'
     options={options}
-    selection 
-  />  
+    selection
+  />
 )
 
-export default class Location extends React.Component {
-  render() {
+export default class Location extends Component {
+  render () {
     const { handleSubmit, goToPrev } = this.props
 
     return (
       <Form as='form' onSubmit={handleSubmit}>
         <Form.Field>
           <label>Where would the task be completed?</label>
-          <Field 
-              name='type'
-              component={renderDropdown}
-            />
+          <Field
+            name='type'
+            component={renderDropdown}
+          />
         </Form.Field>
         <Form.Field>
           <label>Location</label>

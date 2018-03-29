@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import MyTasks from  '../components/menubar/MyTasks'
+import MyTasks from '../components/menubar/MyTasks'
 import { fetchPostedTasks } from '../actions/tasksActions'
 
 const mapStateToProps = (state) => {
@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchPostedTasks : () => { dispatch(fetchPostedTasks()) }
+  fetchPostedTasks: () => { dispatch(fetchPostedTasks()) }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyTasks)

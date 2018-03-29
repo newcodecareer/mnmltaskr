@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { Modal, Header, Button, Icon,
   Image, Segment } from 'semantic-ui-react'
 
-export default class FormWrapper extends React.Component {
-  render() {
+export default class FormWrapper extends Component {
+  render () {
     const { message, children } = this.props
 
     return (
       <div>
-        <Image fluid src='/images/howto.gif' /> 
+        <Image fluid src='/images/howto.gif' />
         <Modal open basic size='mini'>
           <Segment vertical style={{ paddingBottom: '6em' }}>
             <Button icon floated='right' inverted basic as='a' href='/'>
@@ -20,7 +20,7 @@ export default class FormWrapper extends React.Component {
               </Header.Subheader>
               {message}
             </Header>
-              {children}
+            {children}
           </Segment>
         </Modal>
       </div>

@@ -8,8 +8,8 @@ export default function fetchTasks () {
       taskList.push(task.data())
     })
 
-    dispatch({ 
-      type: "FETCH_TASKS_FULFILLED", 
+    dispatch({
+      type: 'FETCH_TASKS_FULFILLED',
       payload: taskList
     })
   }

@@ -5,12 +5,12 @@ import { Route, Switch } from 'react-router-dom'
 import { authUser } from '../actions/firestore-actions/authUser'
 import { signupAccount } from '../actions/firestore-actions/dbActions'
 
-import FormWrapper from './auth-forms/FormWrapper.jsx'
+import FormWrapper from './auth-forms/FormWrapper'
 import LoginFormContainer from '../containers/LoginFormContainer'
 import SignupFormContainer from '../containers/SignupFormContainer'
 
 import ItemsContainer from '../containers/ItemsContainer'
-import Body from './Body.jsx'
+import Body from './Body'
 
 const loginComponent = () => (
   <FormWrapper message={
@@ -37,10 +37,10 @@ const mainComponent = () => (
     <ItemsContainer />
     <Body />
   </div>
-) 
+)
 
-export default class Index extends React.Component {
-  render() {
+export default class Index extends Component {
+  render () {
     return (
       <Switch>
         <Route path='/login' component={loginComponent} />
@@ -50,4 +50,3 @@ export default class Index extends React.Component {
     )
   }
 }
-  

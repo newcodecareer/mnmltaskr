@@ -9,8 +9,8 @@ import PostedTasksContainer from '../containers/PostedTasksContainer'
 import PrivateRoute from './custom/PrivateRoute'
 import NotLoggedInView from './NotLoggedInView'
 
-export default class Body extends React.Component {
-  render() {
+export default class Body extends Component {
+  render () {
     return (
       <Container>
         <Segment style={{ padding: '6em 0em 0em 0em' }} vertical>

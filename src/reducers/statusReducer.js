@@ -1,16 +1,14 @@
 const user = localStorage.getItem('user')
 
-export default function statusReducer (state={
-  isActive: user ? true : false
+export default function statusReducer (state = {
+  isActive: !!user
 }, action) {
-
   switch (action.type) {
     case 'USER_STATUS': {
       return {
-        ...state, 
+        ...state,
         isActive: action.payload
       }
-      break;
     }
   }
   return state

@@ -10,20 +10,20 @@ export async function signupAccount (values) {
     )
   } catch (e) {
     newUser = e
-  }  
-  
+  }
+
   const uid = newUser.uid
   if (uid) {
-    const added = await db.collection('users').doc(uid).set({
-      name: values.first + ' ' + values.last, 
-      gender: values.sex, 
+    await db.collection('users').doc(uid).set({
+      name: values.first + ' ' + values.last,
+      gender: values.sex,
       phoneNumber: values.phoneNumber,
       address: values.address
     })
-    
+
     swal(
       'Welcome, ' + values.first + '!',
-      'You can now log in with your new account..', 
+      'You can now log in with your new account..',
       'success'
     )
     history.push('/login')

@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { format } from 'date-fns'
 import { Divider, Card, Button, Label, List } from 'semantic-ui-react'
 
-export default class TaskCard extends React.Component {
-  render() {
-    const { 
-      budget, 
+export default class TaskCard extends Component {
+  render () {
+    const {
+      budget,
       title,
       description,
       type,
@@ -14,9 +14,9 @@ export default class TaskCard extends React.Component {
     } = this.props
 
     return (
-      <Card  color='grey'>
+      <Card color='grey'>
         <Card.Content>
-          <Label as='a' tag size='large' 
+          <Label as='a' tag size='large'
             attached='top right'>
             &#8369; {budget}
           </Label>
@@ -28,10 +28,10 @@ export default class TaskCard extends React.Component {
           </Card.Meta>
           <Divider />
           <Card.Description>
-            <List animated 
+            <List animated
               verticalAlign='middle'>
               <List.Item>
-                <List.Icon name='globe' 
+                <List.Icon name='globe'
                   verticalAlign='middle' />
                 <List.Content>
                   <List.Header>
@@ -43,7 +43,7 @@ export default class TaskCard extends React.Component {
                 </List.Content>
               </List.Item>
               <List.Item>
-                <List.Icon name='point' 
+                <List.Icon name='point'
                   verticalAlign='middle' />
                 <List.Content>
                   <List.Header>
@@ -55,7 +55,7 @@ export default class TaskCard extends React.Component {
                 </List.Content>
               </List.Item>
               <List.Item>
-                <List.Icon name='calendar outline' 
+                <List.Icon name='calendar outline'
                   verticalAlign='middle' />
                 <List.Content>
                   <List.Header>

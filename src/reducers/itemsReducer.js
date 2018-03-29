@@ -1,12 +1,10 @@
-export default function itemsReducer (state={}, action) {
-
+export default function itemsReducer (state = {}, action) {
   switch (action.type) {
-    case "SELECT_ITEM": {
+    case 'SELECT_ITEM': {
       return {
-        ...state, 
+        ...state,
         activeItem: action.payload
       }
-      break;
     }
   }
   return state

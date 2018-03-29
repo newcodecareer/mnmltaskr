@@ -3,7 +3,7 @@ import { Button, Form, Divider, Input } from 'semantic-ui-react'
 import { Field } from 'redux-form'
 
 const renderInput = (field) => (
-  <Input 
+  <Input
     {...field}
     inverted
     transparent fluid
@@ -11,36 +11,36 @@ const renderInput = (field) => (
   />
 )
 
-export default class LoginForm extends React.Component {
-  render() {
+export default class LoginForm extends Component {
+  render () {
     const { handleSubmit } = this.props
 
     return (
       <Form as='form' onSubmit={handleSubmit}>
         <div
-            style={{ 
-              paddingTop: '2em',
-              paddingBottom: '2em'
-            }}
-          >
+          style={{
+            paddingTop: '2em',
+            paddingBottom: '2em'
+          }}
+        >
           <Form.Field >
-            <Field 
-                name='email'
-                type='email'
-                icon='user'
-                placeholder='Email address'
-                component={renderInput}
-              />
+            <Field
+              name='email'
+              type='email'
+              icon='user'
+              placeholder='Email address'
+              component={renderInput}
+            />
           </Form.Field>
           <Divider />
           <Form.Field >
-            <Field 
-                name='password'
-                type='password'
-                icon='lock'
-                placeholder='Enter your password'
-                component={renderInput}
-                />
+            <Field
+              name='password'
+              type='password'
+              icon='lock'
+              placeholder='Enter your password'
+              component={renderInput}
+            />
           </Form.Field>
           <Divider />
         </div>
@@ -57,4 +57,3 @@ export default class LoginForm extends React.Component {
     )
   }
 }
-  

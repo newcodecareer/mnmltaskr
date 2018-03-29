@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Header, Image, Label, Dimmer, Container } from 'semantic-ui-react'
+import { Header, Image, Label, Container } from 'semantic-ui-react'
 
-export default class Home extends React.Component {
-  render() {
+export default class Home extends Component {
+  render () {
     return (
       <div>
         <Container text>

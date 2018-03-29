@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 
 import itemsReducer from './itemsReducer'
@@ -9,9 +9,9 @@ import statusReducer from './statusReducer'
 const reducer = combineReducers({
   items: itemsReducer,
   tasks: tasksReducer,
-  form: formReducer, 
+  form: formReducer,
   wizard: wizardReducer,
   status: statusReducer
-});
+})
 
 export default reducer

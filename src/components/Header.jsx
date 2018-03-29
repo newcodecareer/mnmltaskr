@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Input, Menu, Container, Button, Icon } from 'semantic-ui-react'
+import { Menu, Container, Button, Icon } from 'semantic-ui-react'
 import { logout } from '../actions/firestore-actions/authUser'
-import { auth } from '../firebase'
 
 const signInButton = () => (
   <Button as='a' href='/login' basic animated>
@@ -27,32 +26,30 @@ const logoutButton = () => (
 )
 
 export default class Header extends Component {
-  render() {
+  render () {
     const { activeItem, selectItem, isActive } = this.props
     const whichButton = !isActive ? signInButton() : logoutButton()
-
-    console.log('is active?', isActive)
 
     return (
       <Menu fixed='top' borderless pointing>
         <Container>
-          <Menu.Item header as={Link} to='/' 
+          <Menu.Item header as={Link} to='/'
             onClick={() => selectItem(null)}>
             <Icon name='tasks' />
             MNMLTASKR
           </Menu.Item>
-          <Menu.Item as={Link} to='/post-a-task' name='post a task' 
-            active={activeItem === 'post a task'} 
+          <Menu.Item as={Link} to='/post-a-task' name='post a task'
+            active={activeItem === 'post a task'}
             onClick={(e, {name}) => selectItem(name)}
-            />
-          <Menu.Item as={Link} to='/browse-tasks' name='browse tasks' 
-            active={activeItem === 'browse tasks'} 
+          />
+          <Menu.Item as={Link} to='/browse-tasks' name='browse tasks'
+            active={activeItem === 'browse tasks'}
             onClick={(e, {name}) => selectItem(name)}
-            />
-          <Menu.Item as={Link} to='/my-tasks' name='my tasks' 
-            active={activeItem === 'my tasks'} 
+          />
+          <Menu.Item as={Link} to='/my-tasks' name='my tasks'
+            active={activeItem === 'my tasks'}
             onClick={(e, {name}) => selectItem(name)}
-            />
+          />
           <Menu.Menu position='right'>
             <Menu.Item>
               {whichButton}
