@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { Container, Segment } from 'semantic-ui-react';
+import { Container, Segment } from 'semantic-ui-react'
+import { NotLoggedInView } from './NotLoggedInView'
 
 import Home from './Home'
 import PostATask from './menubar/PostATask'
 import TasksContainer from '../containers/TasksContainer'
 import PostedTasksContainer from '../containers/PostedTasksContainer'
 import PrivateRoute from './custom/PrivateRoute'
-import NotLoggedInView from './NotLoggedInView'
 
 export default class Body extends Component {
   render () {
