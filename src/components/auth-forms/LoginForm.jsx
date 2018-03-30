@@ -13,7 +13,7 @@ const renderInput = (field) => (
 
 export default class LoginForm extends Component {
   render () {
-    const { handleSubmit } = this.props
+    const { handleSubmit, submitting } = this.props
 
     return (
       <Form as='form' onSubmit={handleSubmit}>
@@ -46,9 +46,13 @@ export default class LoginForm extends Component {
         </div>
         <div>
           <Button.Group>
-            <Button type='submit'>Login</Button>
+            <Button type='submit' disabled={submitting}>Login</Button>
             <Button.Or />
-            <Button inverted basic as='a' href='/signup'>
+            <Button
+              as='a' href='/signup'
+              inverted basic
+              disabled={submitting}
+            >
               Sign up instead
             </Button>
           </Button.Group>

@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1522345935370" clover="3.2.0">
+  <project timestamp="1522345935371" name="All files">
+    <metrics statements="182" coveredstatements="50" conditionals="62" coveredconditionals="5" methods="79" coveredmethods="8" elements="323" coveredelements="63" complexity="0" loc="182" ncloc="182" packages="12" files="44" classes="44">
+      <package name="src">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="firebase.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/firebase.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="13" count="2" type="stmt"/>
+          <line num="14" count="2" type="stmt"/>
+        </file>
+        <file name="history.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/history.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="3" count="2" type="stmt"/>
+        </file>
+        <file name="store.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/store.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="7" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.actions">
+        <metrics statements="21" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="14" coveredmethods="0"/>
+        <file name="itemsActions.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/actions/itemsActions.js">
+          <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+        </file>
+        <file name="statusActions.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/actions/statusActions.js">
+          <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+        </file>
+        <file name="tasksActions.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/actions/tasksActions.js">
+          <metrics statements="12" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="19" count="0" type="stmt"/>
+          <line num="20" count="0" type="stmt"/>
+          <line num="21" count="0" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="26" count="0" type="stmt"/>
+        </file>
+        <file name="wizardActions.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/actions/wizardActions.js">
+          <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.actions.firestore-actions">
+        <metrics statements="25" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <file name="authUser.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/actions/firestore-actions/authUser.js">
+          <metrics statements="16" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="16" count="0" type="stmt"/>
+          <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="20" count="0" type="stmt"/>
+          <line num="24" count="0" type="stmt"/>
+          <line num="26" count="0" type="stmt"/>
+          <line num="31" count="0" type="stmt"/>
+          <line num="33" count="0" type="stmt"/>
+          <line num="42" count="0" type="stmt"/>
+          <line num="43" count="0" type="stmt"/>
+          <line num="44" count="0" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
+          <line num="46" count="0" type="stmt"/>
+          <line num="47" count="0" type="stmt"/>
+          <line num="49" count="0" type="stmt"/>
+        </file>
+        <file name="dbActions.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/actions/firestore-actions/dbActions.js">
+          <metrics statements="9" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="24" count="0" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="31" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components">
+        <metrics statements="23" coveredstatements="11" conditionals="2" coveredconditionals="1" methods="15" coveredmethods="4"/>
+        <file name="Body.jsx" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/Body.jsx">
+          <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="14" count="0" type="stmt"/>
+        </file>
+        <file name="Header.jsx" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/Header.jsx">
+          <metrics statements="11" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="7" coveredmethods="2"/>
+          <line num="6" count="2" type="stmt"/>
+          <line num="7" count="8" type="stmt"/>
+          <line num="17" count="2" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="30" count="8" type="stmt"/>
+          <line num="31" count="8" type="cond" truecount="1" falsecount="1"/>
+          <line num="33" count="8" type="stmt"/>
+          <line num="37" count="0" type="stmt"/>
+          <line num="43" count="0" type="stmt"/>
+          <line num="47" count="0" type="stmt"/>
+          <line num="51" count="0" type="stmt"/>
+        </file>
+        <file name="Home.jsx" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/Home.jsx">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="6" count="4" type="stmt"/>
+        </file>
+        <file name="Index.jsx" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/Index.jsx">
+          <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="16" count="0" type="stmt"/>
+          <line num="25" count="1" type="stmt"/>
+          <line num="26" count="0" type="stmt"/>
+          <line num="35" count="1" type="stmt"/>
+          <line num="36" count="0" type="stmt"/>
+          <line num="44" count="3" type="stmt"/>
+        </file>
+        <file name="NotLoggedInView.jsx" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/NotLoggedInView.jsx">
+          <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="6" count="0" type="stmt"/>
+        </file>
+        <file name="TaskCard.jsx" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/TaskCard.jsx">
+          <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="16" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.auth-forms">
+        <metrics statements="14" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <file name="FormWrapper.jsx" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/auth-forms/FormWrapper.jsx">
+          <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="9" count="0" type="stmt"/>
+        </file>
+        <file name="LoginForm.jsx" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/auth-forms/LoginForm.jsx">
+          <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="16" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+        </file>
+        <file name="SignupForm.jsx" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/auth-forms/SignupForm.jsx">
+          <metrics statements="8" coveredstatements="2" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="0"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="30" count="0" type="stmt"/>
+          <line num="32" count="0" type="stmt"/>
+          <line num="67" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.custom">
+        <metrics statements="13" coveredstatements="5" conditionals="12" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <file name="PrivateRoute.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/custom/PrivateRoute.js">
+          <metrics statements="3" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
+        </file>
+        <file name="validator.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/custom/validator.js">
+          <metrics statements="10" coveredstatements="5" conditionals="10" coveredconditionals="0" methods="5" coveredmethods="0"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="2" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="6" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+        </file>
+      </package>
+      <package name="src.components.menubar">
+        <metrics statements="13" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <file name="BrowseTasks.jsx" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/menubar/BrowseTasks.jsx">
+          <metrics statements="6" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+        </file>
+        <file name="MyTasks.jsx" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/menubar/MyTasks.jsx">
+          <metrics statements="6" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+        </file>
+        <file name="PostATask.jsx" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/menubar/PostATask.jsx">
+          <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="9" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.wizard-style-form">
+        <metrics statements="4" coveredstatements="0" conditionals="12" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <file name="StepContent.jsx" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/wizard-style-form/StepContent.jsx">
+          <metrics statements="2" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+        </file>
+        <file name="TaskForm.jsx" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/wizard-style-form/TaskForm.jsx">
+          <metrics statements="2" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.wizard-style-form.form-contents">
+        <metrics statements="12" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <file name="Budget.jsx" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/wizard-style-form/form-contents/Budget.jsx">
+          <metrics statements="2" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="9" count="0" type="stmt"/>
+        </file>
+        <file name="Details.jsx" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/wizard-style-form/form-contents/Details.jsx">
+          <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="16" count="0" type="stmt"/>
+        </file>
+        <file name="Location.jsx" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/components/wizard-style-form/form-contents/Location.jsx">
+          <metrics statements="6" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="13" count="0" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="25" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.containers">
+        <metrics statements="33" coveredstatements="10" conditionals="12" coveredconditionals="0" methods="15" coveredmethods="0"/>
+        <file name="BudgetContainer.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/containers/BudgetContainer.js">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+        <file name="DetailsContainer.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/containers/DetailsContainer.js">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+        <file name="ItemsContainer.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/containers/ItemsContainer.js">
+          <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+        </file>
+        <file name="LocationContainer.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/containers/LocationContainer.js">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+        <file name="LoginFormContainer.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/containers/LoginFormContainer.js">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+        <file name="PostedTasksContainer.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/containers/PostedTasksContainer.js">
+          <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+        </file>
+        <file name="SignupFormContainer.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/containers/SignupFormContainer.js">
+          <metrics statements="15" coveredstatements="1" conditionals="12" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="19" count="0" type="stmt"/>
+          <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="31" count="0" type="stmt"/>
+          <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="35" count="0" type="stmt"/>
+          <line num="38" count="0" type="stmt"/>
+        </file>
+        <file name="StepContainer.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/containers/StepContainer.js">
+          <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+        </file>
+        <file name="TasksContainer.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/containers/TasksContainer.js">
+          <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+        </file>
+        <file name="WizardContainer.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/containers/WizardContainer.js">
+          <metrics statements="5" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.reducers">
+        <metrics statements="16" coveredstatements="10" conditionals="10" coveredconditionals="4" methods="4" coveredmethods="4"/>
+        <file name="index.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/reducers/index.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="9" count="2" type="stmt"/>
+        </file>
+        <file name="itemsReducer.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/reducers/itemsReducer.js">
+          <metrics statements="3" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+          <line num="2" count="6" type="cond" truecount="0" falsecount="1"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="10" count="6" type="stmt"/>
+        </file>
+        <file name="statusReducer.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/reducers/statusReducer.js">
+          <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+          <line num="1" count="2" type="stmt"/>
+          <line num="6" count="6" type="cond" truecount="0" falsecount="1"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="14" count="6" type="stmt"/>
+        </file>
+        <file name="tasksReducer.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/reducers/tasksReducer.js">
+          <metrics statements="4" coveredstatements="2" conditionals="3" coveredconditionals="1" methods="1" coveredmethods="1"/>
+          <line num="2" count="6" type="cond" truecount="0" falsecount="2"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="16" count="6" type="stmt"/>
+        </file>
+        <file name="wizardReducer.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/reducers/wizardReducer.js">
+          <metrics statements="4" coveredstatements="2" conditionals="3" coveredconditionals="1" methods="1" coveredmethods="1"/>
+          <line num="2" count="6" type="cond" truecount="0" falsecount="2"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="14" count="6" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.tests">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="setup.js" path="/home/nrion/Downloads/nodejs/mnmltaskr-web/src/tests/setup.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="4" count="3" type="stmt"/>
+          <line num="6" count="3" type="stmt"/>
+          <line num="11" count="3" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>
