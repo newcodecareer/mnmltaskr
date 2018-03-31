@@ -12,7 +12,7 @@ export default class Home extends Component {
           </Header>
         </Container>
         <Image centered fluid src='/images/home.gif' />
-        <Label size='mini' attached='bottom right'>Photo stolen from 
+        <Label size='mini' attached='bottom right'>Photo stolen from
           <a href='https://www.airtasker.com/'> https://www.airtasker.com/</a>
         </Label>
       </div>

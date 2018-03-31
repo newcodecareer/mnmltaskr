@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import 'semantic-ui-css/semantic.min.css'
 import { Route, Switch } from 'react-router-dom'
 
+import PrivateRoute from './custom/PrivateRoute'
+import { LoggedInView } from './LoggedInView'
+
 import { authUser } from '../actions/firestore-actions/authUser'
 import { signupAccount } from '../actions/firestore-actions/dbActions'
 
@@ -43,8 +46,9 @@ export default class Index extends Component {
   render () {
     return (
       <Switch>
-        <Route path='/login' component={loginComponent} />
-        <Route path='/signup' component={signupComponent} />
+        <PrivateRoute path='/login' component={loginComponent} />
+        <PrivateRoute path='/signup' component={signupComponent} />
+        <Route path='/logged-in' component={LoggedInView} />
         <Route path='/' component={mainComponent} />
       </Switch>
     )
