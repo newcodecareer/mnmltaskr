@@ -76,6 +76,7 @@ export const setActiveUser = async (uid) => {
     const user = await db.collection('users').doc(uid).get()
 
     localStorage.setItem('user', JSON.stringify(user.data()))
+    localStorage.setItem('uid', uid)
     store.dispatch(setStatus())
     history.push('/')
   } catch (e) {
