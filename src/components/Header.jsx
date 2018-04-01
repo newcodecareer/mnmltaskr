@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Menu, Container, Button, Icon, Dropdown } from 'semantic-ui-react'
-import { logout } from '../actions/firestore-actions/authUser'
+import { logout, getUser } from '../actions/firestore-actions/authUser'
 
 const renderSignin = () => (
   <Button
@@ -27,7 +27,7 @@ const renderLogout = (toggleSidebar) => {
   const options = [
     {
       key: 'todo',
-      text: <span>Hi, <b>Ronna Mae</b>!</span>,
+      text: <span>Hi, <b>{getUser().firstName}</b>!</span>,
       disabled: true
     },
     {
