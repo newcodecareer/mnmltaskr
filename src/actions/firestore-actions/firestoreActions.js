@@ -1,5 +1,7 @@
 import { auth, db } from '../../firebase'
 import swal from 'sweetalert'
+import store from '../../store'
+import { reset } from 'redux-form'
 
 export const postTask = async (values) => {
   const uid = auth.currentUser.uid
@@ -28,6 +30,7 @@ export const postTask = async (values) => {
   })
 
   if (posted) {
+    store.dispatch(reset('wizard'))
     swal(
       'Success!',
       'You have posted a task...',
