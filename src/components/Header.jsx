@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Menu, Container, Button, Icon } from 'semantic-ui-react'
+import { Menu, Container, Button, Icon, Dropdown } from 'semantic-ui-react'
 import { logout } from '../actions/firestore-actions/authUser'
 
-const signInButton = () => (
-  <Button as='a' href='/login' basic animated>
+const renderSignin = () => (
+  <Button
+    as='a' href='/login'
+    circular animated
+  >
     <Button.Content visible>
-      Sign in
+      Login
     </Button.Content>
     <Button.Content hidden>
       <Icon color='black' name='sign in' />
@@ -14,21 +17,62 @@ const signInButton = () => (
   </Button>
 )
 
-const logoutButton = () => (
-  <Button onClick={logout} basic animated>
-    <Button.Content visible>
-      Logout
-    </Button.Content>
-    <Button.Content hidden>
-      <Icon color='black' name='sign out' />
-    </Button.Content>
-  </Button>
-)
+const renderLogout = (toggleSidebar) => {
+  const trigger = (
+    <div>
+      <Icon name='user circle outline' size='large' />
+    </div>
+  )
+
+  const options = [
+    {
+      key: 'todo',
+      text: <span>Hi, <b>Ronna Mae</b>!</span>,
+      disabled: true
+    },
+    {
+      key: 'user',
+      text: 'My account',
+      icon: 'user',
+      onClick: toggleSidebar
+    },
+    {
+      key: 'sign-out',
+      text: 'Logout',
+      icon: 'sign out',
+      onClick: logout
+    }
+  ]
+
+  return (
+    <Dropdown
+      floating
+      trigger={trigger}
+      options={options}
+      pointing='top right'
+      icon={null}
+    />
+  )
+}
+
+const items = [
+  { link: '/post-a-task', name: 'post a task' },
+  { link: '/browse-tasks', name: 'browse tasks' },
+  { link: '/my-tasks', name: 'my tasks' }
+]
 
 export default class Header extends Component {
   render () {
-    const { activeItem, selectItem, isActive } = this.props
-    const whichButton = !isActive ? signInButton() : logoutButton()
+    const {
+      activeItem,
+      selectItem,
+      isActive,
+      toggleSidebar
+    } = this.props
+
+    const whichComponent =
+      isActive ? renderLogout(toggleSidebar)
+        : renderSignin()
 
     return (
       <Menu fixed='top' borderless pointing>
@@ -38,21 +82,18 @@ export default class Header extends Component {
             <Icon name='tasks' />
             MNMLTASKR
           </Menu.Item>
-          <Menu.Item as={Link} to='/post-a-task' name='post a task'
-            active={activeItem === 'post a task'}
-            onClick={(e, {name}) => selectItem(name)}
-          />
-          <Menu.Item as={Link} to='/browse-tasks' name='browse tasks'
-            active={activeItem === 'browse tasks'}
-            onClick={(e, {name}) => selectItem(name)}
-          />
-          <Menu.Item as={Link} to='/my-tasks' name='my tasks'
-            active={activeItem === 'my tasks'}
-            onClick={(e, {name}) => selectItem(name)}
-          />
+          {
+            items.map((item) => (
+              <Menu.Item key={item.name} as={Link}
+                to={item.link} name={item.name}
+                active={activeItem === item.name}
+                onClick={(e, {name}) => selectItem(name)}
+              />
+            ))
+          }
           <Menu.Menu position='right'>
             <Menu.Item>
-              {whichButton}
+              {whichComponent}
             </Menu.Item>
           </Menu.Menu>
         </Container>

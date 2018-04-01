@@ -1,17 +1,17 @@
 import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 
-import itemsReducer from './itemsReducer'
+import menuReducer from './menuReducer'
 import tasksReducer from './tasksReducer'
 import wizardReducer from './wizardReducer'
-import statusReducer from './statusReducer'
+import userReducer from './userReducer'
 
 const reducer = combineReducers({
-  items: itemsReducer,
+  menu: menuReducer,
   tasks: tasksReducer,
   form: formReducer,
   wizard: wizardReducer,
-  status: statusReducer
+  user: userReducer
 })
 
 export default reducer

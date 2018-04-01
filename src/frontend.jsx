@@ -9,7 +9,7 @@ import history from './history'
 
 const root = document.getElementById('root')
 
-const renderWithHMR = (Component) => {
+const render = (Component) => {
   ReactDOM.render(
     <Provider store={store}>
       <Router history={history}>
@@ -22,10 +22,4 @@ const renderWithHMR = (Component) => {
   )
 }
 
-renderWithHMR(Index)
-
-if (module.hot) {
-  module.hot.accept('./components/Index', () => {
-    renderWithHMR(Index)
-  })
-}
+render(Index)

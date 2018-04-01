@@ -5,15 +5,12 @@ import { Route, Switch } from 'react-router-dom'
 import PrivateRoute from './custom/PrivateRoute'
 import { LoggedInView } from './LoggedInView'
 
-import { authUser } from '../actions/firestore-actions/authUser'
-import { signupAccount } from '../actions/firestore-actions/dbActions'
+import { signinUser, signupUser } from '../actions/firestore-actions/authUser'
 
 import FormWrapper from './auth-forms/FormWrapper'
 import LoginFormContainer from '../containers/LoginFormContainer'
 import SignupFormContainer from '../containers/SignupFormContainer'
-
-import ItemsContainer from '../containers/ItemsContainer'
-import Body from './Body'
+import Main from './Main'
 
 const loginComponent = () => (
   <FormWrapper message={
@@ -21,7 +18,7 @@ const loginComponent = () => (
       Login to your <i>mnmltaskr</i> account
     </div>
   }>
-    <LoginFormContainer onSubmit={authUser} />
+    <LoginFormContainer onSubmit={signinUser} />
   </FormWrapper>
 )
 
@@ -31,15 +28,8 @@ const signupComponent = () => (
       Sign up to <i>mnmltaskr</i>!
     </div>
   }>
-    <SignupFormContainer onSubmit={signupAccount} />
+    <SignupFormContainer onSubmit={signupUser} />
   </FormWrapper>
-)
-
-const mainComponent = () => (
-  <div>
-    <ItemsContainer />
-    <Body />
-  </div>
 )
 
 export default class Index extends Component {
@@ -49,7 +39,7 @@ export default class Index extends Component {
         <PrivateRoute path='/login' component={loginComponent} />
         <PrivateRoute path='/signup' component={signupComponent} />
         <Route path='/logged-in' component={LoggedInView} />
-        <Route path='/' component={mainComponent} />
+        <Route path='/' component={Main} />
       </Switch>
     )
   }

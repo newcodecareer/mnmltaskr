@@ -6,3 +6,11 @@ export default function selectItem (itemName) {
     })
   }
 }
+
+export const toggleSidebar = () => {
+  return (dispatch) => {
+    dispatch({
+      type: 'TOGGLE_SIDEBAR'
+    })
+  }
+}
