@@ -11,7 +11,12 @@ export default class FormWrapper extends Component {
         <Image fluid src='/images/howto.gif' />
         <Modal open basic size='mini'>
           <Segment vertical style={{ paddingBottom: '6em' }}>
-            <Button icon floated='right' inverted basic as='a' href='/'>
+            <Button
+              as='a' href='/'
+              floated='right'
+              icon circular
+              basic inverted
+            >
               <Icon name='home' />
             </Button>
             <Header inverted textAlign='left'>

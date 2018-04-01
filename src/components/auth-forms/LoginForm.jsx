@@ -5,9 +5,6 @@ import { Field } from 'redux-form'
 const renderInput = (field) => (
   <Input
     {...field}
-    inverted
-    transparent fluid
-    iconPosition='left'
   />
 )
 
@@ -16,7 +13,7 @@ export default class LoginForm extends Component {
     const { handleSubmit, submitting } = this.props
 
     return (
-      <Form as='form' onSubmit={handleSubmit}>
+      <Form inverted onSubmit={handleSubmit}>
         <div
           style={{
             paddingTop: '2em',
@@ -24,6 +21,7 @@ export default class LoginForm extends Component {
           }}
         >
           <Form.Field >
+            <label>Email</label>
             <Field
               name='email'
               type='email'
@@ -32,8 +30,8 @@ export default class LoginForm extends Component {
               component={renderInput}
             />
           </Form.Field>
-          <Divider />
           <Form.Field >
+            <label>Password</label>
             <Field
               name='password'
               type='password'
@@ -42,20 +40,24 @@ export default class LoginForm extends Component {
               component={renderInput}
             />
           </Form.Field>
-          <Divider />
         </div>
         <div>
-          <Button.Group>
-            <Button type='submit' disabled={submitting}>Login</Button>
-            <Button.Or />
-            <Button
-              as='a' href='/signup'
-              inverted basic
-              disabled={submitting}
-            >
+          <Divider />
+          <Button
+            type='submit'
+            circular
+            disabled={submitting}
+          >
+              Login
+          </Button>
+          <Button
+            as='a' href='/signup'
+            inverted basic
+            circular
+            disabled={submitting}
+          >
               Sign up instead
-            </Button>
-          </Button.Group>
+          </Button>
         </div>
       </Form>
     )
