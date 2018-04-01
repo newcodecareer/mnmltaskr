@@ -5,16 +5,17 @@ import { Divider, Card, Button, Label, List } from 'semantic-ui-react'
 export default class TaskCard extends Component {
   render () {
     const {
-      budget,
       title,
       description,
       type,
       location,
-      due
+      due,
+      budget,
+      availability
     } = this.props
 
     return (
-      <Card color='grey'>
+      <Card as='a' color='teal'>
         <Card.Content>
           <Label as='a' tag size='large'
             attached='top right'>
@@ -70,8 +71,17 @@ export default class TaskCard extends Component {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          AVAILABLE
-          <Button floated='right' size='small'>Make an offer</Button>
+          <label>{
+            availability
+              ? 'OPEN'
+              : 'CLOSED'
+          }</label>
+          <Button
+            floated='right'
+            size='small'
+          >
+            Make an offer
+          </Button>
         </Card.Content>
       </Card>
     )
