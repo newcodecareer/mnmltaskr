@@ -18,7 +18,7 @@ export default class StepContent extends Component {
           <Step.Content>
             <Step.Title>Location</Step.Title>
           </Step.Content>
-        </Step> 
+        </Step>
         <Step active={page === 3 && true}>
           <Icon name='money' />
           <Step.Content>

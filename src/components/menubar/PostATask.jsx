@@ -4,6 +4,8 @@ import { Header, Grid } from 'semantic-ui-react'
 import StepContainer from '../../containers/StepContainer'
 import WizardContainer from '../../containers/WizardContainer'
 
+import { postTask } from '../../actions/firestore-actions/firestoreActions'
+
 export default class PostATask extends Component {
   render () {
     return (
@@ -16,8 +18,8 @@ export default class PostATask extends Component {
           </Grid.Column>
           <Grid.Column width={8}>
             {/* custom content */}
-            {/* <WizardContainer onSubmit={showResult}/> */}
-            <WizardContainer />
+            <WizardContainer onSubmit={postTask}/>
+            {/* <WizardContainer /> */}
           </Grid.Column>
         </Grid>
       </div>
