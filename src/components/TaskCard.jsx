@@ -17,8 +17,12 @@ export default class TaskCard extends Component {
     return (
       <Card as='a' color='teal'>
         <Card.Content>
-          <Label as='a' tag size='large'
-            attached='top right'>
+          <Label
+            as='a' tag
+            style={{ backgroundColor: '#FFFF66' }}
+            size='large'
+            attached='top right'
+          >
             &#8369; {budget}
           </Label>
           <Card.Header>
