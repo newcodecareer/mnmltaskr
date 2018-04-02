@@ -4,12 +4,19 @@ const uid = localStorage.getItem('uid')
 
 export default function fetchTasks () {
   return async (dispatch) => {
-    const tasks = await db.collection('tasks')
-      // .where('owner', '>', `/users/${uid}`)
-      // .where('owner', '<', `/users/${uid}`)
+    const taskList = []
+    let tasks = await db.collection('tasks')
+      .where('owner', '>', `/users/${uid}`)
       .get()
 
-    const taskList = []
+    tasks.forEach((task) => {
+      taskList.push(task.data())
+    })
+
+    tasks = await db.collection('tasks')
+      .where('owner', '<', `/users/${uid}`)
+      .get()
+
     tasks.forEach((task) => {
       taskList.push(task.data())
     })
