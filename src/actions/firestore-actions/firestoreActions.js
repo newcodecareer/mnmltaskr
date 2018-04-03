@@ -6,7 +6,7 @@ import { getUser } from './authUser'
 
 export const postTask = async (values) => {
   const uid = getUser().uid
-  const {
+  let {
     title,
     description,
     type,
@@ -15,6 +15,10 @@ export const postTask = async (values) => {
     numberOfTaskers,
     budget
   } = values
+
+  if (type === 'Online') {
+    location = 'Remote'
+  }
 
   const posted = await db.collection('tasks').add({
     title,
