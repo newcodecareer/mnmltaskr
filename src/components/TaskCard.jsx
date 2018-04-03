@@ -15,27 +15,34 @@ export default class TaskCard extends Component {
     } = this.props
 
     return (
-      <Card as='a' color='teal'>
+      <Card as='a' color='grey'>
         <Card.Content>
-          <Label
-            as='a' tag
-            style={{ backgroundColor: '#FFFF66' }}
-            size='large'
-            attached='top right'
-          >
-            &#8369; {budget}
-          </Label>
           <Card.Header>
-            {title}
+            <div
+              style={{
+                marginRight: '4em',
+                paddingTop: '1ex'
+              }}
+            >
+              {title}
+            </div>
+            <Label
+              as='a' tag
+              style={{ backgroundColor: '#f8ed62' }}
+              size='large'
+              attached='top right'
+            >
+              &#8369; {budget}
+            </Label>
           </Card.Header>
-          <Card.Meta>
-            {description}
-          </Card.Meta>
           <Divider />
+          {/* <Card.Meta>
+            {description}
+          </Card.Meta> */}
           <Card.Description>
             <List animated
               verticalAlign='middle'>
-              <List.Item>
+              {/* <List.Item>
                 <List.Icon name='globe'
                   verticalAlign='middle' />
                 <List.Content>
@@ -46,7 +53,7 @@ export default class TaskCard extends Component {
                     Type
                   </List.Description>
                 </List.Content>
-              </List.Item>
+              </List.Item> */}
               <List.Item>
                 <List.Icon name='point'
                   verticalAlign='middle' />
@@ -75,11 +82,18 @@ export default class TaskCard extends Component {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <label>{
-            availability
-              ? 'OPEN'
-              : 'CLOSED'
-          }</label>
+          <div
+            style={{
+              paddingTop: '0.5em',
+              float: 'left'
+            }}
+          >
+            {
+              availability
+                ? <label style={{ color: 'olive' }}>OPEN</label>
+                : <label>ASSIGNED</label>
+            }
+          </div>
           <Button
             floated='right'
             size='small'
