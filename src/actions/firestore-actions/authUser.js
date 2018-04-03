@@ -86,6 +86,7 @@ export const setActiveUser = async (uid) => {
 
 const removeActiveUser = () => {
   localStorage.removeItem('user')
+  localStorage.removeItem('uid')
   store.dispatch(setStatus())
   history.push('/')
 }
