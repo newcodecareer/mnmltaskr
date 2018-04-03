@@ -18,16 +18,19 @@ const renderSignin = () => (
 )
 
 const renderLogout = (toggleSidebar) => {
+  const firstName = getUser().firstName
+
   const trigger = (
-    <div>
+    <Menu.Item fitted>
       <Icon name='user circle outline' size='large' />
-    </div>
+      <span>{firstName}</span>
+    </Menu.Item>
   )
 
   const options = [
     {
       key: 'todo',
-      text: <span>Hi, <b>{getUser().firstName}</b>!</span>,
+      text: <span>Hi, <b>{firstName}</b>!</span>,
       disabled: true
     },
     {
