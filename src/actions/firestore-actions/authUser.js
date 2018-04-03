@@ -2,6 +2,7 @@ import { auth, db } from '../../firebase'
 import history from '../../history'
 import swal from 'sweetalert'
 import setStatus from '../userActions'
+import { toggleSidebar } from '../menuActions'
 import store from '../../store'
 
 export const signinUser = async (values) => {
@@ -87,7 +88,12 @@ export const setActiveUser = async (uid) => {
 const removeActiveUser = () => {
   localStorage.removeItem('user')
   localStorage.removeItem('uid')
+
+  if (store.getState().menu.visible) {
+    store.dispatch(toggleSidebar())
+  }
   store.dispatch(setStatus())
+
   history.push('/')
 }
 
