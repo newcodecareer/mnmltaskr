@@ -74,10 +74,10 @@ export const signupUser = async (values) => {
 
 export const setActiveUser = async (uid) => {
   try {
-    const user = await db.collection('users').doc(uid).get()
+    let user = await db.collection('users').doc(uid).get()
+    user = { ...user.data(), uid }
 
-    localStorage.setItem('user', JSON.stringify(user.data()))
-    localStorage.setItem('uid', uid)
+    localStorage.setItem('user', JSON.stringify(user))
     store.dispatch(setStatus())
     history.push('/')
   } catch (e) {
@@ -87,7 +87,6 @@ export const setActiveUser = async (uid) => {
 
 const removeActiveUser = () => {
   localStorage.removeItem('user')
-  localStorage.removeItem('uid')
 
   if (store.getState().menu.visible) {
     store.dispatch(toggleSidebar())
@@ -98,9 +97,7 @@ const removeActiveUser = () => {
 }
 
 export const getUser = () => {
-  const user = JSON.parse(localStorage.getItem('user'))
-
-  return user
+  return JSON.parse(localStorage.getItem('user'))
 }
 
 export const logout = async () => {

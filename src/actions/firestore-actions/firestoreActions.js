@@ -2,9 +2,10 @@ import { db } from '../../firebase'
 import swal from 'sweetalert'
 import store from '../../store'
 import { reset } from 'redux-form'
+import { getUser } from './authUser'
 
 export const postTask = async (values) => {
-  const uid = localStorage.getItem('uid')
+  const uid = getUser().uid
   const {
     title,
     description,

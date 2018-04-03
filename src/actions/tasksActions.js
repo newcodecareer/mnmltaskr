@@ -1,9 +1,9 @@
 import { db } from '../firebase'
-
-const uid = localStorage.getItem('uid')
+import { getUser } from './firestore-actions/authUser'
 
 export default function fetchTasks () {
   return async (dispatch) => {
+    const uid = getUser().uid
     const taskList = []
     let tasks = await db.collection('tasks')
       .where('owner', '>', `/users/${uid}`)
@@ -30,6 +30,7 @@ export default function fetchTasks () {
 
 export function fetchPostedTasks () {
   return async (dispatch) => {
+    const uid = getUser().uid
     const postedTasks = await db.collection('tasks')
       .where('owner', '==', `/users/${uid}`)
       .get()
