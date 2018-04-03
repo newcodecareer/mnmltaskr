@@ -1,8 +1,15 @@
-import { reduxForm } from 'redux-form'
-import Location from '../components/wizard-style-form/form-contents/Location'
+import { reduxForm, formValueSelector } from 'redux-form'
+import { connect } from 'react-redux'
+import { Location } from '../components/wizard-style-form/form-contents/Location'
 
-export default reduxForm({
+const decoratedLocation = reduxForm({
   form: 'wizard',
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true
 })(Location)
+
+const selector = formValueSelector('wizard')
+export default connect((state) => {
+  const type = selector(state, 'type')
+  return { type }
+})(decoratedLocation)

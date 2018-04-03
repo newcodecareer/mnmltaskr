@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Form, Button, Dropdown, Icon } from 'semantic-ui-react'
 import { Field } from 'redux-form'
 
@@ -18,19 +18,20 @@ const renderDropdown = (field) => (
   />
 )
 
-export default class Location extends Component {
-  render () {
-    const { handleSubmit, goToPrev } = this.props
+export const Location = (props) => {
+  const { handleSubmit, goToPrev, type } = props
 
-    return (
-      <Form as='form' onSubmit={handleSubmit}>
-        <Form.Field>
-          <label>Where would the task be completed?</label>
-          <Field
-            name='type'
-            component={renderDropdown}
-          />
-        </Form.Field>
+  return (
+    <Form as='form' onSubmit={handleSubmit}>
+      <Form.Field>
+        <label>Where would the task be completed?</label>
+        <Field
+          name='type'
+          component={renderDropdown}
+        />
+      </Form.Field>
+      {
+        type === 'In person' &&
         <Form.Field>
           <label>Location</label>
           <Field
@@ -40,30 +41,30 @@ export default class Location extends Component {
             type='text'
           />
         </Form.Field>
-        <Form.Field>
-          <label>Due date</label>
-          <Field
-            name='due'
-            component='input'
-            type='date'
-          />
-        </Form.Field>
-        <Button.Group floated='right'>
-          <Button onClick={goToPrev} animated>
-            <Button.Content visible>Previous</Button.Content>
-            <Button.Content hidden>
-              <Icon name='left arrow' />
-            </Button.Content>
-          </Button>
-          <Button.Or />
-          <Button type='submit' animated>
-            <Button.Content visible>Next</Button.Content>
-            <Button.Content hidden>
-              <Icon name='right arrow' />
-            </Button.Content>
-          </Button>
-        </Button.Group>
-      </Form>
-    )
-  }
+      }
+      <Form.Field>
+        <label>Due date</label>
+        <Field
+          name='due'
+          component='input'
+          type='date'
+        />
+      </Form.Field>
+      <Button.Group floated='right'>
+        <Button onClick={goToPrev} animated>
+          <Button.Content visible>Previous</Button.Content>
+          <Button.Content hidden>
+            <Icon name='left arrow' />
+          </Button.Content>
+        </Button>
+        <Button.Or />
+        <Button type='submit' animated>
+          <Button.Content visible>Next</Button.Content>
+          <Button.Content hidden>
+            <Icon name='right arrow' />
+          </Button.Content>
+        </Button>
+      </Button.Group>
+    </Form>
+  )
 }
