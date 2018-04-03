@@ -36,13 +36,16 @@ export default class TaskCard extends Component {
             </Label>
           </Card.Header>
           <Divider />
-          {/* <Card.Meta>
-            {description}
-          </Card.Meta> */}
           <Card.Description>
+            <div>
+              <Card.Meta>
+                Description
+              </Card.Meta>
+              {description}
+            </div>
             <List animated
               verticalAlign='middle'>
-              {/* <List.Item>
+              <List.Item>
                 <List.Icon name='globe'
                   verticalAlign='middle' />
                 <List.Content>
@@ -53,7 +56,7 @@ export default class TaskCard extends Component {
                     Type
                   </List.Description>
                 </List.Content>
-              </List.Item> */}
+              </List.Item>
               <List.Item>
                 <List.Icon name='point'
                   verticalAlign='middle' />
