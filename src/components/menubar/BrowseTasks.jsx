@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Header, Card } from 'semantic-ui-react'
+import { Route } from 'react-router-dom'
 import TaskCard from '../TaskCard'
+import BiddingContainer from '../../containers/BiddingContainer'
 
 class BrowseTasks extends Component {
   componentDidMount () {
@@ -27,6 +29,10 @@ class BrowseTasks extends Component {
             })
           }
         </Card.Group>
+        <Route
+          path='/browse-tasks/bidding'
+          component={BiddingContainer}
+        />
       </div>
     )
   }

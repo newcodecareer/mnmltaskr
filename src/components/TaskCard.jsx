@@ -1,6 +1,7 @@
 import React from 'react'
 import { format } from 'date-fns'
 import { Divider, Card, Button, Label, List } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 const TaskCard = (props) => {
   const {
@@ -97,6 +98,8 @@ const TaskCard = (props) => {
           }
         </div>
         <Button
+          as={Link}
+          to='/browse-tasks/bidding'
           floated='right'
           size='small'
         >
