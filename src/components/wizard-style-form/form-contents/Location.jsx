@@ -1,10 +1,10 @@
 import React from 'react'
-import { Form, Button, Dropdown, Icon } from 'semantic-ui-react'
+import { Form, Button, Dropdown, Icon, Popup } from 'semantic-ui-react'
 import { Field } from 'redux-form'
 
 const options = [
-  { key: 1, text: 'In person', value: 'In person' },
-  { key: 2, text: 'Online', value: 'Online' }
+  { key: 1, text: 'In person', value: 'In person', icon: 'point' },
+  { key: 2, text: 'Online', value: 'Online', icon: 'world' }
 ]
 
 const renderDropdown = (field) => (
@@ -24,7 +24,33 @@ export const Location = (props) => {
   return (
     <Form as='form' onSubmit={handleSubmit}>
       <Form.Field>
-        <label>Where would the task be completed?</label>
+        <label>
+            Where would the task be completed?
+          <Popup
+            trigger={<Icon
+              style={{
+                paddingLeft: '1em',
+                paddingRight: '2em'
+              }}
+              name='info circle'
+            />}
+            content={
+              <div>
+                <Icon name='point' />
+                <b>In person</b>
+                <br />
+                Select this if you need the person there
+                <br />
+                <Icon name='world' />
+                <b>Online</b>
+                <br />
+                Select this if they can work from anywhere
+              </div>
+            }
+            on='hover'
+            position='right center'
+          />
+        </label>
         <Field
           name='type'
           component={renderDropdown}
@@ -37,7 +63,7 @@ export const Location = (props) => {
           <Field
             name='location'
             component='input'
-            placeholder='Enter a suburb'
+            placeholder='Enter a place'
             type='text'
           />
         </Form.Field>
