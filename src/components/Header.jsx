@@ -5,7 +5,8 @@ import { logout, getUser } from '../actions/firestore/authUser'
 
 const renderSignin = () => (
   <Button
-    as='a' href='/login'
+    as={Link}
+    to='/login'
     circular animated
   >
     <Button.Content visible>

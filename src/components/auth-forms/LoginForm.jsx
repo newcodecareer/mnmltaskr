@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Form, Divider, Input } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 import { Field } from 'redux-form'
 
 const renderInput = (field) => (
@@ -50,7 +51,8 @@ const LoginForm = (props) => {
               Login
         </Button>
         <Button
-          as='a' href='/signup'
+          as={Link}
+          to='/signup'
           inverted basic
           circular
           disabled={submitting}

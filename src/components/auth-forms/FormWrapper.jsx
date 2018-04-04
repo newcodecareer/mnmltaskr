@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {
   Modal, Header,
   Button, Icon,
@@ -14,7 +15,8 @@ const FormWrapper = (props) => {
       <Modal open basic size='mini'>
         <Segment vertical style={{ paddingBottom: '6em' }}>
           <Button
-            as='a' href='/'
+            as={Link}
+            to='/'
             floated='right'
             icon circular
             basic inverted
