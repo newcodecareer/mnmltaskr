@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Header from '../components/Header'
-import selectItem, { toggleSidebar } from '../actions/menuActions'
+import { selectItem, toggleSidebar } from '../actions/menuActions'
 
 const mapStateToProps = (state) => ({
   activeItem: state.menu.activeItem,

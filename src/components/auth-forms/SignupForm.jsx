@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Button, Form, Input, Divider, Label } from 'semantic-ui-react'
 import { Field } from 'redux-form'
 
@@ -32,98 +32,98 @@ const options = [
   { label: 'Female', value: 'female' }
 ]
 
-export default class SignupForm extends Component {
-  render () {
-    const { handleSubmit, submitting } = this.props
+const SignupForm = (props) => {
+  const { handleSubmit, submitting } = props
 
-    return (
-      <Form inverted onSubmit={handleSubmit}>
-        <div
-          style={{
-            paddingTop: '2em',
-            paddingBottom: '2em'
-          }}
-        >
-          <Field
-            name='first'
-            type='text'
-            icon='id badge'
-            placeholder='Enter your first name'
-            component={renderInput}
-          />
-          <Field
-            name='last'
-            type='text'
-            icon='id badge'
-            placeholder='Enter your last name'
-            component={renderInput}
-          />
-          <Field
-            name='email'
-            type='email'
-            icon='user'
-            placeholder='Now your email'
-            component={renderInput}
-          />
-          <Field
-            name='password'
-            type='password'
-            icon='lock'
-            placeholder='Decide for a secure password'
-            component={renderInput}
-          />
-          <Form.Field>
-            <Divider />
-            {
-              options.map((option, index) => (
-                <label key={index}
-                  style={{ color: 'white' }}
-                >
-                  <Field
-                    name='sex'
-                    type='radio'
-                    component='input'
-                    value={option.value}
-                  /> {option.label}
-                </label>
-              ))
-            }
-            <Divider />
-          </Form.Field>
-          <Field
-            name='phoneNumber'
-            type='number'
-            icon='phone'
-            placeholder='Can I get your digits?'
-            component={renderInput}
-          />
-          <Field
-            name='address'
-            type='text'
-            icon='home'
-            placeholder='Where do you live?'
-            component={renderInput}
-          />
-        </div>
-        <div>
+  return (
+    <Form inverted onSubmit={handleSubmit}>
+      <div
+        style={{
+          paddingTop: '2em',
+          paddingBottom: '2em'
+        }}
+      >
+        <Field
+          name='first'
+          type='text'
+          icon='id badge'
+          placeholder='Enter your first name'
+          component={renderInput}
+        />
+        <Field
+          name='last'
+          type='text'
+          icon='id badge'
+          placeholder='Enter your last name'
+          component={renderInput}
+        />
+        <Field
+          name='email'
+          type='email'
+          icon='user'
+          placeholder='Now your email'
+          component={renderInput}
+        />
+        <Field
+          name='password'
+          type='password'
+          icon='lock'
+          placeholder='Decide for a secure password'
+          component={renderInput}
+        />
+        <Form.Field>
           <Divider />
-          <Button
-            type='submit'
-            circular
-            disabled={submitting}
-          >
+          {
+            options.map((option, index) => (
+              <label key={index}
+                style={{ color: 'white' }}
+              >
+                <Field
+                  name='sex'
+                  type='radio'
+                  component='input'
+                  value={option.value}
+                /> {option.label}
+              </label>
+            ))
+          }
+          <Divider />
+        </Form.Field>
+        <Field
+          name='phoneNumber'
+          type='number'
+          icon='phone'
+          placeholder='Can I get your digits?'
+          component={renderInput}
+        />
+        <Field
+          name='address'
+          type='text'
+          icon='home'
+          placeholder='Where do you live?'
+          component={renderInput}
+        />
+      </div>
+      <div>
+        <Divider />
+        <Button
+          type='submit'
+          circular
+          disabled={submitting}
+        >
             Sign up
-          </Button>
-          <Button
-            as='a' href='/login'
-            inverted basic
-            circular
-            disabled={submitting}
-          >
+        </Button>
+        <Button
+          as='a' href='/login'
+          inverted basic
+          circular
+          disabled={submitting}
+        >
               Log in instead
-          </Button>
-        </div>
-      </Form>
-    )
-  }
+        </Button>
+      </div>
+    </Form>
+  )
 }
+
+export default SignupForm

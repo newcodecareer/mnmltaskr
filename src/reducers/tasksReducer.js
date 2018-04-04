@@ -1,4 +1,4 @@
-export default function tasksReducer (state = {}, action) {
+const tasksReducer = (state = {}, action) => {
   switch (action.type) {
     case 'FETCH_TASKS_FULFILLED': {
       return {
@@ -15,3 +15,5 @@ export default function tasksReducer (state = {}, action) {
   }
   return state
 }
+
+export default tasksReducer

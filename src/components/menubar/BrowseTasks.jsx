@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Header, Card } from 'semantic-ui-react'
 import TaskCard from '../TaskCard'
 
-export default class BrowseTasks extends Component {
+class BrowseTasks extends Component {
   componentDidMount () {
     this.props.fetchTasks()
   }
@@ -31,3 +31,5 @@ export default class BrowseTasks extends Component {
     )
   }
 }
+
+export default BrowseTasks

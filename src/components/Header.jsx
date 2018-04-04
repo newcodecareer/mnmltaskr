@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { Menu, Container, Button, Icon, Dropdown } from 'semantic-ui-react'
-import { logout, getUser } from '../actions/firestore-actions/authUser'
+import { logout, getUser } from '../actions/firestore/authUser'
 
 const renderSignin = () => (
   <Button
@@ -64,43 +64,43 @@ const items = [
   { link: '/my-tasks', name: 'my tasks' }
 ]
 
-export default class Header extends Component {
-  render () {
-    const {
-      activeItem,
-      selectItem,
-      isActive,
-      toggleSidebar
-    } = this.props
+const Header = (props) => {
+  const {
+    activeItem,
+    selectItem,
+    isActive,
+    toggleSidebar
+  } = props
 
-    const whichComponent =
-      isActive ? renderLogout(toggleSidebar)
-        : renderSignin()
+  const whichComponent =
+    isActive ? renderLogout(toggleSidebar)
+      : renderSignin()
 
-    return (
-      <Menu fixed='top' borderless pointing>
-        <Container>
-          <Menu.Item header as={Link} to='/'
-            onClick={() => selectItem(null)}>
-            <Icon name='tasks' />
+  return (
+    <Menu fixed='top' borderless pointing>
+      <Container>
+        <Menu.Item header as={Link} to='/'
+          onClick={() => selectItem(null)}>
+          <Icon name='tasks' />
             MNMLTASKR
+        </Menu.Item>
+        {
+          items.map((item) => (
+            <Menu.Item key={item.name} as={Link}
+              to={item.link} name={item.name}
+              active={activeItem === item.name}
+              onClick={(e, {name}) => selectItem(name)}
+            />
+          ))
+        }
+        <Menu.Menu position='right'>
+          <Menu.Item>
+            {whichComponent}
           </Menu.Item>
-          {
-            items.map((item) => (
-              <Menu.Item key={item.name} as={Link}
-                to={item.link} name={item.name}
-                active={activeItem === item.name}
-                onClick={(e, {name}) => selectItem(name)}
-              />
-            ))
-          }
-          <Menu.Menu position='right'>
-            <Menu.Item>
-              {whichComponent}
-            </Menu.Item>
-          </Menu.Menu>
-        </Container>
-      </Menu>
-    )
-  }
+        </Menu.Menu>
+      </Container>
+    </Menu>
+  )
 }
+
+export default Header

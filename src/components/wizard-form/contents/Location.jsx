@@ -18,7 +18,7 @@ const renderDropdown = (field) => (
   />
 )
 
-export const Location = (props) => {
+const Location = (props) => {
   const { handleSubmit, goToPrev, type } = props
 
   return (
@@ -94,3 +94,5 @@ export const Location = (props) => {
     </Form>
   )
 }
+
+export default Location

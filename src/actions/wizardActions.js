@@ -1,15 +1,20 @@
-export function goToPrev () {
-  return function (dispatch) {
+const goToPrev = () => {
+  return (dispatch) => {
     dispatch({
       type: 'GO_TO_PREV'
     })
   }
 }
 
-export function goToNext () {
-  return function (dispatch) {
+const goToNext = () => {
+  return (dispatch) => {
     dispatch({
       type: 'GO_TO_NEXT'
     })
   }
+}
+
+export {
+  goToPrev,
+  goToNext
 }

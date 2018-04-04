@@ -1,5 +1,5 @@
-export default function selectItem (itemName) {
-  return function (dispatch) {
+const selectItem = (itemName) => {
+  return (dispatch) => {
     dispatch({
       type: 'SELECT_ITEM',
       payload: itemName
@@ -7,10 +7,15 @@ export default function selectItem (itemName) {
   }
 }
 
-export const toggleSidebar = () => {
+const toggleSidebar = () => {
   return (dispatch) => {
     dispatch({
       type: 'TOGGLE_SIDEBAR'
     })
   }
+}
+
+export {
+  selectItem,
+  toggleSidebar
 }

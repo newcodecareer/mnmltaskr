@@ -1,46 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 import 'semantic-ui-css/semantic.min.css'
 import { Route, Switch } from 'react-router-dom'
 
 import PrivateRoute from './custom/PrivateRoute'
-import { LoggedInView } from './LoggedInView'
+import LoggedInView from './LoggedInView'
+import NotLoggedInView from './NotLoggedInView'
 
-import { signinUser, signupUser } from '../actions/firestore-actions/authUser'
-
-import FormWrapper from './auth-forms/FormWrapper'
-import LoginFormContainer from '../containers/LoginFormContainer'
-import SignupFormContainer from '../containers/SignupFormContainer'
 import Main from './Main'
+import Login from './Login'
+import Signup from './Signup'
 
-const loginComponent = () => (
-  <FormWrapper message={
-    <div>
-      Login to your <i>mnmltaskr</i> account
-    </div>
-  }>
-    <LoginFormContainer onSubmit={signinUser} />
-  </FormWrapper>
+const Index = (props) => (
+  <Switch>
+    <PrivateRoute path='/login' component={Login} />
+    <PrivateRoute path='/signup' component={Signup} />
+    <Route path='/logged-in' component={LoggedInView} />
+    <Route path='/not-logged-in' component={NotLoggedInView} />
+    <Route path='/' component={Main} />
+  </Switch>
 )
 
-const signupComponent = () => (
-  <FormWrapper message={
-    <div>
-      Sign up to <i>mnmltaskr</i>!
-    </div>
-  }>
-    <SignupFormContainer onSubmit={signupUser} />
-  </FormWrapper>
-)
-
-export default class Index extends Component {
-  render () {
-    return (
-      <Switch>
-        <PrivateRoute path='/login' component={loginComponent} />
-        <PrivateRoute path='/signup' component={signupComponent} />
-        <Route path='/logged-in' component={LoggedInView} />
-        <Route path='/' component={Main} />
-      </Switch>
-    )
-  }
-}
+export default Index

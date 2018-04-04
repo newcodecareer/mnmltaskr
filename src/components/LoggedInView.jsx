@@ -2,7 +2,7 @@ import React from 'react'
 import { Redirect } from 'react-router-dom'
 import swal from 'sweetalert'
 
-export const LoggedInView = () => {
+const LoggedInView = () => {
   swal(
     'What, friend?',
     'Cannot access! You are logged in already...',
@@ -13,3 +13,5 @@ export const LoggedInView = () => {
     <Redirect to='/' />
   )
 }
+
+export default LoggedInView

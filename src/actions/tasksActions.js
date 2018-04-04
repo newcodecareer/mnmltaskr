@@ -1,7 +1,7 @@
 import { db } from '../firebase'
-import { getUser } from './firestore-actions/authUser'
+import { getUser } from './firestore/authUser'
 
-export default function fetchTasks () {
+const fetchTasks = () => {
   return async (dispatch) => {
     const uid = getUser().uid
     const taskList = []
@@ -28,7 +28,7 @@ export default function fetchTasks () {
   }
 }
 
-export function fetchPostedTasks () {
+const fetchPostedTasks = () => {
   return async (dispatch) => {
     const uid = getUser().uid
     const postedTasks = await db.collection('tasks')
@@ -45,4 +45,9 @@ export function fetchPostedTasks () {
       payload: postedList
     })
   }
+}
+
+export {
+  fetchTasks,
+  fetchPostedTasks
 }

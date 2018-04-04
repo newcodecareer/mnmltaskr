@@ -1,13 +1,13 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 
-export default function PrivateRoute ({ component: Component, ...rest }) {
+const PrivateRoute = ({ component: Component, ...rest }) => {
   const user = localStorage.getItem('user')
   const view = <Component />
   const name = view.type.displayName
   const isAuthView =
-    name === 'loginComponent' ||
-    name === 'signupComponent'
+    name === 'Login' ||
+    name === 'Signup'
 
   let component = (props) => (
     user ? <Component {...props} />
@@ -25,3 +25,5 @@ export default function PrivateRoute ({ component: Component, ...rest }) {
     <Route {...rest} render={component} />
   )
 }
+
+export default PrivateRoute

@@ -1,10 +1,12 @@
-export default function setStatus () {
+const setStatus = () => {
   const user = localStorage.getItem('user')
 
-  return function (dispatch) {
+  return (dispatch) => {
     dispatch({
       type: 'USER_STATUS',
       payload: !!user
     })
   }
 }
+
+export default setStatus

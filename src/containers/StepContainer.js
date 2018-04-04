@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import StepContent from '../components/wizard-style-form/StepContent'
+import StepContent from '../components/wizard-form/StepContent'
 
 const mapStateToProps = (state) => {
   return { page: state.wizard.page }

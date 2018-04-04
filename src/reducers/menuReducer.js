@@ -1,6 +1,6 @@
-export default function itemsReducer (state = {
+const itemsReducer = (state = {
   visible: false
-}, action) {
+}, action) => {
   switch (action.type) {
     case 'SELECT_ITEM': {
       return {
@@ -17,3 +17,5 @@ export default function itemsReducer (state = {
   }
   return state
 }
+
+export default itemsReducer

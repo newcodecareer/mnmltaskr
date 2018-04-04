@@ -5,7 +5,7 @@ import setStatus from '../userActions'
 import { toggleSidebar } from '../menuActions'
 import store from '../../store'
 
-export const signinUser = async (values) => {
+const signinUser = async (values) => {
   let authed
   try {
     authed = await auth.signInWithEmailAndPassword(
@@ -33,7 +33,7 @@ export const signinUser = async (values) => {
   }
 }
 
-export const signupUser = async (values) => {
+const signupUser = async (values) => {
   let newUser
   try {
     newUser = await auth.createUserWithEmailAndPassword(
@@ -72,7 +72,7 @@ export const signupUser = async (values) => {
   }
 }
 
-export const setActiveUser = async (uid) => {
+const setActiveUser = async (uid) => {
   try {
     let user = await db.collection('users').doc(uid).get()
     user = { ...user.data(), uid }
@@ -96,11 +96,11 @@ const removeActiveUser = () => {
   history.push('/')
 }
 
-export const getUser = () => {
+const getUser = () => {
   return JSON.parse(localStorage.getItem('user'))
 }
 
-export const logout = async () => {
+const logout = async () => {
   try {
     await auth.signOut()
 
@@ -109,4 +109,11 @@ export const logout = async () => {
   } catch (e) {
     throw e
   }
+}
+
+export {
+  signinUser,
+  signupUser,
+  getUser,
+  logout
 }

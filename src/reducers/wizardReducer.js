@@ -1,4 +1,4 @@
-export default function wizardReducer (state = { page: 1 }, action) {
+const wizardReducer = (state = { page: 1 }, action) => {
   switch (action.type) {
     case 'GO_TO_PREV': {
       return {
@@ -13,3 +13,5 @@ export default function wizardReducer (state = { page: 1 }, action) {
   }
   return state
 }
+
+export default wizardReducer

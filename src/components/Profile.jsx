@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Divider, Button, Sidebar, Container, Image, List } from 'semantic-ui-react'
-import { getUser } from '../actions/firestore-actions/authUser'
+import { getUser } from '../actions/firestore/authUser'
 
 const renderInfo = (user) => {
   const photoSrc = user.gender === 'male'
@@ -72,29 +72,29 @@ const renderInfo = (user) => {
   )
 }
 
-export default class Profile extends Component {
-  render () {
-    const { visible, toggleSidebar } = this.props
-    const user = getUser()
+const Profile = (props) => {
+  const { visible, toggleSidebar } = props
+  const user = getUser()
 
-    return (
-      <Sidebar
-        as={Container}
-        style={{
-          backgroundColor: 'whitesmoke',
-          padding: '2ex'
-        }}
-        animation='overlay'
-        visible={visible}
-      >
-        <Button
-          icon='arrow left'
-          size='mini' circular
-          floated='right'
-          onClick={toggleSidebar}
-        />
-        {user && renderInfo(user)}
-      </Sidebar>
-    )
-  }
+  return (
+    <Sidebar
+      as={Container}
+      style={{
+        backgroundColor: 'whitesmoke',
+        padding: '2ex'
+      }}
+      animation='overlay'
+      visible={visible}
+    >
+      <Button
+        icon='arrow left'
+        size='mini' circular
+        floated='right'
+        onClick={toggleSidebar}
+      />
+      {user && renderInfo(user)}
+    </Sidebar>
+  )
 }
+
+export default Profile

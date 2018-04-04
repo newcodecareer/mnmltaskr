@@ -4,7 +4,7 @@ import store from '../../store'
 import { reset } from 'redux-form'
 import { getUser } from './authUser'
 
-export const postTask = async (values) => {
+const postTask = async (values) => {
   const uid = getUser().uid
   let {
     title,
@@ -43,3 +43,5 @@ export const postTask = async (values) => {
     )
   }
 }
+
+export default postTask

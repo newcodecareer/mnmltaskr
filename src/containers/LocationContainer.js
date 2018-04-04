@@ -1,6 +1,6 @@
 import { reduxForm, formValueSelector } from 'redux-form'
 import { connect } from 'react-redux'
-import { Location } from '../components/wizard-style-form/form-contents/Location'
+import Location from '../components/wizard-form/contents/Location'
 
 const decoratedLocation = reduxForm({
   form: 'wizard',
