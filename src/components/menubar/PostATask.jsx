@@ -4,7 +4,7 @@ import { Header, Grid } from 'semantic-ui-react'
 import StepContainer from '../../containers/StepContainer'
 import WizardContainer from '../../containers/WizardContainer'
 
-import postTask from '../../actions/firestore/dbActions'
+import { postTask } from '../../actions/firestore/dbActions'
 
 const PostATask = (props) => (
   <div>

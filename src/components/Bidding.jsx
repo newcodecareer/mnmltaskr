@@ -41,13 +41,27 @@ const renderFees = (offer) => {
 }
 
 const Bidding = (props) => {
-  const { offer } = props
+  const { offer, handleSubmit, initialValues } = props
+  const title = initialValues.title
+
   return (
     <Modal open basic size='mini'>
       <Segment vertical>
-
-        <Header inverted>MAKE AN OFFER</Header>
-        <Form inverted>
+        <Header inverted
+          textAlign='center'
+          style={{ margin: '3pt' }}
+        >
+          {title}
+        </Header>
+        <Divider inverted
+          content='make an offer'
+          horizontal
+          style={{
+            marginTop: '0em',
+            marginBottom: '2em'
+          }}
+        />
+        <Form inverted onSubmit={handleSubmit}>
           <Form.Field>
             <label>How much?</label>
             <Field

@@ -10,7 +10,8 @@ const fetchTasks = () => {
       .get()
 
     tasks.forEach((task) => {
-      taskList.push(task.data())
+      const id = task.id
+      taskList.push({...task.data(), id})
     })
 
     tasks = await db.collection('tasks')
@@ -18,7 +19,8 @@ const fetchTasks = () => {
       .get()
 
     tasks.forEach((task) => {
-      taskList.push(task.data())
+      const id = task.id
+      taskList.push({...task.data(), id})
     })
 
     dispatch({
@@ -37,7 +39,8 @@ const fetchPostedTasks = () => {
 
     const postedList = []
     postedTasks.forEach((posted) => {
-      postedList.push(posted.data())
+      const id = posted.id
+      postedList.push({...posted.data(), id})
     })
 
     dispatch({

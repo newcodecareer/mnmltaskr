@@ -3,6 +3,17 @@ import { Header, Card } from 'semantic-ui-react'
 import { Route } from 'react-router-dom'
 import TaskCard from '../TaskCard'
 import BiddingContainer from '../../containers/BiddingContainer'
+import { makeAnOffer } from '../../actions/firestore/dbActions'
+
+const renderBidding = ({ match }) => (
+  <BiddingContainer
+    onSubmit={makeAnOffer}
+    initialValues={{
+      id: `${match.params.id}`,
+      title: `${match.params.title}`
+    }}
+  />
+)
 
 class BrowseTasks extends Component {
   componentDidMount () {
@@ -30,8 +41,8 @@ class BrowseTasks extends Component {
           }
         </Card.Group>
         <Route
-          path='/browse-tasks/bidding'
-          component={BiddingContainer}
+          path='/browse-tasks/bidding/:id&:title'
+          component={renderBidding}
         />
       </div>
     )

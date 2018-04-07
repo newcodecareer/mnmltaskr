@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 const TaskCard = (props) => {
   const {
+    id,
     title,
     description,
     type,
@@ -13,6 +14,8 @@ const TaskCard = (props) => {
     budget,
     availability
   } = props
+
+  console.log('id', id)
 
   return (
     <Card as='a' color='grey'>
@@ -99,7 +102,7 @@ const TaskCard = (props) => {
         </div>
         <Button
           as={Link}
-          to='/browse-tasks/bidding'
+          to={`/browse-tasks/bidding/${id}&${title}`}
           floated='right'
           size='small'
         >
