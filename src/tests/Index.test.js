@@ -19,8 +19,8 @@ describe('<Index />', () => {
     expect(wrapper.find(Switch)).toHaveLength(1)
   })
 
-  it('renders 2 <Route>', () => {
-    expect(wrapper.find(Route)).toHaveLength(2)
+  it('renders 3 <Route>', () => {
+    expect(wrapper.find(Route)).toHaveLength(3)
   })
 
   it('renders 2 <PrivateRoute>', () => {
