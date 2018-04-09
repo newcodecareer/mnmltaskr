@@ -4,6 +4,8 @@ import { Card, Label, Button, Comment } from 'semantic-ui-react'
 const OfferCard = (props) => {
   const { uid, firstName, gender, offer, reason } = props
 
+  console.log(uid)
+
   return (
     <Card color='grey'>
       <Card.Content>
