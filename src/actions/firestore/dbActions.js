@@ -53,9 +53,9 @@ const makeAnOffer = async ({ id, offer, reason }) => {
       .runTransaction(async t => {
         const doc = await t.get(taskRef)
         const bidders = doc.get('bidders')
-        const uid = getUser().uid
+        const { uid, firstName, gender } = getUser()
 
-        bidders.push({ uid, offer, reason })
+        bidders.push({ uid, firstName, gender, offer, reason })
         t.update(taskRef, { bidders })
 
         return { result: 'sucess' }
@@ -70,6 +70,12 @@ const makeAnOffer = async ({ id, offer, reason }) => {
       'success'
     )
     history.push('/browse-tasks')
+  } else {
+    console.log('transaction', transaction)
+    swal('Oh, no',
+      'Submission failed: ' + transaction,
+      'error'
+    )
   }
 }
 

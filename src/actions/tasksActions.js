@@ -1,6 +1,8 @@
 import { db } from '../firebase'
 import { getUser } from './firestore/authUser'
 
+let postedList = []
+
 const fetchTasks = () => {
   return async (dispatch) => {
     const uid = getUser().uid
@@ -37,7 +39,6 @@ const fetchPostedTasks = () => {
       .where('owner', '==', `/users/${uid}`)
       .get()
 
-    const postedList = []
     postedTasks.forEach((posted) => {
       const id = posted.id
       postedList.push({...posted.data(), id})
@@ -50,7 +51,19 @@ const fetchPostedTasks = () => {
   }
 }
 
+const fetchUserBids = (id) => {
+  let bidders = []
+  postedList.forEach((task) => {
+    if (id === task.id) {
+      bidders = task.bidders
+    }
+  })
+
+  return bidders
+}
+
 export {
   fetchTasks,
-  fetchPostedTasks
+  fetchPostedTasks,
+  fetchUserBids
 }

@@ -2,6 +2,29 @@ import React from 'react'
 import { format } from 'date-fns'
 import { Divider, Card, Button, Label, List } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import { getUser } from '../actions/firestore/authUser'
+
+const renderOfferButton = (id, title) => (
+  <Button
+    as={Link}
+    to={`/browse-tasks/bidding/${id}&${title}`}
+    floated='right'
+    size='small'
+  >
+    Make an offer
+  </Button>
+)
+
+const renderBidsButton = (id, title) => (
+  <Button
+    as={Link}
+    to={`/my-tasks/view-offers/${id}&${title}`}
+    floated='right'
+    size='small'
+  >
+    View offers
+  </Button>
+)
 
 const TaskCard = (props) => {
   const {
@@ -12,13 +35,12 @@ const TaskCard = (props) => {
     location,
     due,
     budget,
-    availability
+    availability,
+    owner
   } = props
 
-  console.log('id', id)
-
   return (
-    <Card as='a' color='grey'>
+    <Card color='grey'>
       <Card.Content>
         <Card.Header>
           <div
@@ -100,14 +122,11 @@ const TaskCard = (props) => {
               : <label>ASSIGNED</label>
           }
         </div>
-        <Button
-          as={Link}
-          to={`/browse-tasks/bidding/${id}&${title}`}
-          floated='right'
-          size='small'
-        >
-            Make an offer
-        </Button>
+        {
+          owner === `/users/${getUser().uid}`
+            ? renderBidsButton(id, title)
+            : renderOfferButton(id, title)
+        }
       </Card.Content>
     </Card>
   )

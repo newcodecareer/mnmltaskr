@@ -1,6 +1,15 @@
 import React, { Component } from 'react'
 import { Header, Card } from 'semantic-ui-react'
 import TaskCard from '../TaskCard'
+import { Route } from 'react-router-dom'
+import Offers from '../Offers.jsx'
+
+const renderOffers = ({ match }) => (
+  <Offers
+    id={match.params.id}
+    title={match.params.title}
+  />
+)
 
 class MyTasks extends Component {
   componentDidMount () {
@@ -27,6 +36,10 @@ class MyTasks extends Component {
             })
           }
         </Card.Group>
+        <Route
+          path='/my-tasks/view-offers/:id&:title'
+          component={renderOffers}
+        />
       </div>
     )
   }
