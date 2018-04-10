@@ -11,7 +11,7 @@ const FormWrapper = (props) => {
 
   return (
     <div>
-      <Image fluid src='/images/howto.gif' />
+      <Image fluid src='/images/hiw.gif' />
       <Modal open basic size='mini'>
         <Segment vertical style={{ paddingBottom: '6em' }}>
           <Button

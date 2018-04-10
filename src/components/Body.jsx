@@ -1,6 +1,5 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { Container, Segment } from 'semantic-ui-react'
 import PrivateRoute from './custom/PrivateRoute'
 
 import Home from './Home'
@@ -11,13 +10,9 @@ import PostedTasksContainer from '../containers/PostedTasksContainer'
 const Body = (props) => (
   <Switch>
     <Route exact path='/' component={Home} />
-    <Container>
-      <Segment style={{ padding: '6em 0em 4em 0em' }} vertical>
-        <PrivateRoute path='/post-a-task' component={PostATask} />
-        <PrivateRoute path='/browse-tasks' component={TasksContainer} />
-        <PrivateRoute path='/my-tasks' component={PostedTasksContainer} />
-      </Segment>
-    </Container>
+    <PrivateRoute path='/post-a-task' component={PostATask} />
+    <PrivateRoute path='/browse-tasks' component={TasksContainer} />
+    <PrivateRoute path='/my-tasks' component={PostedTasksContainer} />
   </Switch>
 )
 
