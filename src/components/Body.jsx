@@ -9,16 +9,16 @@ import TasksContainer from '../containers/TasksContainer'
 import PostedTasksContainer from '../containers/PostedTasksContainer'
 
 const Body = (props) => (
-  <Container>
-    <Segment style={{ padding: '6em 0em 4em 0em' }} vertical>
-      <Switch>
-        <Route exact path='/' component={Home} />
+  <Switch>
+    <Route exact path='/' component={Home} />
+    <Container>
+      <Segment style={{ padding: '6em 0em 4em 0em' }} vertical>
         <PrivateRoute path='/post-a-task' component={PostATask} />
         <PrivateRoute path='/browse-tasks' component={TasksContainer} />
         <PrivateRoute path='/my-tasks' component={PostedTasksContainer} />
-      </Switch>
-    </Segment>
-  </Container>
+      </Segment>
+    </Container>
+  </Switch>
 )
 
 export default Body
