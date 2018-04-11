@@ -83,13 +83,13 @@ const Profile = (props) => {
         backgroundColor: 'whitesmoke',
         padding: '2ex'
       }}
+      direction='right'
       animation='overlay'
       visible={visible}
     >
       <Button
-        icon='arrow left'
+        icon='arrow right'
         size='mini' circular
-        floated='right'
         onClick={toggleSidebar}
       />
       {user && renderInfo(user)}

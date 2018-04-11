@@ -44,22 +44,15 @@ const Bidding = (props) => {
   const title = initialValues.title
 
   return (
-    <Modal open basic size='mini'>
-      <Segment vertical>
-        <Header inverted
-          textAlign='center'
-          style={{ margin: '3pt' }}
-        >
-          {title}
+    <Modal open basic
+      dimmer='blurring'
+      size='mini'
+    ><Segment vertical>
+        <Header inverted>
+          <Header.Subheader>Make an offer</Header.Subheader>
+          <Header.Content>{title}</Header.Content>
         </Header>
-        <Divider inverted
-          content='make an offer'
-          horizontal
-          style={{
-            marginTop: '0em',
-            marginBottom: '2em'
-          }}
-        />
+        <Divider />
         <Form inverted onSubmit={handleSubmit}>
           <Form.Field>
             <label>How much?</label>
@@ -70,7 +63,7 @@ const Bidding = (props) => {
             />
             {offer && renderFees(offer)}
           </Form.Field>
-          <Divider inverted />
+          <Divider hidden />
           <Form.Field>
             <label>Why are you the best person for this task?</label>
             <Field
@@ -84,15 +77,13 @@ const Bidding = (props) => {
             to='/browse-tasks'
             icon circular
             basic inverted
-          >
-            <Icon name='arrow left' />
+          ><Icon name='arrow left' />
           </Button>
           <Button
             type='submit'
             floated='right'
             circular
-          >
-            Continue
+          >Continue
           </Button>
         </Form>
       </Segment>

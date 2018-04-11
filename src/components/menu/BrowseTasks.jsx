@@ -30,11 +30,10 @@ class BrowseTasks extends Component {
     return (
       <Container>
         <Segment style={{ padding: '6em 0em 4em 0em' }} vertical>
-          <div>
-            <Header textAlign='center'>BROWSE TASKS</Header>
+          <div><Header>BROWSE TASKS</Header>
             {
               tasks.length > 0
-                ? <Card.Group centered>
+                ? <Card.Group>
                   {
                     tasks.map((task, index) => (
                       <TaskCard

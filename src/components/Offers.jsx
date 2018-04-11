@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Modal, Button, Icon, Header, Divider, Card } from 'semantic-ui-react'
+import { Modal, Button, Header, Divider, Card } from 'semantic-ui-react'
 import OfferCard from './OfferCard'
 import { Link } from 'react-router-dom'
 
@@ -17,26 +17,22 @@ class Offers extends Component {
     }
 
     return (
-      <Modal open basic size='large'>
-        <Modal.Content>
+      <Modal open basic
+        dimmer='blurring'
+        size='large'
+      ><Modal.Content>
+          <Header inverted>
+            <Header.Subheader>List of Bidders for</Header.Subheader>
+            <Header.Content>{title}</Header.Content>
+          </Header>
           <Button
             as={Link}
             to='/my-tasks'
-            floated='left'
-            style={{
-              margin: '5px 20px 5px 30px'
-            }}
-            icon circular
             basic inverted
-            size='tiny'
-          >
-            <Icon name='arrow left' />
+            size='mini'
+          >Go back
           </Button>
-          <Header as='a' inverted>
-            <Header.Subheader>OFFERS FOR</Header.Subheader>
-            <Header.Content>{title}</Header.Content>
-          </Header>
-          <Divider inverted />
+          <Divider hidden />
           {
             bids.length > 0
               ? <Card.Group>
@@ -48,7 +44,7 @@ class Offers extends Component {
               </Card.Group>
               : <div>No offers yet!</div>
           }
-          <Divider inverted />
+          <Divider hidden />
         </Modal.Content>
       </Modal>
     )
