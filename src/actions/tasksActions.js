@@ -1,8 +1,6 @@
 import { db } from '../firebase'
 import { getUser } from './firestore/authUser'
 
-let postedList = []
-
 const fetchTasks = () => {
   return async (dispatch) => {
     const uid = getUser().uid
@@ -39,6 +37,7 @@ const fetchPostedTasks = () => {
       .where('owner', '==', uid)
       .get()
 
+    const postedList = []
     postedTasks.forEach((posted) => {
       const id = posted.id
       postedList.push({...posted.data(), id})
