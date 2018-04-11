@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Grid, Container, Segment } from 'semantic-ui-react'
+import { Header, Container, Segment } from 'semantic-ui-react'
 
 import StepContainer from '../../containers/StepContainer'
 import WizardContainer from '../../containers/WizardContainer'
@@ -7,22 +7,21 @@ import WizardContainer from '../../containers/WizardContainer'
 import { postTask } from '../../actions/firestore/dbActions'
 
 const PostATask = (props) => (
-  <Container>
-    <Segment style={{ padding: '6em 0em 4em 0em' }} vertical>
-      <div>
-        <Header>POST A TASK</Header>
-        <Grid>
-          <Grid.Column width={4}>
-            {/* custom content */}
-            <StepContainer />
-          </Grid.Column>
-          <Grid.Column width={8}>
-            {/* custom content */}
-            <WizardContainer onSubmit={postTask}/>
-            {/* <WizardContainer /> */}
-          </Grid.Column>
-        </Grid>
+  <Container text>
+    <Segment vertical
+      style={{
+        paddingTop: '6em',
+        paddingBottom: '4em'
+      }}
+    >
+      <Header>POST A TASK</Header>
+      <div style={{
+        paddingTop: '1.5rem',
+        paddingBottom: '2rem'
+      }}>
+        <WizardContainer onSubmit={postTask}/>
       </div>
+      <div><StepContainer /></div>
     </Segment>
   </Container>
 )

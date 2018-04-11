@@ -5,7 +5,7 @@ const StepContent = (props) => {
   const { page } = props
 
   return (
-    <Step.Group fluid vertical size='mini'>
+    <Step.Group unstackable size='mini'>
       <Step active={page === 1 && true}>
         <Icon name='info circle' />
         <Step.Content>
