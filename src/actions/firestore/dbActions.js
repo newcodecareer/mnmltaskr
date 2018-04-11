@@ -28,8 +28,7 @@ const postTask = async (values) => {
       budget: Number(budget),
       manpower: Number(manpower),
       open: true,
-      owner: uid,
-      bids: []
+      owner: uid
     })
 
   if (posted) {

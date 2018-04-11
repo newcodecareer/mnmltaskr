@@ -69,8 +69,48 @@ const fetchTaskBids = (taskId) => {
   }
 }
 
+const fetchBiddedTasks = () => {
+  return async (dispatch) => {
+    const uid = getUser().uid
+    const bids = await db.collection('bids')
+      .where('owner', '==', uid)
+      .get()
+
+    const taskIds = []
+    bids.forEach(bid => {
+      const taskId = bid.get('taskId')
+      taskIds.push(taskId)
+    })
+
+    const biddedTasks = []
+    taskIds.forEach(async (taskId) => {
+      const task = await db.collection('tasks')
+        .doc(taskId)
+        .get()
+
+      biddedTasks.push(task.data())
+    })
+
+    dispatch({
+      type: 'BIDDED_TASKS',
+      payload: biddedTasks
+    })
+  }
+}
+
+const setFilterUrl = (url) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'TASK_FILTER_URL',
+      payload: url
+    })
+  }
+}
+
 export {
   fetchTasks,
   fetchPostedTasks,
-  fetchTaskBids
+  fetchTaskBids,
+  fetchBiddedTasks,
+  setFilterUrl
 }

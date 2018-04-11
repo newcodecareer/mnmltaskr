@@ -40,7 +40,7 @@ const TaskCard = (props) => {
   } = props
 
   return (
-    <Card color='grey'>
+    <Card color='teal'>
       <Card.Content>
         <Card.Header>
           <div
@@ -53,7 +53,9 @@ const TaskCard = (props) => {
           </div>
           <Label
             as='a' tag
-            style={{ backgroundColor: '#f8ed62' }}
+            style={{
+              backgroundColor: '#f8ed62'
+            }}
             size='large'
             attached='top right'
           >

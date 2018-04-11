@@ -12,15 +12,18 @@ const renderOffers = ({ match }) => (
 )
 
 const filters = [
-  { key: 'posted', title: 'Posted tasks' },
-  { key: 'completed', title: 'Task completed' }
+  { url: '/', title: 'Posted tasks' },
+  { url: '/bidded', title: 'Bidded tasks' }
 ]
-const renderFilters = () => (
+const renderFilters = (setFilterUrl) => (
   <div style={{ paddingBottom: '2rem' }}>
     {
       filters.map((filter, index) =>
-        <Button size='tiny' basic
-          key={filter.key + index}
+        <Button size='tiny'
+          key={filter.url + index}
+          onClick={() =>
+            setFilterUrl(filter.url)
+          }
         >{filter.title}
         </Button>
       )
@@ -31,37 +34,50 @@ const renderFilters = () => (
 class MyTasks extends Component {
   componentDidMount () {
     this.props.fetchPostedTasks()
+    this.props.fetchBiddedTasks()
   }
 
   render () {
-    let { postedTasks } = this.props
+    const { filterUrl, setFilterUrl } = this.props
+    const { postedTasks, biddedTasks } = this.props
 
-    if (!postedTasks) {
-      postedTasks = []
+    console.log('filerURL', filterUrl)
+
+    let tasks = []
+    switch (filterUrl) {
+      case '/': {
+        tasks = postedTasks
+        break
+      } case '/bidded': {
+        tasks = biddedTasks
+      }
     }
 
     return (
       <Container>
         <Segment style={{ padding: '6em 0em 4em 0em' }} vertical>
           <div>
-            <Header>MY TASKS</Header>
-            { renderFilters() }
-            {
-              postedTasks.length > 0
-                ? <Card.Group>
-                  {
-                    postedTasks.map((task, index) => (
-                      <TaskCard
-                        key={index + 'uniquemi2'}
-                        {...task}
-                      />
-                    ))
-                  }
-                </Card.Group>
-                : <div>You have no tasks yet!</div>
+            <Header>
+              <span>MY TASKS</span>
+              <span style={{ color: 'grey' }}>
+                {` ${filterUrl}`}
+              </span>
+            </Header>
+            { renderFilters(setFilterUrl) }
+            { tasks
+              ? <Card.Group>
+                {
+                  tasks.map((task, index) => (
+                    <TaskCard
+                      key={index + 'uniquemi2'}
+                      {...task}
+                    />
+                  ))
+                }
+              </Card.Group>
+              : <div>You have no tasks yet!</div>
             }
-            <Route
-              path='/my-tasks/view-offers/:taskId&:title'
+            <Route path='/my-tasks/view-offers/:taskId&:title'
               component={renderOffers}
             />
           </div>
