@@ -1,23 +1,14 @@
 import React from 'react'
 import { Card, Label, Button, Comment } from 'semantic-ui-react'
+import { acceptOffer } from '../actions/firestore/dbActions'
 
 const OfferCard = (props) => {
-  const { uid, firstName, gender, offer, reason } = props
-
-  console.log(uid)
+  const { owner, taskId, firstName, bidId,
+    gender, offer, reason, accepted } = props
 
   return (
-    <Card color='grey'>
+    <Card color='blue'>
       <Card.Content>
-        <Card.Header>
-          <Label as='a' tag
-            size='large'
-            attached='top right'
-            style={{ backgroundColor: '#f8ed62' }}
-          >
-            &#8369; {offer}
-          </Label>
-        </Card.Header>
         <Card.Description>
           <Comment.Group>
             <Comment>
@@ -44,11 +35,18 @@ const OfferCard = (props) => {
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
+        <Label as='a' size='large'
+          style={{
+            backgroundColor: '#f8ed62'
+          }}
+        >&#8369; {offer}
+        </Label>
         <Button
+          onClick={() => acceptOffer(owner, taskId, bidId, offer)}
+          disabled={accepted}
           floated='right'
           size='tiny'
-        >
-          Accept Offer
+        >Accept Offer
         </Button>
       </Card.Content>
     </Card>

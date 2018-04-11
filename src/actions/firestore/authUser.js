@@ -46,7 +46,7 @@ const signupUser = async (values) => {
 
   const uid = newUser.uid
   if (uid) {
-    const signedin = await db.collection('users').doc(uid).set({
+    await db.collection('users').doc(uid).set({
       firstName: values.first,
       lastName: values.last,
       email: values.email,
@@ -55,8 +55,6 @@ const signupUser = async (values) => {
       address: values.address
     })
 
-    console.log('signedin', signedin)
-    console.log('currentUser', auth.currentUser)
     setActiveUser(uid)
     swal(
       'Welcome, ' + values.first + '!',

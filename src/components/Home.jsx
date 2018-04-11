@@ -1,5 +1,7 @@
 import React from 'react'
-import { Icon, Card, Header, Image, Grid, List, Label, Button, Container, Segment } from 'semantic-ui-react'
+import { Icon, Card, Header,
+  Image, Grid, List, Label,
+  Button, Container, Segment } from 'semantic-ui-react'
 import ReactSwipe from 'react-swipe'
 
 const services = [

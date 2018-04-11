@@ -4,10 +4,10 @@ import { Divider, Card, Button, Label, List } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { getUser } from '../actions/firestore/authUser'
 
-const renderOfferButton = (id, title) => (
+const renderOfferButton = (taskId, title) => (
   <Button
     as={Link}
-    to={`/browse-tasks/bidding/${id}&${title}`}
+    to={`/browse-tasks/bidding/${taskId}&${title}`}
     floated='right'
     size='small'
   >
@@ -15,10 +15,10 @@ const renderOfferButton = (id, title) => (
   </Button>
 )
 
-const renderBidsButton = (id, title) => (
+const renderBidsButton = (taskId, title) => (
   <Button
     as={Link}
-    to={`/my-tasks/view-offers/${id}&${title}`}
+    to={`/my-tasks/view-offers/${taskId}&${title}`}
     floated='right'
     size='small'
   >
@@ -30,12 +30,12 @@ const TaskCard = (props) => {
   const {
     id,
     title,
-    description,
+    desc,
     type,
     location,
     due,
     budget,
-    availability,
+    open,
     owner
   } = props
 
@@ -66,7 +66,7 @@ const TaskCard = (props) => {
             <Card.Meta>
                 Description
             </Card.Meta>
-            {description}
+            {desc}
           </div>
           <List animated
             verticalAlign='middle'>
@@ -117,13 +117,13 @@ const TaskCard = (props) => {
           }}
         >
           {
-            availability
+            open
               ? <label style={{ color: 'olive' }}>OPEN</label>
               : <label>ASSIGNED</label>
           }
         </div>
         {
-          owner === `/users/${getUser().uid}`
+          owner === getUser().uid
             ? renderBidsButton(id, title)
             : renderOfferButton(id, title)
         }

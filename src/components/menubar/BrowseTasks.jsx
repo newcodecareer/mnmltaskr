@@ -9,7 +9,7 @@ const renderBidding = ({ match }) => (
   <BiddingContainer
     onSubmit={makeAnOffer}
     initialValues={{
-      id: `${match.params.id}`,
+      taskId: `${match.params.taskId}`,
       title: `${match.params.title}`
     }}
   />
@@ -34,16 +34,16 @@ class BrowseTasks extends Component {
             <Header textAlign='center'>BROWSE TASKS</Header>
             <Card.Group centered>
               {
-                tasks.map((task, index) => {
-                  return <TaskCard
+                tasks.map((task, index) => (
+                  <TaskCard
                     key={index + 'uniquemi'}
                     {...task}
                   />
-                })
+                ))
               }
             </Card.Group>
             <Route
-              path='/browse-tasks/bidding/:id&:title'
+              path='/browse-tasks/bidding/:taskId&:title'
               component={renderBidding}
             />
           </div>

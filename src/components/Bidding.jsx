@@ -3,6 +3,7 @@ import { Field } from 'redux-form'
 import { Link } from 'react-router-dom'
 import { Divider, Modal, Segment, Icon,
   Form, Input, Header, TextArea, Button } from 'semantic-ui-react'
+import solveFees from './custom/FeeSolver'
 
 const renderInput = (field) => (
   <Input
@@ -26,15 +27,13 @@ const renderTextArea = (field) => (
 )
 
 const renderFees = (offer) => {
-  const mnmltaskrProfit = offer * 0.15
-  const taskerFee = offer - mnmltaskrProfit
-
+  const { fee, profit } = solveFees(offer)
   return (
     <div style={{ marginTop: '1em' }}>
       <i>
-        You will receive &#8369; {taskerFee}
+        You will receive &#8369; {fee}
         <div style={{ padding: '3px' }} />
-        mnmltaskr fee of &#8369; {mnmltaskrProfit}
+        mnmltaskr fee of &#8369; {profit}
       </i>
     </div>
   )

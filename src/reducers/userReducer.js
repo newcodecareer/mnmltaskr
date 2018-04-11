@@ -1,6 +1,6 @@
 const user = localStorage.getItem('user')
 
-const statusReducer = (state = {
+const userReducer = (state = {
   isActive: !!user
 }, action) => {
   switch (action.type) {
@@ -10,8 +10,15 @@ const statusReducer = (state = {
         isActive: action.payload
       }
     }
+    // case 'TASKER_DETAILS' : {
+    //   return {
+    //     ...state,
+    //     bidTaskers: state.bidTaskers
+    //       .concat(action.payload)
+    //   }
+    // }
   }
   return state
 }
 
-export default statusReducer
+export default userReducer

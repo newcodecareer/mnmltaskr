@@ -8,7 +8,7 @@ const fetchTasks = () => {
     const uid = getUser().uid
     const taskList = []
     let tasks = await db.collection('tasks')
-      .where('owner', '>', `/users/${uid}`)
+      .where('owner', '>', uid)
       .get()
 
     tasks.forEach((task) => {
@@ -17,7 +17,7 @@ const fetchTasks = () => {
     })
 
     tasks = await db.collection('tasks')
-      .where('owner', '<', `/users/${uid}`)
+      .where('owner', '<', uid)
       .get()
 
     tasks.forEach((task) => {
@@ -36,7 +36,7 @@ const fetchPostedTasks = () => {
   return async (dispatch) => {
     const uid = getUser().uid
     const postedTasks = await db.collection('tasks')
-      .where('owner', '==', `/users/${uid}`)
+      .where('owner', '==', uid)
       .get()
 
     postedTasks.forEach((posted) => {
@@ -51,19 +51,27 @@ const fetchPostedTasks = () => {
   }
 }
 
-const fetchUserBids = (id) => {
-  let bidders = []
-  postedList.forEach((task) => {
-    if (id === task.id) {
-      bidders = task.bidders
-    }
-  })
+const fetchTaskBids = (taskId) => {
+  return async (dispatch) => {
+    const bids = await db.collection('bids')
+      .where('taskId', '==', taskId)
+      .get()
 
-  return bidders
+    const bidsList = []
+    bids.forEach((bid) => {
+      const bidId = bid.id
+      bidsList.push({ ...bid.data(), bidId })
+    })
+
+    dispatch({
+      type: 'FETCH_BIDS',
+      payload: bidsList
+    })
+  }
 }
 
 export {
   fetchTasks,
   fetchPostedTasks,
-  fetchUserBids
+  fetchTaskBids
 }

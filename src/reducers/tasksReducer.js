@@ -12,6 +12,12 @@ const tasksReducer = (state = {}, action) => {
         postedTasks: action.payload
       }
     }
+    case 'FETCH_BIDS': {
+      return {
+        ...state,
+        bids: action.payload
+      }
+    }
   }
   return state
 }

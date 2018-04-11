@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { Header, Card, Container, Segment } from 'semantic-ui-react'
 import TaskCard from '../TaskCard'
 import { Route } from 'react-router-dom'
-import Offers from '../Offers.jsx'
+import OffersContainer from '../../containers/OffersContainer'
 
 const renderOffers = ({ match }) => (
-  <Offers
-    id={match.params.id}
+  <OffersContainer
+    taskId={match.params.taskId}
     title={match.params.title}
   />
 )
@@ -30,16 +30,16 @@ class MyTasks extends Component {
             <Header textAlign='center'>MY TASKS</Header>
             <Card.Group centered>
               {
-                postedTasks.map((task, index) => {
-                  return <TaskCard
+                postedTasks.map((task, index) => (
+                  <TaskCard
                     key={index + 'uniquemi2'}
                     {...task}
                   />
-                })
+                ))
               }
             </Card.Group>
             <Route
-              path='/my-tasks/view-offers/:id&:title'
+              path='/my-tasks/view-offers/:taskId&:title'
               component={renderOffers}
             />
           </div>

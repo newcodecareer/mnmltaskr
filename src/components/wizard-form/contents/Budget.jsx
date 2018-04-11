@@ -30,7 +30,7 @@ const Budget = (props) => {
         </label>
         <Input labelPosition='right'>
           <Field
-            name='numberOfTaskers'
+            name='manpower'
             component='input'
             placeholder='Number of taskers'
             type='number'

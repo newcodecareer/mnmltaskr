@@ -62,7 +62,7 @@ const Details = (props) => {
             e.g., email, phone or address.
         </div>
         <Field
-          name='description'
+          name='desc'
           component={renderTextArea}
         />
       </Form.Field>
