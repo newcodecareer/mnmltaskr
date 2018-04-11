@@ -3,7 +3,7 @@ import { getUser } from './firestore/authUser'
 
 const fetchTasks = () => {
   return async (dispatch) => {
-    const uid = getUser().uid
+    const { uid } = getUser()
     const taskList = []
     let tasks = await db.collection('tasks')
       .where('owner', '>', uid)
@@ -32,7 +32,7 @@ const fetchTasks = () => {
 
 const fetchPostedTasks = () => {
   return async (dispatch) => {
-    const uid = getUser().uid
+    const { uid } = getUser()
     const postedTasks = await db.collection('tasks')
       .where('owner', '==', uid)
       .get()
@@ -71,7 +71,7 @@ const fetchTaskBids = (taskId) => {
 
 const fetchBiddedTasks = () => {
   return async (dispatch) => {
-    const uid = getUser().uid
+    const { uid } = getUser()
     const bids = await db.collection('bids')
       .where('owner', '==', uid)
       .get()
@@ -98,6 +98,29 @@ const fetchBiddedTasks = () => {
   }
 }
 
+const fetchTasksByAvailability = (open) => {
+  return async (dispatch) => {
+    const { uid } = getUser()
+    const tasks = await db.collection('tasks')
+      .where('owner', '==', uid)
+      .where('open', '==', open)
+      .get()
+
+    const tasksList = []
+    tasks.forEach(task =>
+      tasksList.push(task.data())
+    )
+
+    const type = open
+      ? 'OPEN_TASKS' : 'ASSIGNED_TASKS'
+
+    dispatch({
+      type: type,
+      payload: tasksList
+    })
+  }
+}
+
 const setFilterUrl = (url) => {
   return (dispatch) => {
     dispatch({
@@ -112,5 +135,6 @@ export {
   fetchPostedTasks,
   fetchTaskBids,
   fetchBiddedTasks,
+  fetchTasksByAvailability,
   setFilterUrl
 }

@@ -25,6 +25,16 @@ const tasksReducer = (state = { filterUrl: '/' }, action) => {
         ...state,
         filterUrl: action.payload
       }
+    } case 'ASSIGNED_TASKS': {
+      return {
+        ...state,
+        assignedTasks: action.payload
+      }
+    } case 'OPEN_TASKS': {
+      return {
+        ...state,
+        openTasks: action.payload
+      }
     }
   }
   return state

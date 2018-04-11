@@ -13,6 +13,8 @@ const renderOffers = ({ match }) => (
 
 const filters = [
   { url: '/', title: 'Posted tasks' },
+  { url: '/open', title: 'Open tasks' },
+  { url: '/assigned', title: 'Assigned tasks' },
   { url: '/bidded', title: 'Bidded tasks' }
 ]
 const renderFilters = (setFilterUrl) => (
@@ -35,11 +37,14 @@ class MyTasks extends Component {
   componentDidMount () {
     this.props.fetchPostedTasks()
     this.props.fetchBiddedTasks()
+    this.props.fetchTasksByAvailability(true)
+    this.props.fetchTasksByAvailability(false)
   }
 
   render () {
     const { filterUrl, setFilterUrl } = this.props
-    const { postedTasks, biddedTasks } = this.props
+    const { postedTasks, biddedTasks,
+      assignedTasks, openTasks } = this.props
 
     console.log('filerURL', filterUrl)
 
@@ -50,6 +55,13 @@ class MyTasks extends Component {
         break
       } case '/bidded': {
         tasks = biddedTasks
+        break
+      } case '/assigned': {
+        tasks = assignedTasks
+        break
+      } case '/open': {
+        tasks = openTasks
+        break
       }
     }
 
