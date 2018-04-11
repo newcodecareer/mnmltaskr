@@ -11,14 +11,6 @@ class Offers extends Component {
 
   render () {
     let { title, bids } = this.props
-    const apps = [
-      { taskerId: 'abc', fee: 20 },
-      { taskerId: 'efg', fee: 20 },
-      { taskerId: 'hij', fee: 20 }
-    ]
-
-    const inc = apps.filter(app => app.taskerId === 'cfg')
-    console.log('includes includes', inc)
 
     if (!bids) {
       bids = []

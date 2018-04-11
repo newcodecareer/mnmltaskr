@@ -4,9 +4,9 @@ import { Divider, Card, Button, Label, List } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { getUser } from '../actions/firestore/authUser'
 
-const renderOfferButton = (taskId, title) => (
+const renderOfferButton = (taskId, title, open) => (
   <Button
-    as={Link}
+    as={Link} disabled={!open}
     to={`/browse-tasks/bidding/${taskId}&${title}`}
     floated='right'
     size='small'
@@ -125,7 +125,7 @@ const TaskCard = (props) => {
         {
           owner === getUser().uid
             ? renderBidsButton(id, title)
-            : renderOfferButton(id, title)
+            : renderOfferButton(id, title, open)
         }
       </Card.Content>
     </Card>

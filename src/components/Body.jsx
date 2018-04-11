@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import PrivateRoute from './custom/PrivateRoute'
 
 import Home from './Home'
-import PostATask from './menubar/PostATask'
+import PostATask from './menu/PostATask'
 import TasksContainer from '../containers/TasksContainer'
 import PostedTasksContainer from '../containers/PostedTasksContainer'
 

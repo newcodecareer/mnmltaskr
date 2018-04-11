@@ -28,16 +28,20 @@ class MyTasks extends Component {
         <Segment style={{ padding: '6em 0em 4em 0em' }} vertical>
           <div>
             <Header textAlign='center'>MY TASKS</Header>
-            <Card.Group centered>
-              {
-                postedTasks.map((task, index) => (
-                  <TaskCard
-                    key={index + 'uniquemi2'}
-                    {...task}
-                  />
-                ))
-              }
-            </Card.Group>
+            {
+              postedTasks.length > 0
+                ? <Card.Group centered>
+                  {
+                    postedTasks.map((task, index) => (
+                      <TaskCard
+                        key={index + 'uniquemi2'}
+                        {...task}
+                      />
+                    ))
+                  }
+                </Card.Group>
+                : <div>You have no tasks yet!</div>
+            }
             <Route
               path='/my-tasks/view-offers/:taskId&:title'
               component={renderOffers}

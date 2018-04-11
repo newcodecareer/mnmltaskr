@@ -32,16 +32,20 @@ class BrowseTasks extends Component {
         <Segment style={{ padding: '6em 0em 4em 0em' }} vertical>
           <div>
             <Header textAlign='center'>BROWSE TASKS</Header>
-            <Card.Group centered>
-              {
-                tasks.map((task, index) => (
-                  <TaskCard
-                    key={index + 'uniquemi'}
-                    {...task}
-                  />
-                ))
-              }
-            </Card.Group>
+            {
+              tasks.length > 0
+                ? <Card.Group centered>
+                  {
+                    tasks.map((task, index) => (
+                      <TaskCard
+                        key={index + 'uniquemi'}
+                        {...task}
+                      />
+                    ))
+                  }
+                </Card.Group>
+                : <div>No tasks yet!</div>
+            }
             <Route
               path='/browse-tasks/bidding/:taskId&:title'
               component={renderBidding}
