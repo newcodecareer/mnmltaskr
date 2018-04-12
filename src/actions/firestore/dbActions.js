@@ -147,8 +147,41 @@ const acceptOffer = async (taskerId, taskId, bidId, offer) => {
   }
 }
 
+const completeTask = async (taskId) => {
+  const warned = await swal({
+    title: 'Mark this task completed?',
+    text: 'If there are multiple taskers, ' +
+      'the other taskers might not be done yet! ' +
+      'Please collaborate with them and confirm...',
+    icon: 'warning',
+    buttons: true,
+    dangerMode: true
+  })
+
+  if (warned) {
+    let done
+    try {
+      done = await db.collection('transactions')
+        .doc(taskId)
+        .update({ status: 'completed' })
+      done = true
+    } catch (e) {
+      swal('Oops!', e.message, 'error')
+      throw e
+    }
+
+    if (done) {
+      swal('Yay!',
+        'You have marked the task completed',
+        'success'
+      )
+    }
+  }
+}
+
 export {
   postTask,
   makeAnOffer,
-  acceptOffer
+  acceptOffer,
+  completeTask
 }

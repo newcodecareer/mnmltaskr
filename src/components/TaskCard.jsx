@@ -3,6 +3,7 @@ import { format } from 'date-fns'
 import { Divider, Card, Button, Label, List } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { getUser } from '../actions/firestore/authUser'
+import { completeTask } from '../actions/firestore/dbActions'
 
 const renderOfferButton = (taskId, title, open) => (
   <Button
@@ -26,6 +27,18 @@ const renderBidsButton = (taskId, title) => (
   </Button>
 )
 
+const markCompletedButton = (taskId) => (
+  <Button
+    onClick={() =>
+      completeTask(taskId)
+    }
+    floated='right'
+    size='small'
+  >
+    Mark completed
+  </Button>
+)
+
 const TaskCard = (props) => {
   const {
     id,
@@ -36,8 +49,11 @@ const TaskCard = (props) => {
     due,
     budget,
     open,
-    owner
+    owner,
+    status
   } = props
+
+  console.log('status', status)
 
   return (
     <Card color='teal'>
@@ -125,9 +141,13 @@ const TaskCard = (props) => {
           }
         </div>
         {
-          owner === getUser().uid
-            ? renderBidsButton(id, title)
-            : renderOfferButton(id, title, open)
+          status === 'ongoing'
+            ? markCompletedButton(id)
+            : <div>{
+              owner === getUser().uid
+                ? renderBidsButton(id, title)
+                : renderOfferButton(id, title, open)
+            }</div>
         }
       </Card.Content>
     </Card>

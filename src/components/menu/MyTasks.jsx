@@ -27,7 +27,7 @@ const renderFilters = (setFilterUrl) => (
         <Button size='tiny'
           key={filter.url + index}
           style={{
-            margin: '2pt'
+            marginTop: '2pt'
           }}
           onClick={() =>
             setFilterUrl(filter.url)
