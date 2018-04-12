@@ -121,6 +121,43 @@ const fetchTasksByAvailability = (open) => {
   }
 }
 
+const fetchTransactions = (status) => {
+  return async (dispatch) => {
+    const { uid } = getUser()
+    const trans = await db.collection('transactions')
+      .where('status', '==', status)
+      .get()
+
+    const taskIds = []
+    trans.forEach((tran) => {
+      const single = tran.data()
+      const { approved } = single
+
+      const aprub = approved.filter(a =>
+        a.taskerId === uid
+      )
+
+      if (aprub.length > 0) {
+        taskIds.push(single.taskId)
+      }
+    })
+
+    const tasks = []
+    taskIds.forEach(async (taskId) => {
+      const task = await db.collection('tasks')
+        .doc(taskId)
+        .get()
+
+      tasks.push(task.data())
+    })
+
+    dispatch({
+      type: `${status.toUpperCase()}_TASKS`,
+      payload: tasks
+    })
+  }
+}
+
 const setFilterUrl = (url) => {
   return (dispatch) => {
     dispatch({
@@ -136,5 +173,6 @@ export {
   fetchTaskBids,
   fetchBiddedTasks,
   fetchTasksByAvailability,
+  fetchTransactions,
   setFilterUrl
 }

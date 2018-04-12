@@ -35,6 +35,21 @@ const tasksReducer = (state = { filterUrl: '/' }, action) => {
         ...state,
         openTasks: action.payload
       }
+    } case 'PENDING_TASKS': {
+      return {
+        ...state,
+        pendingTasks: action.payload
+      }
+    } case 'ONGOING_TASKS': {
+      return {
+        ...state,
+        ongoingTasks: action.payload
+      }
+    } case 'COMPLETED_TASKS': {
+      return {
+        ...state,
+        completedTasks: action.payload
+      }
     }
   }
   return state

@@ -15,7 +15,10 @@ const filters = [
   { url: '/', title: 'Posted tasks' },
   { url: '/open', title: 'Open tasks' },
   { url: '/assigned', title: 'Assigned tasks' },
-  { url: '/bidded', title: 'Bidded tasks' }
+  { url: '/bidded', title: 'Bidded tasks' },
+  { url: '/pending', title: 'Pending tasks' },
+  { url: '/ongoing', title: 'Ongoing tasks' },
+  { url: '/completed', title: 'Completed tasks' }
 ]
 const renderFilters = (setFilterUrl) => (
   <div style={{ paddingBottom: '2rem' }}>
@@ -23,6 +26,9 @@ const renderFilters = (setFilterUrl) => (
       filters.map((filter, index) =>
         <Button size='tiny'
           key={filter.url + index}
+          style={{
+            margin: '2pt'
+          }}
           onClick={() =>
             setFilterUrl(filter.url)
           }
@@ -39,28 +45,46 @@ class MyTasks extends Component {
     this.props.fetchBiddedTasks()
     this.props.fetchTasksByAvailability(true)
     this.props.fetchTasksByAvailability(false)
+    this.props.fetchTransactions('pending')
+    this.props.fetchTransactions('ongoing')
+    this.props.fetchTransactions('completed')
   }
 
   render () {
     const { filterUrl, setFilterUrl } = this.props
-    const { postedTasks, biddedTasks,
-      assignedTasks, openTasks } = this.props
-
-    console.log('filerURL', filterUrl)
+    let { postedTasks, biddedTasks,
+      assignedTasks, openTasks, pendingTasks,
+      ongoingTasks, completedTasks } = this.props
 
     let tasks = []
     switch (filterUrl) {
       case '/': {
+        postedTasks = postedTasks || []
         tasks = postedTasks
         break
       } case '/bidded': {
+        biddedTasks = biddedTasks || []
         tasks = biddedTasks
         break
       } case '/assigned': {
+        assignedTasks = assignedTasks || []
         tasks = assignedTasks
         break
       } case '/open': {
+        openTasks = openTasks || []
         tasks = openTasks
+        break
+      } case '/pending': {
+        pendingTasks = pendingTasks || []
+        tasks = pendingTasks
+        break
+      } case '/ongoing': {
+        ongoingTasks = ongoingTasks || []
+        tasks = ongoingTasks
+        break
+      } case '/completed': {
+        completedTasks = completedTasks || []
+        tasks = completedTasks
         break
       }
     }
@@ -76,7 +100,7 @@ class MyTasks extends Component {
               </span>
             </Header>
             { renderFilters(setFilterUrl) }
-            { tasks
+            { tasks.length > 0
               ? <Card.Group>
                 {
                   tasks.map((task, index) => (
@@ -87,7 +111,7 @@ class MyTasks extends Component {
                   ))
                 }
               </Card.Group>
-              : <div>You have no tasks yet!</div>
+              : <div>You have no {filterUrl} tasks yet!</div>
             }
             <Route path='/my-tasks/view-offers/:taskId&:title'
               component={renderOffers}

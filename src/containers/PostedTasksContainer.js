@@ -4,6 +4,7 @@ import {
   fetchPostedTasks,
   fetchBiddedTasks,
   fetchTasksByAvailability,
+  fetchTransactions,
   setFilterUrl
 } from '../actions/tasksActions'
 
@@ -12,6 +13,9 @@ const mapStateToProps = (state) => ({
   biddedTasks: state.tasks.biddedTasks,
   assignedTasks: state.tasks.assignedTasks,
   openTasks: state.tasks.openTasks,
+  pendingTasks: state.tasks.pendingTasks,
+  ongoingTasks: state.tasks.ongoingTasks,
+  completedTasks: state.tasks.completedTasks,
   filterUrl: state.tasks.filterUrl
 })
 
@@ -19,6 +23,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchPostedTasks: () => { dispatch(fetchPostedTasks()) },
   fetchBiddedTasks: () => { dispatch(fetchBiddedTasks()) },
   fetchTasksByAvailability: (open) => { dispatch(fetchTasksByAvailability(open)) },
+  fetchTransactions: (status) => { dispatch(fetchTransactions(status)) },
   setFilterUrl: (url) => { dispatch(setFilterUrl(url)) }
 })
 
