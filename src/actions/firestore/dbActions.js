@@ -100,12 +100,8 @@ const acceptOffer = async (taskerId, taskId, bidId, offer) => {
           })
 
           // mark the bid 'accepted'
-          t.update(bidRef, {
-            accepted: true
-          })
-
-          // hackish (to prevent firestore transaction errors)
-          t.update(taskRef, {})
+          t.update(bidRef, { accepted: true })
+          t.update(taskRef, { open: !(manpower === 1) })
 
           return Promise.resolve(true)
         } else { // if a transaction exists with the given taskId

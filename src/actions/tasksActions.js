@@ -88,7 +88,7 @@ const fetchBiddedTasks = () => {
         .doc(taskId)
         .get()
 
-      biddedTasks.push(task.data())
+      biddedTasks.push({ ...task.data(), id: taskId })
     })
 
     dispatch({
@@ -107,9 +107,10 @@ const fetchTasksByAvailability = (open) => {
       .get()
 
     const tasksList = []
-    tasks.forEach(task =>
-      tasksList.push(task.data())
-    )
+    tasks.forEach(task => {
+      const id = task.id
+      tasksList.push({ ...task.data(), id })
+    })
 
     const type = open
       ? 'OPEN_TASKS' : 'ASSIGNED_TASKS'
@@ -148,7 +149,7 @@ const fetchTransactions = (status) => {
         .doc(taskId)
         .get()
 
-      tasks.push(task.data())
+      tasks.push({ ...task.data(), id: taskId, status })
     })
 
     dispatch({

@@ -50,6 +50,10 @@ class MyTasks extends Component {
     this.props.fetchTransactions('completed')
   }
 
+  componentWillUnmount () {
+    this.props.setFilterUrl('/')
+  }
+
   render () {
     const { filterUrl, setFilterUrl } = this.props
     let { postedTasks, biddedTasks,
@@ -88,6 +92,8 @@ class MyTasks extends Component {
         break
       }
     }
+
+    console.log('tasks', tasks)
 
     return (
       <Container>
