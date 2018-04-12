@@ -53,8 +53,6 @@ const TaskCard = (props) => {
     status
   } = props
 
-  console.log('status', status)
-
   return (
     <Card color='teal'>
       <Card.Content>

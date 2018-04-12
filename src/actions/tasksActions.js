@@ -159,6 +159,31 @@ const fetchTransactions = (status) => {
   }
 }
 
+const fetchTasksToBeAssigned = () => {
+  return async (dispatch) => {
+    const { uid } = getUser()
+    const bids = await db.collection('bids').get()
+    const myTasks = await db.collection('tasks')
+      .where('owner', '==', uid)
+      .get()
+
+    const withBids = []
+    bids.forEach(bid => {
+      myTasks.forEach(task => {
+        const id = task.id
+        if (id === bid.get('taskId')) {
+          withBids.push({ ...task.data(), id })
+        }
+      })
+    })
+
+    dispatch({
+      type: 'TASKS_TO_BE_ASSIGNED',
+      payload: withBids
+    })
+  }
+}
+
 const setFilterUrl = (url) => {
   return (dispatch) => {
     dispatch({
@@ -175,5 +200,6 @@ export {
   fetchBiddedTasks,
   fetchTasksByAvailability,
   fetchTransactions,
+  fetchTasksToBeAssigned,
   setFilterUrl
 }

@@ -18,7 +18,8 @@ const filters = [
   { url: '/bidded', title: 'Bidded tasks' },
   { url: '/pending', title: 'Pending tasks' },
   { url: '/ongoing', title: 'Ongoing tasks' },
-  { url: '/completed', title: 'Completed tasks' }
+  { url: '/completed', title: 'Completed tasks' },
+  { url: '/to-be-assigned', title: 'Tasks to be assigned' }
 ]
 const renderFilters = (setFilterUrl) => (
   <div style={{ paddingBottom: '2rem' }}>
@@ -48,6 +49,7 @@ class MyTasks extends Component {
     this.props.fetchTransactions('pending')
     this.props.fetchTransactions('ongoing')
     this.props.fetchTransactions('completed')
+    this.props.fetchTasksToBeAssigned()
   }
 
   componentWillUnmount () {
@@ -58,7 +60,8 @@ class MyTasks extends Component {
     const { filterUrl, setFilterUrl } = this.props
     let { postedTasks, biddedTasks,
       assignedTasks, openTasks, pendingTasks,
-      ongoingTasks, completedTasks } = this.props
+      ongoingTasks, completedTasks,
+      tasksToBeAssigned } = this.props
 
     let tasks = []
     switch (filterUrl) {
@@ -90,10 +93,12 @@ class MyTasks extends Component {
         completedTasks = completedTasks || []
         tasks = completedTasks
         break
+      } case '/to-be-assigned': {
+        tasksToBeAssigned = tasksToBeAssigned || []
+        tasks = tasksToBeAssigned
+        break
       }
     }
-
-    console.log('tasks', tasks)
 
     return (
       <Container>

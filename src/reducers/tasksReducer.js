@@ -50,6 +50,11 @@ const tasksReducer = (state = { filterUrl: '/' }, action) => {
         ...state,
         completedTasks: action.payload
       }
+    } case 'TASKS_TO_BE_ASSIGNED': {
+      return {
+        ...state,
+        tasksToBeAssigned: action.payload
+      }
     }
   }
   return state
