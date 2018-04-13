@@ -82,18 +82,25 @@ const fetchBiddedTasks = () => {
       taskIds.push(taskId)
     })
 
-    const biddedTasks = []
-    taskIds.forEach(async (taskId) => {
+    const stringiedBiddedTasks = new Set()
+    for (const taskId of taskIds) {
       const task = await db.collection('tasks')
         .doc(taskId)
         .get()
 
-      biddedTasks.push({ ...task.data(), id: taskId })
-    })
+      stringiedBiddedTasks.add(JSON.stringify({
+        ...task.data(), id: taskId
+      }))
+    }
+
+    const jsonedBiddedTasks = []
+    stringiedBiddedTasks.forEach(bidded =>
+      jsonedBiddedTasks.push(JSON.parse(bidded))
+    )
 
     dispatch({
       type: 'BIDDED_TASKS',
-      payload: biddedTasks
+      payload: jsonedBiddedTasks
     })
   }
 }
@@ -144,13 +151,17 @@ const fetchTransactions = (status) => {
     })
 
     const tasks = []
-    taskIds.forEach(async (taskId) => {
+    for (const taskId of taskIds) {
       const task = await db.collection('tasks')
         .doc(taskId)
         .get()
 
-      tasks.push({ ...task.data(), id: taskId, status })
-    })
+      tasks.push({
+        ...task.data(),
+        id: taskId,
+        status
+      })
+    }
 
     dispatch({
       type: `${status.toUpperCase()}_TASKS`,
@@ -167,19 +178,26 @@ const fetchTasksToBeAssigned = () => {
       .where('owner', '==', uid)
       .get()
 
-    const withBids = []
+    const stringiedTasks = new Set()
     bids.forEach(bid => {
       myTasks.forEach(task => {
         const id = task.id
         if (id === bid.get('taskId')) {
-          withBids.push({ ...task.data(), id })
+          stringiedTasks.add(JSON.stringify({
+            ...task.data(), id
+          }))
         }
       })
     })
 
+    const jsonedTasks = []
+    stringiedTasks.forEach(task =>
+      jsonedTasks.push(JSON.parse(task))
+    )
+
     dispatch({
       type: 'TASKS_TO_BE_ASSIGNED',
-      payload: withBids
+      payload: jsonedTasks
     })
   }
 }
