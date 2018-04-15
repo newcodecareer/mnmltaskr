@@ -15,11 +15,11 @@ const filters = [
   { url: '/posted', title: 'Posted tasks' },
   { url: '/open', title: 'Open tasks' },
   { url: '/assigned', title: 'Assigned tasks' },
+  { url: '/to-be-assigned', title: 'Tasks to be assigned' },
   { url: '/bidded', title: 'Bidded tasks' },
   { url: '/pending', title: 'Pending tasks' },
   { url: '/ongoing', title: 'Ongoing tasks' },
-  { url: '/completed', title: 'Completed tasks' },
-  { url: '/to-be-assigned', title: 'Tasks to be assigned' }
+  { url: '/completed', title: 'Completed tasks' }
 ]
 const renderFilters = (setFilterUrl) => (
   <div style={{ paddingBottom: '2rem' }}>

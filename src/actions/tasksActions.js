@@ -176,6 +176,7 @@ const fetchTasksToBeAssigned = () => {
     const bids = await db.collection('bids').get()
     const myTasks = await db.collection('tasks')
       .where('owner', '==', uid)
+      .where('open', '==', true)
       .get()
 
     const stringiedTasks = new Set()

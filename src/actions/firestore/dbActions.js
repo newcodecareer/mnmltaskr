@@ -72,6 +72,7 @@ const acceptOffer = async (taskerId, taskId, bidId, offer) => {
     const taskRef = db.collection('tasks').doc(taskId)
     const transRef = db.collection('transactions').doc(taskId)
     const bidRef = db.collection('bids').doc(bidId)
+    const { uid } = getUser()
 
     const fees = solveFees(offer)
 
@@ -96,7 +97,9 @@ const acceptOffer = async (taskerId, taskId, bidId, offer) => {
             status, // pending, ongoing, completed
             approved: [
               { taskerId, ...fees }
-            ]
+            ],
+            owner: uid,
+            transactionStart: new Date()
           })
 
           // mark the bid 'accepted'
@@ -106,7 +109,7 @@ const acceptOffer = async (taskerId, taskId, bidId, offer) => {
           return Promise.resolve(true)
         } else { // if a transaction exists with the given taskId
           const approved = await transdoc.get('approved')
-          const bidExists = approved.filter(bid =>
+          const taskerBids = approved.filter(bid =>
             bid.taskerId === taskerId
           )
 
@@ -114,7 +117,7 @@ const acceptOffer = async (taskerId, taskId, bidId, offer) => {
           // the transactions collection hasn't
           // reached the manpower quota yet and
           // the tasker hasn't been included yet
-          if (approved.length < manpower && bidExists.length > 1) {
+          if (approved.length < manpower && !taskerBids.length >= 1) {
             // push new approved bid of the tasker
             approved.push({ taskerId, ...fees })
             t.update(transRef, { approved })
@@ -163,7 +166,10 @@ const completeTask = async (taskId) => {
     try {
       done = await db.collection('transactions')
         .doc(taskId)
-        .update({ status: 'completed' })
+        .update({
+          status: 'completed',
+          transactionEnd: new Date()
+        })
       done = true
     } catch (e) {
       swal('Oops!', e.message, 'error')
