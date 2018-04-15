@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Header, Card, Container, Segment } from 'semantic-ui-react'
+import { Header, Card, Container, Segment, Button } from 'semantic-ui-react'
 import { Route } from 'react-router-dom'
 import TaskCard from '../TaskCard'
 import BiddingContainer from '../../containers/BiddingContainer'
@@ -15,6 +15,18 @@ const renderBidding = ({ match }) => (
   />
 )
 
+// const renderFilters = () => (
+//   <div style={{ paddingBottom: '2rem' }}>
+//     { filters.map((filter, index) =>
+//       <Button size='tiny' key={filter.url + index}
+//         onClick={() => setFilterUrl(filter.url) }
+//         style={{ marginTop: '2pt' }}
+//       >{filter.title}
+//       </Button>
+//     )}
+//   </div>
+// )
+
 class BrowseTasks extends Component {
   componentDidMount () {
     this.props.fetchTasks()
@@ -28,6 +40,7 @@ class BrowseTasks extends Component {
       <Container>
         <Segment style={{ padding: '6em 0em 4em 0em' }} vertical>
           <div><Header>BROWSE TASKS</Header>
+            {/* { renderFilters() } */}
             { tasks.length > 0
               ? <Card.Group>
                 { tasks.map((task, index) => (

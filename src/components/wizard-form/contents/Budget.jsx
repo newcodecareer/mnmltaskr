@@ -11,7 +11,7 @@ const Budget = (props) => {
   } = props
 
   return (
-    <Form as='form' onSubmit={handleSubmit}>
+    <Form loading={submitting} as='form' onSubmit={handleSubmit}>
       <CustomField
         title='How many people do you need for your task?'
         info='If you need more hands, you can have up to 20 taskers to complete your task'

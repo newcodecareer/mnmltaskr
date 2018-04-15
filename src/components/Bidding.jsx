@@ -35,7 +35,7 @@ const renderFees = (offer) => {
 }
 
 const Bidding = (props) => {
-  const { offer, handleSubmit, initialValues } = props
+  const { offer, handleSubmit, initialValues, submitting } = props
   const title = initialValues.title
 
   return (
@@ -45,7 +45,7 @@ const Bidding = (props) => {
         <Header.Content>{title}</Header.Content>
       </Header>
       <Divider />
-      <Form inverted onSubmit={handleSubmit}>
+      <Form loading={submitting} inverted onSubmit={handleSubmit}>
         <Form.Field>
           <label>How much?</label>
           <Field name='offer' type='number' component={renderInput} />
@@ -57,10 +57,10 @@ const Bidding = (props) => {
           <Field name='reason' component={renderTextArea} />
         </Form.Field>
         <Divider />
-        <Button as={Link} to='/browse-tasks' icon circular basic inverted>
+        <Button disabled={submitting} as={Link} to='/browse-tasks' icon circular basic inverted>
           <Icon name='arrow left' />
         </Button>
-        <Button type='submit' floated='right' circular>Continue</Button>
+        <Button disabled={submitting} type='submit' floated='right' circular>Continue</Button>
       </Form>
     </Segment>
     </Modal>

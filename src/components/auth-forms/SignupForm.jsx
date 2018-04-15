@@ -30,7 +30,7 @@ const SignupForm = (props) => {
   const { handleSubmit, submitting } = props
 
   return (
-    <Form inverted onSubmit={handleSubmit}>
+    <Form loading={submitting} inverted onSubmit={handleSubmit}>
       <div style={{ paddingTop: '2em', paddingBottom: '2em' }}>
         <Field
           name='first'
