@@ -9,9 +9,7 @@ const LoggedInView = () => {
     'error'
   )
 
-  return (
-    <Redirect to='/' />
-  )
+  return (<Redirect to='/' />)
 }
 
 export default LoggedInView

@@ -11,17 +11,10 @@ const renderInput = (field) => {
     <Form.Field>
       <label>{placeholder}</label>
       <Input {...field} />
-      {
-        hasError &&
-        <Label
-          style={{
-            float: 'right',
-            marginBottom: '1ex'
-          }}
-          pointing='above'
-          color='red'
-        >
-          {meta.error}
+      { hasError &&
+        <Label color='red' pointing='above'
+          style={{ float: 'right', marginBottom: '1ex' }}
+        >{meta.error}
         </Label>
       }
     </Form.Field>
@@ -38,12 +31,7 @@ const SignupForm = (props) => {
 
   return (
     <Form inverted onSubmit={handleSubmit}>
-      <div
-        style={{
-          paddingTop: '2em',
-          paddingBottom: '2em'
-        }}
-      >
+      <div style={{ paddingTop: '2em', paddingBottom: '2em' }}>
         <Field
           name='first'
           type='text'
@@ -74,20 +62,16 @@ const SignupForm = (props) => {
         />
         <Form.Field>
           <Divider />
-          {
-            options.map((option, index) => (
-              <label key={index}
-                style={{ color: 'white' }}
-              >
-                <Field
-                  name='sex'
-                  type='radio'
-                  component='input'
-                  value={option.value}
-                /> {option.label}
-              </label>
-            ))
-          }
+          { options.map((option, index) => (
+            <label key={index} style={{ color: 'white' }}>
+              <Field
+                name='sex'
+                type='radio'
+                component='input'
+                value={option.value}
+              /> {option.label}
+            </label>
+          ))}
           <Divider />
         </Form.Field>
         <Field
@@ -107,22 +91,11 @@ const SignupForm = (props) => {
       </div>
       <div>
         <Divider />
-        <Button
-          type='submit'
-          circular
-          disabled={submitting}
-        >
-            Sign up
+        <Button as={Link} to='/' icon='arrow left' basic circular inverted />
+        <Button as={Link} to='/login' inverted basic circular disabled={submitting}>
+          Log in instead
         </Button>
-        <Button
-          as={Link}
-          to='/login'
-          inverted basic
-          circular
-          disabled={submitting}
-        >
-              Log in instead
-        </Button>
+        <Button type='submit' circular disabled={submitting}>Sign up</Button>
       </div>
     </Form>
   )

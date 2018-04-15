@@ -26,8 +26,7 @@ const Location = (props) => {
         type='dropdown'
         placeholder='Type of task'
       />
-      {
-        type === 'In person' &&
+      { type === 'In person' &&
         <CustomField
           title='Location'
           name='location'

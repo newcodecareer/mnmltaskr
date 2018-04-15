@@ -21,9 +21,7 @@ const renderBidsButton = (taskId, title) => (
 
 const markCompletedButton = (taskId) => (
   <Button floated='right' size='small'
-    onClick={() =>
-      completeTask(taskId)
-    }
+    onClick={() => completeTask(taskId) }
   >Mark completed
   </Button>
 )
@@ -43,18 +41,9 @@ const TaskCard = (props) => {
     <Card color='teal'>
       <Card.Content>
         <Card.Header>
-          <div style={{
-            marginRight: '4em',
-            paddingTop: '1ex'
-          }}
-          >{title}
-          </div>
-          <Label style={{
-            backgroundColor: '#f8ed62'
-          }}
-          as='a' tag
-          size='large'
-          attached='top right'
+          <div style={{ marginRight: '4em', paddingTop: '1ex' }}>{title}</div>
+          <Label as='a' tag size='large' attached='top right'
+            style={{ backgroundColor: '#f8ed62' }}
           >&#8369; {budget}
           </Label>
         </Card.Header>
@@ -90,10 +79,8 @@ const TaskCard = (props) => {
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <div style={{
-          paddingTop: '0.5em',
-          float: 'left'
-        }}>{ open
+        <div style={{ paddingTop: '0.5em', float: 'left' }}>
+          { open
             ? <label style={{ color: 'olive' }}>OPEN</label>
             : <label>ASSIGNED</label>
           }

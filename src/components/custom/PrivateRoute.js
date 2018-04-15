@@ -5,9 +5,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   const user = localStorage.getItem('user')
   const view = <Component />
   const name = view.type.displayName
-  const isAuthView =
-    name === 'Login' ||
-    name === 'Signup'
+  const isAuthView = name === 'Login' || name === 'Signup'
 
   let component = (props) => (
     user ? <Component {...props} />
@@ -21,9 +19,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     )
   }
 
-  return (
-    <Route {...rest} render={component} />
-  )
+  return (<Route {...rest} render={component} />)
 }
 
 export default PrivateRoute

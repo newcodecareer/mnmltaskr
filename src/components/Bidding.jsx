@@ -6,17 +6,11 @@ import { Divider, Modal, Segment, Icon,
 import { solveFees } from './custom/FeeSolver'
 
 const renderInput = (field) => (
-  <Input
-    {...field}
-    label='&#8369;'
-    size='big'
-  />
+  <Input {...field} label='&#8369;' size='big' />
 )
 
 const renderTextArea = (field) => (
-  <TextArea
-    {...field.input}
-    rows='10'
+  <TextArea {...field.input} rows='10'
     placeholder='
       e.g. I will be great for this task.
       I have the necessarcy experience,
@@ -28,6 +22,7 @@ const renderTextArea = (field) => (
 
 const renderFees = (offer) => {
   const { fee, profit } = solveFees(offer)
+
   return (
     <div style={{ marginTop: '1em' }}>
       <i>
@@ -44,49 +39,30 @@ const Bidding = (props) => {
   const title = initialValues.title
 
   return (
-    <Modal open basic
-      dimmer='blurring'
-      size='mini'
-    ><Segment vertical>
-        <Header inverted>
-          <Header.Subheader>Make an offer</Header.Subheader>
-          <Header.Content>{title}</Header.Content>
-        </Header>
+    <Modal open basic dimmer='blurring' size='mini'><Segment vertical>
+      <Header inverted>
+        <Header.Subheader>Make an offer</Header.Subheader>
+        <Header.Content>{title}</Header.Content>
+      </Header>
+      <Divider />
+      <Form inverted onSubmit={handleSubmit}>
+        <Form.Field>
+          <label>How much?</label>
+          <Field name='offer' type='number' component={renderInput} />
+          {offer && renderFees(offer)}
+        </Form.Field>
+        <Divider hidden />
+        <Form.Field>
+          <label>Why are you the best person for this task?</label>
+          <Field name='reason' component={renderTextArea} />
+        </Form.Field>
         <Divider />
-        <Form inverted onSubmit={handleSubmit}>
-          <Form.Field>
-            <label>How much?</label>
-            <Field
-              name='offer'
-              type='number'
-              component={renderInput}
-            />
-            {offer && renderFees(offer)}
-          </Form.Field>
-          <Divider hidden />
-          <Form.Field>
-            <label>Why are you the best person for this task?</label>
-            <Field
-              name='reason'
-              component={renderTextArea}
-            />
-          </Form.Field>
-          <Divider />
-          <Button
-            as={Link}
-            to='/browse-tasks'
-            icon circular
-            basic inverted
-          ><Icon name='arrow left' />
-          </Button>
-          <Button
-            type='submit'
-            floated='right'
-            circular
-          >Continue
-          </Button>
-        </Form>
-      </Segment>
+        <Button as={Link} to='/browse-tasks' icon circular basic inverted>
+          <Icon name='arrow left' />
+        </Button>
+        <Button type='submit' floated='right' circular>Continue</Button>
+      </Form>
+    </Segment>
     </Modal>
   )
 }

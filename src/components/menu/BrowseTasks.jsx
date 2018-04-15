@@ -22,33 +22,21 @@ class BrowseTasks extends Component {
 
   render () {
     let { tasks } = this.props
-
-    if (!tasks) {
-      tasks = []
-    }
+    tasks = tasks || []
 
     return (
       <Container>
         <Segment style={{ padding: '6em 0em 4em 0em' }} vertical>
           <div><Header>BROWSE TASKS</Header>
-            {
-              tasks.length > 0
-                ? <Card.Group>
-                  {
-                    tasks.map((task, index) => (
-                      <TaskCard
-                        key={index + 'uniquemi'}
-                        {...task}
-                      />
-                    ))
-                  }
-                </Card.Group>
-                : <div>No tasks yet!</div>
+            { tasks.length > 0
+              ? <Card.Group>
+                { tasks.map((task, index) => (
+                  <TaskCard key={index + 'uniquemi'} {...task} />
+                ))}
+              </Card.Group>
+              : <div>No tasks yet!</div>
             }
-            <Route
-              path='/browse-tasks/bidding/:taskId&:title'
-              component={renderBidding}
-            />
+            <Route path='/browse-tasks/bidding/:taskId&:title' component={renderBidding} />
           </div>
         </Segment>
       </Container>

@@ -13,26 +13,16 @@ const CustomField = (props) => {
       <label>
         {title}
         { info &&
-          <Popup on='hover'
-            content={info}
-            trigger={
-              <Icon
-                style={{ paddingLeft: '1em' }}
-                name='info circle'
-              />
-            }
+          <Popup on='hover' content={info}
+            trigger={<Icon style={{ paddingLeft: '1em' }} name='info circle' />}
           />
         }
       </label>
       {children}
       { isLabeled
-        ? <Field {...fieldData}
-          labelPosition={labelPosition}
-          label={labelText}
-        />
+        ? <Field {...fieldData} labelPosition={labelPosition} label={labelText} />
         : <Field {...fieldData} />
       }
-
     </Form.Field>
   )
 }

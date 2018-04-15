@@ -9,9 +9,7 @@ const NotLoggedInView = () => {
     'error'
   )
 
-  return (
-    <Redirect to='/' />
-  )
+  return (<Redirect to='/' />)
 }
 
 export default NotLoggedInView

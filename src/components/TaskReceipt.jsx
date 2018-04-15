@@ -32,10 +32,14 @@ class TaskReceipt extends Component {
               </Header>
               <Header inverted floated='right'>
                 <Header.Subheader>Transaction start</Header.Subheader>
-                <Header.Content>{format(taskReceipt.transactionStart, 'MMM D, YYYY | hh:mm:ssa')}</Header.Content>
+                <Header.Content>
+                  {format(taskReceipt.transactionStart, 'MMM D, YYYY | hh:mm:ssa')}
+                </Header.Content>
                 <br/>
                 <Header.Subheader>Transaction end</Header.Subheader>
-                <Header.Content>{format(taskReceipt.transactionEnd, 'MMM D, YYYY | hh:mm:ssa')}</Header.Content>
+                <Header.Content>
+                  {format(taskReceipt.transactionEnd, 'MMM D, YYYY | hh:mm:ssa')}
+                </Header.Content>
               </Header>
             </Segment>
             <Table color='blue'>

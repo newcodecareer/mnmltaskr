@@ -13,10 +13,9 @@ const OfferCard = (props) => {
           <Comment.Group>
             <Comment>
               <Comment.Avatar
-                src={
-                  gender === 'male'
-                    ? '/images/matthew.png'
-                    : '/images/molly.png'
+                src={ gender === 'male'
+                  ? '/images/matthew.png'
+                  : '/images/molly.png'
                 }
               />
               <Comment.Content>
@@ -35,17 +34,9 @@ const OfferCard = (props) => {
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <Label as='a' size='large'
-          style={{
-            backgroundColor: '#f8ed62'
-          }}
-        >&#8369; {offer}
-        </Label>
-        <Button
+        <Label as='a' size='large' style={{ backgroundColor: '#f8ed62' }}>&#8369; {offer}</Label>
+        <Button disabled={accepted} floated='right' size='tiny'
           onClick={() => acceptOffer(owner, taskId, bidId, offer)}
-          disabled={accepted}
-          floated='right'
-          size='tiny'
         >Accept Offer
         </Button>
       </Card.Content>

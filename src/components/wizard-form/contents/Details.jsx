@@ -20,10 +20,7 @@ const Details = (props) => {
         name='desc'
         type='textarea'
         placeholder='e.g. Clean my apartment from top to bottom...'
-      ><div style={{
-          marginBottom: '2ex',
-          color: 'grey'
-        }} >
+      ><div style={{ marginBottom: '2ex', color: 'grey' }}>
           For your safety, please do not share personal information, e.g., email, phone or address.
         </div>
       </CustomField>

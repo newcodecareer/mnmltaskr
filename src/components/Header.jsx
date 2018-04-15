@@ -4,14 +4,8 @@ import { Menu, Container, Button, Icon, Dropdown } from 'semantic-ui-react'
 import { logout, getUser } from '../actions/firestore/authUser'
 
 const renderSignin = () => (
-  <Button
-    as={Link}
-    to='/login'
-    circular animated
-  >
-    <Button.Content visible>
-      Login
-    </Button.Content>
+  <Button as={Link} to='/login' circular animated>
+    <Button.Content visible>Login</Button.Content>
     <Button.Content hidden>
       <Icon color='black' name='sign in' />
     </Button.Content>
@@ -19,29 +13,23 @@ const renderSignin = () => (
 )
 
 const renderLogout = (toggleSidebar) => {
-  const firstName = getUser().firstName
-
-  const trigger = (
-    <Menu.Item fitted>
-      <Icon name='user circle outline' size='large' />
-      <span>{firstName}</span>
-    </Menu.Item>
-  )
+  const { firstName } = getUser()
+  const trigger = (<Menu.Item fitted>
+    <Icon name='user circle outline' size='large' />
+    <span>{firstName}</span>
+  </Menu.Item>)
 
   const options = [
-    {
-      key: 'todo',
+    { key: 'todo',
       text: <span>Hi, <b>{firstName}</b>!</span>,
       disabled: true
     },
-    {
-      key: 'user',
+    { key: 'user',
       text: 'My account',
       icon: 'user',
       onClick: toggleSidebar
     },
-    {
-      key: 'sign-out',
+    { key: 'sign-out',
       text: 'Logout',
       icon: 'sign out',
       onClick: logout
@@ -49,8 +37,7 @@ const renderLogout = (toggleSidebar) => {
   ]
 
   return (
-    <Dropdown
-      floating
+    <Dropdown floating
       trigger={trigger}
       options={options}
       pointing='top right'
@@ -73,31 +60,35 @@ const Header = (props) => {
     toggleSidebar
   } = props
 
-  const whichComponent =
-    isActive ? renderLogout(toggleSidebar)
-      : renderSignin()
+  const whichComponent = isActive
+    ? renderLogout(toggleSidebar)
+    : renderSignin()
 
   return (
     <Menu fixed='top' borderless pointing>
       <Container>
         <Menu.Item header as={Link} to='/'
-          onClick={() => selectItem(null)}>
-          <Icon name='tasks' />
-            MNMLTASKR
+          onClick={() => selectItem(null)}
+          style={{ borderRight: '1px solid gainsboro' }}
+        ><Icon name='tasks' />MNMLTASKR
         </Menu.Item>
-        {
-          items.map((item) => (
-            <Menu.Item key={item.name} as={Link}
-              to={item.link} name={item.name}
+        { getUser()
+          ? items.map((item) => (
+            <Menu.Item
+              as={Link}
+              to={item.link}
+              key={item.name}
+              name={item.name}
               active={activeItem === item.name}
               onClick={(e, {name}) => selectItem(name)}
             />
           ))
+          : <Menu.Item disabled>
+            <i>Welcome to Mnmltasker! Please login to continue...</i>
+          </Menu.Item>
         }
         <Menu.Menu position='right'>
-          <Menu.Item>
-            {whichComponent}
-          </Menu.Item>
+          <Menu.Item>{whichComponent}</Menu.Item>
         </Menu.Menu>
       </Container>
     </Menu>

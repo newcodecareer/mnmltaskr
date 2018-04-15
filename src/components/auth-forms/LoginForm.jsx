@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom'
 import { Field } from 'redux-form'
 
 const renderInput = (field) => (
-  <Input
-    {...field}
-  />
+  <Input {...field} />
 )
 
 const LoginForm = (props) => {
@@ -14,12 +12,7 @@ const LoginForm = (props) => {
 
   return (
     <Form inverted onSubmit={handleSubmit}>
-      <div
-        style={{
-          paddingTop: '2em',
-          paddingBottom: '2em'
-        }}
-      >
+      <div style={{ paddingTop: '2em', paddingBottom: '2em' }}>
         <Form.Field >
           <label>Email</label>
           <Field
@@ -43,22 +36,11 @@ const LoginForm = (props) => {
       </div>
       <div>
         <Divider />
-        <Button
-          type='submit'
-          circular
-          disabled={submitting}
-        >
-              Login
+        <Button as={Link} to='/' icon='arrow left' basic circular inverted />
+        <Button as={Link} to='/signup' inverted basic circular disabled={submitting}>
+          Sign up instead
         </Button>
-        <Button
-          as={Link}
-          to='/signup'
-          inverted basic
-          circular
-          disabled={submitting}
-        >
-              Sign up instead
-        </Button>
+        <Button type='submit' circular disabled={submitting}>Login</Button>
       </div>
     </Form>
   )

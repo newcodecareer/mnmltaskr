@@ -10,19 +10,9 @@ const renderInfo = (user) => {
   return (
     <div>
       <div style={{ paddingTop: '8vh' }}>
-        <Image
-          src={photoSrc}
-          size='small'
-          circular centered
-        />
+        <Image src={photoSrc} size='small' circular centered />
       </div>
-      <div
-        style={{
-          textAlign: 'center',
-          fontSize: '3ex',
-          padding: '1ex'
-        }}
-      >
+      <div style={{ textAlign: 'center', fontSize: '3ex', padding: '1ex' }}>
         Hello, <b>{user.firstName}</b>!
       </div>
       <Divider />
@@ -33,7 +23,7 @@ const renderInfo = (user) => {
               {user.firstName + ' ' + user.lastName}
             </List.Header>
             <List.Description>
-            Name
+              Name
             </List.Description>
           </List.Content>
         </List.Item>
@@ -43,7 +33,7 @@ const renderInfo = (user) => {
               {user.email}
             </List.Header>
             <List.Description>
-            Email
+              Email
             </List.Description>
           </List.Content>
         </List.Item>
@@ -53,7 +43,7 @@ const renderInfo = (user) => {
               {user.phoneNumber}
             </List.Header>
             <List.Description>
-            Phone number
+              Phone number
             </List.Description>
           </List.Content>
         </List.Item>
@@ -63,7 +53,7 @@ const renderInfo = (user) => {
               {user.address}
             </List.Header>
             <List.Description>
-            Address
+              Address
             </List.Description>
           </List.Content>
         </List.Item>
@@ -77,21 +67,9 @@ const Profile = (props) => {
   const user = getUser()
 
   return (
-    <Sidebar
-      as={Container}
-      style={{
-        backgroundColor: 'whitesmoke',
-        padding: '2ex'
-      }}
-      direction='right'
-      animation='overlay'
-      visible={visible}
-    >
-      <Button
-        icon='arrow right'
-        size='mini' circular
-        onClick={toggleSidebar}
-      />
+    <Sidebar as={Container} direction='right' animation='overlay' visible={visible}
+      style={{ backgroundColor: 'whitesmoke', padding: '2ex' }}
+    ><Button icon='arrow right' size='mini' circular onClick={toggleSidebar} />
       {user && renderInfo(user)}
     </Sidebar>
   )

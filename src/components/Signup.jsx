@@ -5,11 +5,7 @@ import SignupFormContainer from '../containers/SignupFormContainer'
 import { signupUser } from '../actions/firestore/authUser'
 
 const Signup = () => (
-  <FormWrapper message={
-    <div>
-      Sign up to <i>mnmltaskr</i>!
-    </div>
-  }>
+  <FormWrapper message={<div>Sign up to <i>mnmltaskr</i>!</div>}>
     <SignupFormContainer onSubmit={signupUser} />
   </FormWrapper>
 )

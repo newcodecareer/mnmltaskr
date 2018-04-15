@@ -20,13 +20,7 @@ const renderInput = (field) => {
         />
         : <Input {...field} />
       }
-      { hasError &&
-        <Label basic
-          color='yellow'
-          pointing='above'
-        >{meta.error}
-        </Label>
-      }
+      { hasError && <Label basic color='yellow' pointing='above'>{meta.error}</Label> }
     </div>
   )
 }

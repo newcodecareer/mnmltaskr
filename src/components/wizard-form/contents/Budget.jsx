@@ -34,18 +34,15 @@ const Budget = (props) => {
       />
       <Form.Field style={{ color: 'grey', textAlign: 'right', paddingRight: '1em' }}>
         <i>What happens next?</i>
-        <Popup trigger={<Icon
-          style={{ paddingLeft: '1em' }}
-          name='info circle'
-        />}
-        content={<i>
-          Pretty soon you&apos;ll start getting offers
-          from Taskers. Just so you know, task
-          details can be changed any time
-          before you accept an offer and you
-          have no obligations to hire.
-        </i>}
-        on='hover'
+        <Popup trigger={<Icon style={{ paddingLeft: '1em' }} name='info circle' />}
+          on='hover'
+          content={<i>
+            Pretty soon you&apos;ll start getting offers
+            from Taskers. Just so you know, task
+            details can be changed any time
+            before you accept an offer and you
+            have no obligations to hire.
+          </i>}
         />
       </Form.Field>
       <Button.Group floated='right'>
@@ -56,10 +53,7 @@ const Budget = (props) => {
           </Button.Content>
         </Button>
         <Button.Or />
-        <Button type='submit' animated
-          // from the docu
-          disabled={pristine || submitting}
-        >
+        <Button type='submit' animated disabled={pristine || submitting}>
           <Button.Content visible>Submit</Button.Content>
           <Button.Content hidden>
             <Icon name='right arrow' />
