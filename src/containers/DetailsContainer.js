@@ -1,6 +1,6 @@
 import { reduxForm } from 'redux-form'
 import Details from '../components/wizard-form/contents/Details'
-import { isTitle, isDesc } from '../components/custom/validator'
+import { isTitle, isDesc } from '../components/custom/Validator'
 
 const validate = (values) => {
   const errors = {}

@@ -3,7 +3,7 @@ import { Field } from 'redux-form'
 import { Link } from 'react-router-dom'
 import { Divider, Modal, Segment, Icon,
   Form, Input, Header, TextArea, Button } from 'semantic-ui-react'
-import solveFees from './custom/FeeSolver'
+import { solveFees } from './custom/FeeSolver'
 
 const renderInput = (field) => (
   <Input

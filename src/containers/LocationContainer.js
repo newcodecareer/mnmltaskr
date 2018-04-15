@@ -1,7 +1,7 @@
 import { reduxForm, formValueSelector } from 'redux-form'
 import { connect } from 'react-redux'
 import Location from '../components/wizard-form/contents/Location'
-import { isAddress } from '../components/custom/validator'
+import { isAddress } from '../components/custom/Validator'
 
 const validate = (values) => {
   const errors = {}

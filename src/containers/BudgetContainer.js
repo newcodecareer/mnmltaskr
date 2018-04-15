@@ -1,6 +1,6 @@
 import { reduxForm } from 'redux-form'
 import Budget from '../components/wizard-form/contents/Budget'
-import { isManpower, isValidBudget } from '../components/custom/validator'
+import { isManpower, isValidBudget } from '../components/custom/Validator'
 
 const validate = (values) => {
   const errors = {}

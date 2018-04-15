@@ -29,7 +29,8 @@ const markCompletedButton = (taskId) => (
 )
 
 const viewReceiptButton = (taskId) => (
-  <Button floated='right' size='small'
+  <Button as={Link} floated='right' size='small'
+    to={`/my-tasks/view-receipt/${taskId}`}
   >View receipt
   </Button>
 )

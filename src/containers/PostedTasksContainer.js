@@ -27,7 +27,6 @@ const mapDispatchToProps = (dispatch) => ({
   fetchTasksByAvailability: (open) => { dispatch(fetchTasksByAvailability(open)) },
   fetchTasksToBeAssigned: () => { dispatch(fetchTasksToBeAssigned()) },
   fetchTransactions: (status) => { dispatch(fetchTransactions(status)) },
-
   setFilterUrl: (url) => { dispatch(setFilterUrl(url)) }
 })
 

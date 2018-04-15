@@ -3,12 +3,17 @@ import { Header, Card, Container, Segment, Button } from 'semantic-ui-react'
 import TaskCard from '../TaskCard'
 import { Route } from 'react-router-dom'
 import OffersContainer from '../../containers/OffersContainer'
+import TaskReceiptContainer from '../../containers/TaskReceiptContainer'
 
 const renderOffers = ({ match }) => (
   <OffersContainer
     taskId={match.params.taskId}
     title={match.params.title}
   />
+)
+
+const renderTaskReceipt = ({ match }) => (
+  <TaskReceiptContainer taskId={match.params.taskId} />
 )
 
 const filters = [
@@ -23,20 +28,13 @@ const filters = [
 ]
 const renderFilters = (setFilterUrl) => (
   <div style={{ paddingBottom: '2rem' }}>
-    {
-      filters.map((filter, index) =>
-        <Button size='tiny'
-          key={filter.url + index}
-          style={{
-            marginTop: '2pt'
-          }}
-          onClick={() =>
-            setFilterUrl(filter.url)
-          }
-        >{filter.title}
-        </Button>
-      )
-    }
+    { filters.map((filter, index) =>
+      <Button size='tiny' key={filter.url + index}
+        onClick={() => setFilterUrl(filter.url) }
+        style={{ marginTop: '2pt' }}
+      >{filter.title}
+      </Button>
+    )}
   </div>
 )
 
@@ -58,10 +56,8 @@ class MyTasks extends Component {
 
   render () {
     const { filterUrl, setFilterUrl } = this.props
-    let { postedTasks, biddedTasks,
-      assignedTasks, openTasks, pendingTasks,
-      ongoingTasks, completedTasks,
-      tasksToBeAssigned } = this.props
+    let { postedTasks, biddedTasks, assignedTasks, openTasks, pendingTasks,
+      ongoingTasks, completedTasks, tasksToBeAssigned } = this.props
 
     let tasks = []
     switch (filterUrl) {
@@ -106,27 +102,19 @@ class MyTasks extends Component {
           <div>
             <Header>
               <span>MY TASKS</span>
-              <span style={{ color: 'grey' }}>
-                {` ${filterUrl}`}
-              </span>
+              <span style={{ color: 'grey' }}>{` ${filterUrl}`}</span>
             </Header>
             { renderFilters(setFilterUrl) }
             { tasks.length > 0
               ? <Card.Group>
-                {
-                  tasks.map((task, index) => (
-                    <TaskCard
-                      key={index + 'uniquemi2'}
-                      {...task}
-                    />
-                  ))
-                }
+                { tasks.map((task, index) => (
+                  <TaskCard key={index + 'uniquemi2'} {...task} />
+                )) }
               </Card.Group>
               : <div>You have no {filterUrl} tasks yet!</div>
             }
-            <Route path='/my-tasks/view-offers/:taskId&:title'
-              component={renderOffers}
-            />
+            <Route path='/my-tasks/view-offers/:taskId&:title' component={renderOffers} />
+            <Route path='/my-tasks/view-receipt/:taskId' component={renderTaskReceipt} />
           </div>
         </Segment>
       </Container>

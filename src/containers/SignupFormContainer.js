@@ -6,7 +6,7 @@ import {
   isPassword,
   isPhoneNumber,
   isAddress
-} from '../components/custom/validator'
+} from '../components/custom/Validator'
 
 const validate = (values) => {
   const errors = {}

@@ -55,6 +55,11 @@ const tasksReducer = (state = { filterUrl: '/posted' }, action) => {
         ...state,
         tasksToBeAssigned: action.payload
       }
+    } case 'TASK_RECEIPT': {
+      return {
+        ...state,
+        taskReceipt: action.payload
+      }
     }
   }
   return state

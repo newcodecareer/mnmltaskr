@@ -212,6 +212,36 @@ const setFilterUrl = (url) => {
   }
 }
 
+const fetchSingleTaskReceipt = (taskId) => {
+  return async (dispatch) => {
+    const usersRef = db.collection('users')
+    const receipt = await db.collection('transactions')
+      .doc(taskId)
+      .get()
+
+    const names = []
+    const approvedList = receipt.get('approved')
+    for (const tasker of approvedList) {
+      const approvedRef = await usersRef.doc(tasker.taskerId).get()
+      const first = approvedRef.get('firstName')
+      const last = approvedRef.get('lastName')
+
+      names.push(`${first} ${last}`)
+    }
+
+    const taskee = receipt.get('owner')
+    const taskeeRef = await usersRef.doc(taskee).get()
+    const first = taskeeRef.get('firstName')
+    const last = taskeeRef.get('lastName')
+    const taskeeName = `${first} ${last}`
+
+    dispatch({
+      type: 'TASK_RECEIPT',
+      payload: {...receipt.data(), taskeeName, names}
+    })
+  }
+}
+
 export {
   fetchTasks,
   fetchPostedTasks,
@@ -220,5 +250,6 @@ export {
   fetchTasksByAvailability,
   fetchTransactions,
   fetchTasksToBeAssigned,
-  setFilterUrl
+  setFilterUrl,
+  fetchSingleTaskReceipt
 }

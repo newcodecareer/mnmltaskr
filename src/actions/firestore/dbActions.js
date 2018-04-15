@@ -4,7 +4,7 @@ import store from '../../store'
 import { reset } from 'redux-form'
 import { getUser } from './authUser'
 import history from '../../history'
-import solveFees from '../../components/custom/FeeSolver'
+import { solveFees } from '../../components/custom/FeeSolver'
 
 const postTask = async (values) => {
   const uid = getUser().uid // current user
