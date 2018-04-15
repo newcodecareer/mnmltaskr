@@ -1,4 +1,4 @@
-const tasksReducer = (state = { filterUrl: '/' }, action) => {
+const tasksReducer = (state = { filterUrl: '/posted' }, action) => {
   switch (action.type) {
     case 'FETCH_TASKS_FULFILLED': {
       return {

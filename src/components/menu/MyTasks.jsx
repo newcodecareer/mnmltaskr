@@ -12,7 +12,7 @@ const renderOffers = ({ match }) => (
 )
 
 const filters = [
-  { url: '/', title: 'Posted tasks' },
+  { url: '/posted', title: 'Posted tasks' },
   { url: '/open', title: 'Open tasks' },
   { url: '/assigned', title: 'Assigned tasks' },
   { url: '/bidded', title: 'Bidded tasks' },
@@ -53,7 +53,7 @@ class MyTasks extends Component {
   }
 
   componentWillUnmount () {
-    this.props.setFilterUrl('/')
+    this.props.setFilterUrl('/posted')
   }
 
   render () {
@@ -65,7 +65,7 @@ class MyTasks extends Component {
 
     let tasks = []
     switch (filterUrl) {
-      case '/': {
+      case '/posted': {
         postedTasks = postedTasks || []
         tasks = postedTasks
         break

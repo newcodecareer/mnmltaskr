@@ -1,11 +1,31 @@
 import { reduxForm, formValueSelector } from 'redux-form'
 import { connect } from 'react-redux'
 import Location from '../components/wizard-form/contents/Location'
+import { isAddress } from '../components/custom/validator'
+
+const validate = (values) => {
+  const errors = {}
+
+  if (!values.type) {
+    errors.type = 'You must choose a type!'
+  }
+
+  if (!isAddress(values.location)) {
+    errors.location = 'Please specify a location!'
+  }
+
+  if (!values.due) {
+    errors.due = 'Please specify the due date!'
+  }
+
+  return errors
+}
 
 const decoratedLocation = reduxForm({
   form: 'wizard',
   destroyOnUnmount: false,
-  forceUnregisterOnUnmount: true
+  forceUnregisterOnUnmount: true,
+  validate
 })(Location)
 
 const selector = formValueSelector('wizard')

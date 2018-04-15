@@ -18,10 +18,30 @@ const isAddress = (text) => (
   text && /^[a-z0-9 ,.'-]+$/i.test(text)
 )
 
+const isTitle = (title) => (
+  title && title.length >= 10 && title.length <= 50
+)
+
+const isDesc = (desc) => (
+  desc && desc.length >= 25
+)
+
+const isManpower = (number) => (
+  number && number > 0 && number <= 20
+)
+
+const isValidBudget = (number) => (
+  number && number > 0
+)
+
 export {
   isName,
   isEmail,
   isPassword,
   isPhoneNumber,
-  isAddress
+  isAddress,
+  isTitle,
+  isDesc,
+  isManpower,
+  isValidBudget
 }

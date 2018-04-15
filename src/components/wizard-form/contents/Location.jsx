@@ -1,81 +1,45 @@
 import React from 'react'
-import { Form, Button, Dropdown, Icon, Popup } from 'semantic-ui-react'
-import { Field } from 'redux-form'
-
-const options = [
-  { key: 1, text: 'In person', value: 'In person', icon: 'point' },
-  { key: 2, text: 'Online', value: 'Online', icon: 'world' }
-]
-
-const renderDropdown = (field) => (
-  <Dropdown
-    {...field.input}
-    onChange={(param, data) => field.input.onChange(data.value)}
-    value={field.input.value}
-    placeholder='Type of task'
-    options={options}
-    selection
-  />
-)
+import { Form, Button, Icon } from 'semantic-ui-react'
+import CustomField from './CustomField'
 
 const Location = (props) => {
   const { handleSubmit, goToPrev, type } = props
 
   return (
     <Form as='form' onSubmit={handleSubmit}>
-      <Form.Field>
-        <label>
-            Where would the task be completed?
-          <Popup
-            trigger={<Icon
-              style={{
-                paddingLeft: '1em',
-                paddingRight: '2em'
-              }}
-              name='info circle'
-            />}
-            content={
-              <div>
-                <Icon name='point' />
-                <b>In person</b>
-                <br />
-                Select this if you need the person there
-                <br />
-                <Icon name='world' />
-                <b>Online</b>
-                <br />
-                Select this if they can work from anywhere
-              </div>
-            }
-            on='hover'
-            position='right center'
-          />
-        </label>
-        <Field
-          name='type'
-          component={renderDropdown}
-        />
-      </Form.Field>
+      <CustomField
+        title='Where would the task be completed?'
+        info={
+          <div>
+            <Icon name='point' />
+            <b>In person</b>
+            <br />
+            Select this if you need the person there
+            <br />
+            <Icon name='world' />
+            <b>Online</b>
+            <br />
+            Select this if they can work from anywhere
+          </div>
+        }
+        name='type'
+        type='dropdown'
+        placeholder='Type of task'
+      />
       {
         type === 'In person' &&
-        <Form.Field>
-          <label>Location</label>
-          <Field
-            name='location'
-            component='input'
-            placeholder='Enter a place'
-            type='text'
-          />
-        </Form.Field>
-      }
-      <Form.Field>
-        <label>Due date</label>
-        <Field
-          name='due'
-          component='input'
-          type='date'
+        <CustomField
+          title='Location'
+          name='location'
+          type='text'
+          placeholder='Enter a place'
         />
-      </Form.Field>
+      }
+      <CustomField
+        title='Due date'
+        name='due'
+        type='date'
+      />
       <Button.Group floated='right'>
         <Button onClick={goToPrev} animated>
           <Button.Content visible>Previous</Button.Content>

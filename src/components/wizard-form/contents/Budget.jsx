@@ -1,6 +1,6 @@
 import React from 'react'
-import { Form, Button, Icon, Label, Input, Popup } from 'semantic-ui-react'
-import { Field } from 'redux-form'
+import { Form, Button, Icon, Popup } from 'semantic-ui-react'
+import CustomField from './CustomField'
 
 const Budget = (props) => {
   const {
@@ -12,59 +12,26 @@ const Budget = (props) => {
 
   return (
     <Form as='form' onSubmit={handleSubmit}>
-      <Form.Field>
-        <label>
-              How many people do you need for your task?
-          <Popup
-            trigger={<Icon
-              style={{ paddingLeft: '1em' }}
-              name='info circle'
-            />}
-            content='
-                If you need more hands, you can
-                have up to 20 Taskers complete
-                your task.
-              '
-            on='hover'
-          />
-        </label>
-        <Input labelPosition='right'>
-          <Field
-            name='manpower'
-            component='input'
-            placeholder='Number of taskers'
-            type='number'
-          />
-          <Label>taskers</Label>
-        </Input>
-      </Form.Field>
-      <Form.Field>
-        <label>
-            What is your budget?
-          <Popup
-            trigger={<Icon
-              style={{ paddingLeft: '1em' }}
-              name='info circle'
-            />}
-            content='
-                Weigh up how long it will take and
-                the skills needed. Then suggest a
-                fair budget to get more offers at a
-                higher quality.
-              '
-            on='hover'
-          />
-        </label>
-        <Input labelPosition='left'>
-          <Label>&#8369;</Label>
-          <Field
-            name='budget'
-            component='input'
-            placeholder='Amount'
-            type='number'
-          />
-        </Input>
-      </Form.Field>
+      <CustomField
+        title='How many people do you need for your task?'
+        info='If you need more hands, you can have up to 20 taskers to complete your task'
+        name='manpower'
+        type='number'
+        placeholder='Number of taskers'
+        isLabeled={true}
+        labelPosition='right'
+        labelText='taskers'
+      />
+      <CustomField
+        title='What is your budget?'
+        info='Weigh up how long it will take and the skills needed. Then suggest a fair budget to get more offers at a higher quality.'
+        name='budget'
+        type='number'
+        placeholder='Amount'
+        isLabeled={true}
+        labelPosition='left'
+        labelText='&#8369;'
+      />
       <Form.Field style={{
         color: 'grey',
         textAlign: 'right',
