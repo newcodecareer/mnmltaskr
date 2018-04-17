@@ -22,7 +22,7 @@ class TaskReceipt extends Component {
     return (
       <Modal open basic dimmer='blurring' size='small'>
         <Modal.Content>
-          <Header inverted>We hope you enjoyed doing you task!</Header>
+          <Header inverted>Hope you enjoyed doing your task!</Header>
           { taskReceipt &&
           <Segment vertical>
             <Segment inverted clearing color='blue'>

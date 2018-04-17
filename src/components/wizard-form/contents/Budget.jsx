@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Button, Icon, Popup } from 'semantic-ui-react'
-import CustomField from './CustomField'
+import CustomField from '../../custom/CustomField'
 
 const Budget = (props) => {
   const {

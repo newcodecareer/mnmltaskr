@@ -1,4 +1,5 @@
 import React from 'react'
+import './localStorageMock'
 import { shallow } from './setup'
 import Index from '../components/Index'
 import { Route, Switch } from 'react-router-dom'

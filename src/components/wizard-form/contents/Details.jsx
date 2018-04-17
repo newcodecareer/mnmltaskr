@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Button, Icon } from 'semantic-ui-react'
-import CustomField from './CustomField'
+import CustomField from '../../custom/CustomField'
 
 const Details = (props) => {
   const { handleSubmit } = props

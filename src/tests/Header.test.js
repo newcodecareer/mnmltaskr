@@ -1,4 +1,5 @@
 import React from 'react'
+import './localStorageMock'
 import { shallow } from './setup'
 import Header from '../components/Header'
 import { Menu, Container, Icon, Button } from 'semantic-ui-react'
