@@ -11,7 +11,9 @@
     "test:watch": "jest --watch"
   },
   "jest": {
-    "setupFiles": ["jest-localstorage-mock"],
+    "setupFiles": [
+      "jest-localstorage-mock"
+    ],
     "transform": {
       "^.+\\.js?$": "babel-jest",
       "^.+\\.jsx?$": "babel-jest"
@@ -46,7 +48,8 @@
     "semantic-ui-react": "^0.78.3",
     "slick-carousel": "^1.8.1",
     "sweetalert": "^2.1.0",
-    "swipe-js-iso": "^2.0.4"
+    "swipe-js-iso": "^2.0.4",
+    "webpack-cli": "^2.0.14"
   },
   "devDependencies": {
     "babel": "^6.23.0",
