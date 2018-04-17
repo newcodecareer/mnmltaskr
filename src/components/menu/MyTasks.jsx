@@ -19,9 +19,9 @@ const renderTaskReceipt = ({ match }) => (
 const filters = [
   { url: '/posted', title: 'Posted tasks' },
   { url: '/open', title: 'Open tasks' },
-  { url: '/assigned', title: 'Assigned tasks' },
-  { url: '/to-be-assigned', title: 'Tasks to be assigned' },
-  { url: '/bidded', title: 'Bidded tasks' },
+  { url: '/assigned', title: 'Tasks I already assigned' },
+  { url: '/to-be-assigned', title: 'Tasks with bids that I have yet to assign' },
+  { url: '/bidded', title: 'Tasks I bidded to' },
   { url: '/pending', title: 'Pending tasks' },
   { url: '/ongoing', title: 'Ongoing tasks' },
   { url: '/completed', title: 'Completed tasks' }

@@ -4,6 +4,7 @@ import { Divider, Card, Button, Label, List } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { getUser } from '../actions/firestore/authUser'
 import { completeTask } from '../actions/firestore/dbActions'
+import numeral from 'numeral'
 
 const renderOfferButton = (taskId, title, open) => (
   <Button as={Link} disabled={!open} floated='right' size='small'
@@ -44,7 +45,7 @@ const TaskCard = (props) => {
           <div style={{ marginRight: '4em', paddingTop: '1ex' }}>{title}</div>
           <Label as='a' tag size='large' attached='top right'
             style={{ backgroundColor: '#f8ed62' }}
-          >&#8369; {budget}
+          >&#8369; {numeral(budget).format('0,0.00')}
           </Label>
         </Card.Header>
         <Divider />

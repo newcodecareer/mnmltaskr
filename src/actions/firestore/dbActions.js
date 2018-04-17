@@ -51,7 +51,7 @@ const makeAnOffer = async ({ taskId, offer, reason }) => {
       owner: uid,
       firstName,
       gender,
-      offer,
+      offer: Number(offer),
       reason
     })
 

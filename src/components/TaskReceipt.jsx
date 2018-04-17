@@ -3,6 +3,7 @@ import { Modal, Button, Header, Segment, Table } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { solveTotalFees } from './custom/FeeSolver'
 import { format } from 'date-fns'
+import numeral from 'numeral'
 
 class TaskReceipt extends Component {
   componentDidMount () {
@@ -28,7 +29,9 @@ class TaskReceipt extends Component {
             <Segment inverted clearing color='blue'>
               <Header inverted floated='left'>
                 <Header.Subheader>TOTAL PAYMENT</Header.Subheader>
-                <Header.Content>&#8369; {totalFees.totalPayment}</Header.Content>
+                <Header.Content>
+                  &#8369; {numeral(totalFees.totalPayment).format('0,0.00')}
+                </Header.Content>
               </Header>
               <Header inverted floated='right'>
                 <Header.Subheader>Transaction start</Header.Subheader>
@@ -54,18 +57,24 @@ class TaskReceipt extends Component {
                 { taskReceipt.approved.map((tasker, index) => (
                   <Table.Row key={tasker.taskerId}>
                     <Table.Cell>{taskReceipt.names[index]}</Table.Cell>
-                    <Table.Cell>&#8369; {tasker.fee}</Table.Cell>
-                    <Table.Cell>&#8369; {tasker.profit}</Table.Cell>
+                    <Table.Cell>&#8369; {numeral(tasker.fee).format('0,0.00')}</Table.Cell>
+                    <Table.Cell>&#8369; {numeral(tasker.profit).format('0,0.00')}</Table.Cell>
                   </Table.Row>
                 ))}
                 <Table.Row>
                   <Table.Cell textAlign='right'>Total fee and profit</Table.Cell>
-                  <Table.Cell positive>&#8369; {totalFees.totalFee}</Table.Cell>
-                  <Table.Cell positive>&#8369; {totalFees.totalProfit}</Table.Cell>
+                  <Table.Cell positive>
+                    &#8369; {numeral(totalFees.totalFee).format('0,0.00')}
+                  </Table.Cell>
+                  <Table.Cell positive>
+                    &#8369; {numeral(totalFees.totalProfit).format('0,0.00')}
+                  </Table.Cell>
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell colSpan='2' textAlign='right'>Total payment</Table.Cell>
-                  <Table.Cell positive>&#8369; {totalFees.totalPayment}</Table.Cell>
+                  <Table.Cell positive>
+                    &#8369; {numeral(totalFees.totalPayment).format('0,0.00')}
+                  </Table.Cell>
                 </Table.Row>
               </Table.Body>
             </Table>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { Divider, Modal, Segment, Icon,
   Form, Input, Header, TextArea, Button } from 'semantic-ui-react'
 import { solveFees } from './custom/FeeSolver'
+import numeral from 'numeral'
 
 const renderInput = (field) => (
   <Input {...field} label='&#8369;' size='big' />
@@ -26,9 +27,9 @@ const renderFees = (offer) => {
   return (
     <div style={{ marginTop: '1em' }}>
       <i>
-        You will receive &#8369; {fee}
+        You will receive &#8369; {numeral(fee).format('0,0.00')}
         <div style={{ padding: '3px' }} />
-        mnmltaskr fee of &#8369; {profit}
+        mnmltaskr fee of &#8369; {numeral(profit).format('0,0.00')}
       </i>
     </div>
   )
