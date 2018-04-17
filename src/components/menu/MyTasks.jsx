@@ -104,6 +104,7 @@ class MyTasks extends Component {
               <span>MY TASKS</span>
               <span style={{ color: 'grey' }}>{` ${filterUrl}`}</span>
             </Header>
+            <div>filter by:</div>
             { renderFilters(setFilterUrl) }
             { tasks.length > 0
               ? <Card.Group>

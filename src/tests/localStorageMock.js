@@ -1,7 +1,7 @@
-const localStorageMock = {
+const localStorage = {
   getItem: jest.fn(),
   setItem: jest.fn(),
   clear: jest.fn()
 }
 
-export default localStorageMock
+export default localStorage

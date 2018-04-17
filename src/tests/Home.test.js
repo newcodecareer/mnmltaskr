@@ -1,4 +1,5 @@
 import React from 'react'
+// import './localStorageMock'
 import { shallow } from './setup'
 import Home from '../components/Home'
 import { List, Grid, Segment, Image, Label, Container, Header, Button, Icon, Card } from 'semantic-ui-react'
